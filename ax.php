@@ -6,20 +6,6 @@ include "config.php";
 global $lastresp;
 $lastresp='';
 
-function sendToMyAI($textuser,$systext=false)
-{
-	$request = curl_init('http://95.76.226.104:8090/?key=aiforme'.(isset($systext)?'&system='.urlencode($systext):''));
-	curl_setopt($request, CURLOPT_POST, true);
-	curl_setopt($request, CURLOPT_POSTFIELDS,$textuser);
-	curl_setopt($request, CURLOPT_HEADER, false);
-	curl_setopt($request, CURLOPT_VERBOSE, 0);
-	curl_setopt($request, CURLOPT_RETURNTRANSFER, true);
-	curl_setopt($request, CURLOPT_TIMEOUT, ( int ) 180 );
-	$rasp=curl_exec($request);
-	return $rasp;
-}
-
-
 function sendToVertexAPI($textuser,$systext=false)
 {
 	$parts=array();
