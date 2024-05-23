@@ -503,6 +503,141 @@ $(document).ready(function(){
 
 });
 </script>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container-fluid">
+    <div class="navbar-text">EduScanTest</div>
+      <a class="p-0 me-0" href="#" onclick="doaction('start');return false;">
+      <img class="img rounded " width=64 src="aiprof/aiprof3.png" />
+      </a>
+      <span class="navbar-text">
+      <a id="startbtn" class="ms-2 p-2 btn btn-secondary w-100" href="#" onclick="doaction('start');return false;">INCEPE!</a>
+      </span>
+    </div>
+</nav>
+
+
+
+<div class="container fixed-top" id="mesaj" style="display:none;">
+<div class=row>
+<div class="col-md-12 align-items-center">
+<br>
+<div class="alert alert-warning">
+  <strong id="mesaj_tip"></strong> <span id="mesaj_text">&nbsp;</span>
+</div>
+
+</div>
+</div></div>
+
+<div class="row">
+<div class="col-12 mx-auto pt-5">
+<div id=mycontainer class="p-3">
+<div class="ecran" id="start">
+<h1>EduScanTest</b></h1>
+<p>Te ajuta sa inveti mai repede!</p>
+
+<br>
+<h3>1. Pentru a incepe ai nevoie de materialul didactic pe care vrei sa-l inveti</h3>
+
+<h3>2. Faci o poza la o pagina</h3>
+
+<h3>3. Primesti imediat un test grila si daca ai raspuns gresit iti explic cum e corect.</h3>
+
+<br><br>
+<a class="btn btn-primary w-100" href="#" onclick="doaction('poza');return false;">Incepe acum</a>
+</div>
+
+<div class="ecran" id="poza" style="display:none;">
+    <div class="mb-3">
+    <label for="formFile" class="form-label"><h3>2. Incarca o poza aici</h3> 
+
+    <a href="#" onclick="doaction('exemplu5');return false;">exemplu #1 (istorie)</a> Sursa test: <a href="https://ro.wikipedia.org/wiki/%C8%98tefan_cel_Mare" target="_blank"> Wikipedia</a> <br>
+     <a href="#" onclick="doaction('exemplu2');return false;">exemplu #2  (lucefarul)</a></label>
+    <input class="form-control color-primary" type="file" id="formFile" onchange="doaction('getpoza');return false;">
+    </div>
+    <div class=row>
+        <div id="file" class="col-6"><img style="display:none;" id="filepreview" class="img img-responsive" src="#"></div>
+        <div id="txt" style="display:none;" class="col-6"></div>
+    </div>
+    <div class=row>
+    <a id="poza_quizz" class="btn btn-primary w-100" style="display:none;" href="#" onclick="doaction('quizz');return false;">Intreaba-ma!</a>
+    </div>
+</div>
+
+<div class="ecran" id="quizz" style="display:none;">
+   <div class=row><div class="col-1"><i class="bi bi-person-bounding-box"></i></div>
+    <div class=col-11><h5><div id="quizzmesaj">2. Ma gandesc....</div></h5>
+   </div></div>
+
+   <a id="quizz_solve" class="btn btn-primary w-100" style="display:none;" href="#" onclick="doaction('why');return false;">Explica-mi</a>
+   <div id="quizzload" class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+  <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 75%"></div>
+</div>
+   <div id="divintrebare" style="display:none;">
+        <div class="row p-2">
+            <h3 id="question" class="col-12"></h3>
+        </div>
+        <div class="row p-2 border">
+            <span id="okA" class="okansw col-1 bi bi-check-circle-fill"></span>    
+            <a id="answera" href="#" onclick="doaction('raspunsa');return false;" class="btn text-start ps-3 col-11"></a>
+        </div>
+        <div class="row p-2 border">
+            <span id="okB" class="okansw col-1 bi bi-check-circle-fill"></span>    
+            <a id="answerb" href="#" onclick="doaction('raspunsb');return false;" class="btn text-start ps-3 col-11"></a>
+        </div>
+        <div class="row p-2 border">
+            <span id="okC" class="okansw col-1 bi bi-check-circle-fill"></span>    
+            <a id="answerc" href="#" onclick="doaction('raspunsc');return false;" class="btn text-start ps-3 col-11"></a>
+        </div>
+        <div class="row p-2 border">
+            <span id="okD" class="okansw col-1 bi bi-check-circle-fill"></span>    
+            <a id="answerd" href="#" onclick="doaction('raspunsd');return false;" class="btn text-start ps-3 col-11"></a>
+        </div>
+    <div id="correct" style="display:none;" class="w-50 ps-3 col-12"></div>
+   </div><!-- divintrebare -->
+
+   <a id="quizz_retry" class="btn btn-primary w-100" style="display:none;" href="#" onclick="doaction('quizz');return false;">Reincearca</a>
+
+</div></div>
+</div>
+</div> <!-- /container -->
+
+
+<div style="display:none">
+
+
+
+<script>
+</script>
+</div>
+
+<style>
+  img {max-width:400px;}
+  body, html { overflow-x:hidden; }
+</style>
+
+
+
+<div class="modal" id="alertModal" tabindex="-1" role="dialog" aria-labelledby="alertModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title" style="margin-right:auto;" id="alertModalLabel">Alerta</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="alertMesaj">
+        Alerta
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Inchide</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="overlay" style="display: none;"></div>
+<div id="loading" class="badge bg-warning" style="display: none; bottom: 0px; right: 0px;">Loading...</div>
 
 
 
