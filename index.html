@@ -225,7 +225,7 @@ function readURL(input) {
                   },
                 ],
                 imageContext: {
-                  languageHints: ['ro'],
+                  languageHints: ['ro''eng'],
                 },
               },
             ],
@@ -233,7 +233,7 @@ function readURL(input) {
         }).then((data)=>data.json()).then((response)=>{
           if(!response.responses || !response.responses[0].textAnnotations)
           {
-            $("#txt").text("Nu am gasit nimic in document. Va rugam sa faceti o poza clara").show();
+            $("#txt").text("Nu am găsit nimic în document. Vă rugăm să faceți o poză clară.").show();
             return;
           }
           $("#txt").text(response.responses[0].textAnnotations[0].description).hide();
@@ -356,7 +356,7 @@ Si viata-mi lumineaza!
     case 'start':
       $("div.ecran").hide();
       $("#quizz").show();
-      $("#quizzmesaj").text("Ma gandesc...").show();
+      $("#quizzmesaj").text("Mă gândesc...").show();
       $("#quizz_solve").hide();
 
       $("#divintrebare").hide();
@@ -404,7 +404,7 @@ Si viata-mi lumineaza!
       }
       else
       {
-        $("#quizzmesaj").text("Nu e corect... vrei explicatii?").show();
+        $("#quizzmesaj").text("Nu e corect... vrei explicații?").show();
       }
       $("#quizz_retry").text("Alta intrebare").show();
       $("#quizz_solve").show();
@@ -417,9 +417,9 @@ Si viata-mi lumineaza!
       }
       else
       {
-        $("#quizzmesaj").text("Nope... vrei explicatii?").show();
+        $("#quizzmesaj").text("Nope... vrei explicații?").show();
       }
-      $("#quizz_retry").text("Alta intrebare").show();
+      $("#quizz_retry").text("Altă întrebare").show();
       $("#quizz_solve").show();
       break;
       case 'raspunsc':
@@ -430,9 +430,9 @@ Si viata-mi lumineaza!
       }
       else
       {
-        $("#quizzmesaj").text("Nope... vrei explicatii?").show();
+        $("#quizzmesaj").text("Nope... vrei explicații?").show();
       }
-      $("#quizz_retry").text("Alta intrebare").show();
+      $("#quizz_retry").text("Altă întrebare").show();
       $("#quizz_solve").show();
       break;
       case 'raspunsd':
@@ -443,9 +443,9 @@ Si viata-mi lumineaza!
       }
       else
       {
-        $("#quizzmesaj").text("Nope... vrei explicatii?").show();
+        $("#quizzmesaj").text("Nope... vrei explicații?").show();
       }
-      $("#quizz_retry").text("Alta intrebare").show();
+      $("#quizz_retry").text("Altă întrebare").show();
       $("#quizz_solve").show();
       break;
     case 'why':
@@ -470,13 +470,13 @@ Si viata-mi lumineaza!
         {
           //console.log(d);
           if(!d)
-           $("#quizzmesaj").text('M-am blocat... reincearca');
+           $("#quizzmesaj").text('M-am blocat... reîncarcă');
           else
             $("#quizzmesaj").text(d.err);
         }
         else
         {
-          if(!d.explicatii) d.explicatii="Nu stiu ce sa zic...";
+          if(!d.explicatii) d.explicatii="Nu stiu ce să zic...";
           $("#quizzmesaj").text(d.explicatii).show();
           $("#quizz_solve").hide();
         }
@@ -536,14 +536,14 @@ $(document).ready(function(){
 <div id=mycontainer class="p-3">
 <div class="ecran" id="start">
 <h1>EduScanTest</b></h1>
-<p>Te ajuta sa inveti mai repede!</p>
+<p>Te ajută să înveți mai repede!</p>
 
 <br>
-<h3>1. Pentru a incepe ai nevoie de materialul didactic pe care vrei sa-l inveti</h3>
+<h3>1.  Pentru a începe ai nevoie de materialul didactic pe care vrei să-l înveți;</h3>
 
-<h3>2. Faci o poza la o pagina</h3>
+<h3>2. Faci o poză la o pagină;</h3>
 
-<h3>3. Primesti imediat un test grila si daca ai raspuns gresit iti explic cum e corect.</h3>
+<h3>3. Primești imediat un test grilă și dacă ai răspuns greșit îți explic cum e corect.</h3>
 
 <br><br>
 <a class="btn btn-primary w-100" href="#" onclick="doaction('poza');return false;">Incepe acum</a>
@@ -553,7 +553,7 @@ $(document).ready(function(){
     <div class="mb-3">
     <label for="formFile" class="form-label"><h3>2. Incarca o poza aici</h3> 
 
-    <a href="#" onclick="doaction('exemplu5');return false;">exemplu #1 (istorie)</a> Sursa test: <a href="https://ro.wikipedia.org/wiki/%C8%98tefan_cel_Mare" target="_blank"> Wikipedia</a> <br>
+    <a href="#" onclick="doaction('exemplu5');return false;">exemplu #1 (istorie)</a> Sursă test: <a href="https://ro.wikipedia.org/wiki/%C8%98tefan_cel_Mare" target="_blank"> Wikipedia</a> <br>
      <a href="#" onclick="doaction('exemplu2');return false;">exemplu #2  (lucefarul)</a></label>
     <input class="form-control color-primary" type="file" id="formFile" onchange="doaction('getpoza');return false;">
     </div>
@@ -643,4 +643,3 @@ $(document).ready(function(){
 
 </body>
 </html>
-
