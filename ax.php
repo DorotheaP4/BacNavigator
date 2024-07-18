@@ -122,8 +122,14 @@ switch($_POST['ax'])
     while($retries && $ret===false)
     {
       $retries--;
-      $resp=sendToVertexAPI("Creaza o intreabare, raspunde in format JSON {intrebare, raspunsA,raspunsB,raspunsC,raspunsD,correct:A or B or C or D} din textul urmator: --- ".$_POST['txt']." ----"
-        .($_POST['intrebari']!=""?"Evita sa pui urmatoarele intrebari: ".$_POST['intrebari']:""));
+      $resp=sendToVertexAPI(""
+		.($_POST['lang']=="en"?" Raspunde in limba engleza.":"")
+    .($_POST['lang']=="ur"?" Raspunde in limba ucrainiana.":"")
+    ."Creaza o intreabare, raspunde in format JSON {intrebare, raspunsA,raspunsB,raspunsC,raspunsD,correct:A or B or C or D} din textul urmator: "
+		.($_POST['lang']=="ma"?" Intrebarile si raspunsurile sa fie in limba Maghiara.":"")
+    ."--- ".$_POST['txt']." ----"
+        .($_POST['intrebari']!=""?"Evita sa pui urmatoarele intrebari: ".$_POST['intrebari']:""))
+		;
       $ret=extractJsonFromAi($resp);
       sleep(2);
     }
@@ -150,7 +156,10 @@ switch($_POST['ax'])
         .", B:".$_POST['raspunsB']
         .", C:".$_POST['raspunsC']
         .", D:".$_POST['raspunsD']
-        .", raspunsul corect este ".$_POST['correct']."? Raspunde in format JSON {explicatii}"
+        .", raspunsul corect este ".$_POST['correct']."? Raspunde in format JSON {explicatii}."
+		.($_POST['lang']=="en"?" Raspunde in engleza.":"")
+		.($_POST['lang']=="ma"?" Raspunde in Maghiara.":"")
+    .($_POST['lang']=="ur"?" Raspunde in ucrainiana.":"")
         ." Intrebare este extrasa din textul urmator: --- ".$_POST['txt']." ----");
         $ret=extractJsonFromAi($resp);
         sleep(2);
