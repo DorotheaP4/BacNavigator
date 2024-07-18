@@ -208,7 +208,8 @@ function readURL(input) {
       $('#filepreview')
         .attr('src', e.target.result)
         .show();              
-        const request = fetch('https://vision.googleapis.com/v1p3beta1/images:annotate?key=NA', {
+        var posvirg=e.target.result.indexOf(",");
+        const request = fetch('vision.php', {
           method: 'POST',
           headers: {
             'Content-Type': 'text/json',
@@ -217,7 +218,7 @@ function readURL(input) {
             requests: [
               {
                 image: {
-                  content: e.target.result.substr(23),
+                  content: e.target.result.substr(posvirg+1),
                 },
                 features: [
                   {
@@ -225,7 +226,7 @@ function readURL(input) {
                   },
                 ],
                 imageContext: {
-                  languageHints: ['ro''eng'],
+                  languageHints: ['ro'],
                 },
               },
             ],
@@ -233,11 +234,12 @@ function readURL(input) {
         }).then((data)=>data.json()).then((response)=>{
           if(!response.responses || !response.responses[0].textAnnotations)
           {
-            $("#txt").text("Nu am găsit nimic în document. Vă rugăm să faceți o poză clară.").show();
+            $("#txt").text(getLT("Nu am gasit nimic in document. Va rugam sa faceti o poza clara")).show();
             return;
           }
           $("#txt").text(response.responses[0].textAnnotations[0].description).hide();
           $("#poza_quizz").show();
+$("#quizzload").hide();
         });
     };
     reader.readAsDataURL(input.files[0]);
@@ -259,6 +261,7 @@ function doaction(act)
       $("#poza").show();
       break;
     case 'getpoza':
+$("#quizzload").show();
       readURL($("#formFile")[0]);
       break;
     case 'exemplu5':
@@ -356,7 +359,7 @@ Si viata-mi lumineaza!
     case 'start':
       $("div.ecran").hide();
       $("#quizz").show();
-      $("#quizzmesaj").text("Mă gândesc...").show();
+      $("#quizzmesaj").text(getLT("Ma gandesc...")).show();
       $("#quizz_solve").hide();
 
       $("#divintrebare").hide();
@@ -366,9 +369,10 @@ Si viata-mi lumineaza!
       var formData = new FormData();
       formData.append("ax", "quizz");
       formData.append("txt", $("#txt").text());
+formData.append("lang",currentlang);
       formData.append("intrebari",intrebari);
 
-      var response = fetch("ax.php", {
+      var response = fetch("", {
         method: "POST",
         body: formData,
       }).then((response)=>response.json()).then((d)=>{
@@ -377,7 +381,7 @@ Si viata-mi lumineaza!
         {
           //console.log(d);
           $("#quizzmesaj").text(d.err);
-          $("#quizz_retry").text("Reincearca").show();
+          $("#quizz_retry").text(getLT("Reincearca")).show();
         }
         else
         {
@@ -400,11 +404,11 @@ Si viata-mi lumineaza!
       $("#ok"+$("#correct").text()).show();
       if($("#correct").text()=="A")
       {
-        $("#quizzmesaj").text("Bravo, corect!!!!").show();
+        $("#quizzmesaj").text(getLT("Bravo, corect!!!!")).show();
       }
       else
       {
-        $("#quizzmesaj").text("Nu e corect... vrei explicații?").show();
+        $("#quizzmesaj").text("Nu e corect... vrei explicatii?").show();
       }
       $("#quizz_retry").text("Alta intrebare").show();
       $("#quizz_solve").show();
@@ -413,39 +417,39 @@ Si viata-mi lumineaza!
       $("#ok"+$("#correct").text()).show();
       if($("#correct").text()=="B")
       {
-        $("#quizzmesaj").text("Bravo, corect!!!!").show();
+        $("#quizzmesaj").text(getLT("Bravo, corect!!!!")).show();
       }
       else
       {
-        $("#quizzmesaj").text("Nope... vrei explicații?").show();
+        $("#quizzmesaj").text("Nope... vrei explicatii?").show();
       }
-      $("#quizz_retry").text("Altă întrebare").show();
+      $("#quizz_retry").text("Alta intrebare").show();
       $("#quizz_solve").show();
       break;
       case 'raspunsc':
       $("#ok"+$("#correct").text()).show();
       if($("#correct").text()=="C")
       {
-        $("#quizzmesaj").text("Bravo, corect!!!!").show();
+        $("#quizzmesaj").text(getLT("Bravo, corect!!!!")).show();
       }
       else
       {
-        $("#quizzmesaj").text("Nope... vrei explicații?").show();
+        $("#quizzmesaj").text(getLT("Nope... vrei explicatii?")).show();
       }
-      $("#quizz_retry").text("Altă întrebare").show();
+      $("#quizz_retry").text(getLT("Alta intrebare")).show();
       $("#quizz_solve").show();
       break;
       case 'raspunsd':
       $("#ok"+$("#correct").text()).show();
       if($("#correct").text()=="D")
       {
-        $("#quizzmesaj").text("Bravo, corect!!!!").show();
+        $("#quizzmesaj").text(getLT("Bravo, corect!!!!")).show();
       }
       else
       {
-        $("#quizzmesaj").text("Nope... vrei explicații?").show();
+        $("#quizzmesaj").text(getLT("Nope... vrei explicatii?")).show();
       }
-      $("#quizz_retry").text("Altă întrebare").show();
+      $("#quizz_retry").text(getLT("Alta intrebare")).show();
       $("#quizz_solve").show();
       break;
     case 'why':
@@ -454,13 +458,14 @@ Si viata-mi lumineaza!
       var formData = new FormData();
       formData.append("ax", "quizz_solve");
       formData.append("txt", $("#txt").text());
+formData.append("lang",currentlang);
       formData.append("intrebare",lastquizz.intrebare);
       formData.append("raspunsA",lastquizz.raspunsA);
       formData.append("raspunsB",lastquizz.raspunsB);
       formData.append("raspunsC",lastquizz.raspunsC);
       formData.append("raspunsD",lastquizz.raspunsD);
       formData.append("correct",lastquizz.correct);
-      var response = fetch("ax.php", {
+      var response = fetch("", {
         method: "POST",
         body: formData,
       }).then((response)=>response.json()).then((d)=>{
@@ -470,18 +475,64 @@ Si viata-mi lumineaza!
         {
           //console.log(d);
           if(!d)
-           $("#quizzmesaj").text('M-am blocat... reîncarcă');
+           $("#quizzmesaj").text(getLT('M-am blocat... reincearca'));
           else
             $("#quizzmesaj").text(d.err);
         }
         else
         {
-          if(!d.explicatii) d.explicatii="Nu stiu ce să zic...";
+          if(!d.explicatii) d.explicatii=getLT("Nu stiu ce sa zic...");
           $("#quizzmesaj").text(d.explicatii).show();
           $("#quizz_solve").hide();
         }
       });//
 
+break;
+    case 'langro':
+      currentlang='ro';
+      $("[langro]").each(function(){
+        if($(this).attr("langro")!="")
+          $(this).text($(this).attr("langro"));
+      })
+      break;
+    case 'langen':
+      currentlang='en';
+      $("[langen]").each(function(){
+        if($(this).attr("langen")!="")
+        {
+          if(!$(this).attr("langro"))
+          {
+            $(this).attr("langro",$(this).text());
+          }
+          $(this).text($(this).attr("langen"));
+        }
+      })
+      break;
+    case 'langma':
+      currentlang='ma';
+      $("[langen]").each(function(){
+        if($(this).attr("langma")!="")
+        {
+          if(!$(this).attr("langro"))
+          {
+            $(this).attr("langro",$(this).text());
+          }
+          $(this).text($(this).attr("langma"));
+        }
+      })
+      break;
+    case 'langur':
+      currentlang='ur';
+      $("[langur]").each(function(){
+        if($(this).attr("langur")!="")
+        {
+          if(!$(this).attr("langro"))
+          {
+            $(this).attr("langro",$(this).text());
+          }
+          $(this).text($(this).attr("langur"));
+        }
+      })
       break;
     default:
       console.log('nu am '+act);
@@ -506,110 +557,374 @@ $(document).ready(function(){
 </head>
 <body>
 
-<nav class="navbar">
-  <div class="container-fluid">
-    <div class="navbar-text">EduScanTest</div>
-      <a class="p-0 me-0" href="#" onclick="doaction('start');return false;">
-      <img class="img rounded " width=64 src="aiprof/aiprof3.png" />
-      </a>
+
+
+  <nav class="navbar">
+    <div class="container-fluid">
+      <div class="navbar-text">EduScanTest</div>
+        <a class="p-0 me-0" href="#" onclick="doaction('start');return false;">
+        <img class="img rounded " width=64 src="aiprof/aiprof3.png" />
+        </a>
+        <div class="form-group">
+        <a class="btn btn-secondary" href="#" onclick="doaction('langen');return false;">English</a>
+        <a class="btn btn-secondary" href="#" onclick="doaction('langro');return false;">Romana</a>
+        <a class="btn btn-secondary" href="#" onclick="doaction('langma');return false;">Magyar</a>
+        <a class="btn btn-secondary" href="#" onclick="doaction('langur');return false;">Українська</a>
+      </div>
       <span class="navbar-text">
-      <a id="startbtn" class="ms-2 p-2 btn btn-secondary w-100" href="#" onclick="doaction('start');return false;">INCEPE!</a>
+        <a id="startbtn" class="ms-2 p-2 btn btn-secondary w-100" href="#" onclick="doaction('start');return false;" langen="START HERE!" langma="KEZDJ HOZZÁ!" langur="ПОЧНІТЬ ТУТ!">INCEPE AICI!</a>
       </span>
-    </div>
-</nav>
-
-
-
-<div class="container fixed-top" id="mesaj" style="display:none;">
-<div class=row>
-<div class="col-md-12 align-items-center">
-<br>
-<div class="alert alert-warning">
-  <strong id="mesaj_tip"></strong> <span id="mesaj_text">&nbsp;</span>
-</div>
-
-</div>
-</div></div>
-
-<div class="row">
-<div class="col-12 mx-auto pt-5">
-<div id=mycontainer class="p-3">
-<div class="ecran" id="start">
-<h1>EduScanTest</b></h1>
-<p>Te ajută să înveți mai repede!</p>
-
-<br>
-<h3>1.  Pentru a începe ai nevoie de materialul didactic pe care vrei să-l înveți;</h3>
-
-<h3>2. Faci o poză la o pagină;</h3>
-
-<h3>3. Primești imediat un test grilă și dacă ai răspuns greșit îți explic cum e corect.</h3>
-
-<br><br>
-<a class="btn btn-primary w-100" href="#" onclick="doaction('poza');return false;">Incepe acum</a>
-</div>
-
-<div class="ecran" id="poza" style="display:none;">
-    <div class="mb-3">
-    <label for="formFile" class="form-label"><h3>2. Incarca o poza aici</h3> 
-
-    <a href="#" onclick="doaction('exemplu5');return false;">exemplu #1 (istorie)</a> Sursă test: <a href="https://ro.wikipedia.org/wiki/%C8%98tefan_cel_Mare" target="_blank"> Wikipedia</a> <br>
-     <a href="#" onclick="doaction('exemplu2');return false;">exemplu #2  (lucefarul)</a></label>
-    <input class="form-control color-primary" type="file" id="formFile" onchange="doaction('getpoza');return false;">
-    </div>
-    <div class=row>
-        <div id="file" class="col-6"><img style="display:none;" id="filepreview" class="img img-responsive" src="#"></div>
-        <div id="txt" style="display:none;" class="col-6"></div>
-    </div>
-    <div class=row>
-    <a id="poza_quizz" class="btn btn-primary w-100" style="display:none;" href="#" onclick="doaction('quizz');return false;">Intreaba-ma!</a>
-    </div>
-</div>
-
-<div class="ecran" id="quizz" style="display:none;">
-   <div class=row><div class="col-1"><i class="bi bi-person-bounding-box"></i></div>
-    <div class=col-11><h5><div id="quizzmesaj">2. Ma gandesc....</div></h5>
-   </div></div>
-
-   <a id="quizz_solve" class="btn btn-primary w-100" style="display:none;" href="#" onclick="doaction('why');return false;">Explica-mi</a>
-   <div id="quizzload" class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-  <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 75%"></div>
-</div>
-   <div id="divintrebare" style="display:none;">
-        <div class="row p-2">
-            <h3 id="question" class="col-12"></h3>
-        </div>
-        <div class="row p-2 border">
-            <span id="okA" class="okansw col-1 bi bi-check-circle-fill"></span>    
-            <a id="answera" href="#" onclick="doaction('raspunsa');return false;" class="btn text-start ps-3 col-11"></a>
-        </div>
-        <div class="row p-2 border">
-            <span id="okB" class="okansw col-1 bi bi-check-circle-fill"></span>    
-            <a id="answerb" href="#" onclick="doaction('raspunsb');return false;" class="btn text-start ps-3 col-11"></a>
-        </div>
-        <div class="row p-2 border">
-            <span id="okC" class="okansw col-1 bi bi-check-circle-fill"></span>    
-            <a id="answerc" href="#" onclick="doaction('raspunsc');return false;" class="btn text-start ps-3 col-11"></a>
-        </div>
-        <div class="row p-2 border">
-            <span id="okD" class="okansw col-1 bi bi-check-circle-fill"></span>    
-            <a id="answerd" href="#" onclick="doaction('raspunsd');return false;" class="btn text-start ps-3 col-11"></a>
-        </div>
-    <div id="correct" style="display:none;" class="w-50 ps-3 col-12"></div>
-   </div><!-- divintrebare -->
-
-   <a id="quizz_retry" class="btn btn-primary w-100" style="display:none;" href="#" onclick="doaction('quizz');return false;">Reincearca</a>
-
-</div></div>
-</div>
-</div> <!-- /container -->
-
+      </div>
+  </nav>
+  
+  
+  
+  <div class="container fixed-top" id="mesaj" style="display:none;">
+  <div class=row>
+  <div class="col-md-12 align-items-center">
+  <br>
+  <div class="alert alert-warning">
+    <strong id="mesaj_tip"></strong> <span id="mesaj_text">&nbsp;</span>
+  </div>
+  
+  </div>
+  </div></div>
+  
+  <div class="row">
+  <div class="col-12 mx-auto pt-5">
+  <div id=mycontainer class="p-3">
+  <div class="ecran" id="start">
+  <h1>EDU-SCAN-TEST</h1>
+  <p langen="I help you learn what's essential faster!" langma="Segítek gyorsabban megtanulni a lényeget!" langur="Я допомагаю вам швидше вивчити найважливіше!">Te ajut sa inveti mai repede ce e esential!</p>
+  
+  <br>
+  <h3 langen="1. To begin, you need the educational material you want to learn" langma="1. A kezdéshez szükséged van a megtanulandó tananyagra" langur="1. Для початку вам потрібен навчальний матеріал, який ви хочете вивчити">1. Pentru a incepe ai nevoie de materialul didactic pe care vrei sa-l inveti</h3>
+  
+  <h3 langen="2. Take a picture of a page" langma="2. Készíts egy képet egy oldalról" langur="2. Зробіть фотографію сторінки">2. Faci o poza la o pagina</h3>
+  
+  <h3 langen="3. I will create tests for you on the spot and help you understand through exercise." langma="3. Azonnal teszteket készítek neked, és segítek megérteni gyakorlás útján." langur="3. Я створю для вас тести на місці та допоможу зрозуміти через вправи.">3. Voi crea pe loc teste pentru tine si te ajut sa intelegi prin exercitiu.</h3>
+  
+  <br><br>
+  <a class="btn btn-primary w-100" href="#" onclick="doaction('poza');return false;" langen="Start now" langma="Kezdés most" langur="Почати зараз">Incepe acum</a>
+  </div>
+  
+  <div class="ecran" id="poza" style="display:none;">
+      <div class="mb-3">
+      <label for="formFile" class="form-label">
+      <h3 langen="2. Take a picture here" langma="2. Készíts itt egy képet" langur="2. Зробіть фотографію тут">2. Fa o poza aici</h3> 
+      <a href="#" onclick="doaction('exemplu1');return false;" langen="example 1 (chemistry)" langma="1. példa (kémia)" langur="приклад 1 (хімія)">exemplu 1 (chimie)</a>
+      <a href="#" onclick="doaction('exemplu2');return false;" langen="example 2 (lucefarul)" langma="2. példa (luceafarul)" langur="приклад 2 (luceafarul)">exemplu 2 (lucefarul)</a>
+      <a href="#" onclick="doaction('exemplu3');return false;" langen="example 3 (biology)" langma="3. példa (biológia)" langur="приклад 3 (біологія)">exemplu 3 (biologie)</a>
+      <a href="#" onclick="doaction('exemplu4');return false;" langen="example 4 (physics)" langma="4. példa (fizika)" langur="приклад 4 (фізика)">exemplu 4 (fizica)</a>
+      <a href="#" onclick="doaction('exemplu5');return false;" langen="example 5 (history)" langma="5. példa (történelem)" langur="приклад 5 (історія)">exemplu 5 (istorie)</a>
+  </label>
+      <input class="form-control color-primary" type="file" id="formFile" onchange="doaction('getpoza');return false;">
+      </div>
+      <div class=row>
+      <a id="poza_quizz" class="btn btn-primary w-100" style="display:none;" href="#" onclick="doaction('quizz');return false;" langen="Ready, help me" langma="Kész, segíts nekem" langur="Готово, допоможіть мені">Gata, ajuta-ma</a>
+      </div>
+      <div class=row>
+          <div id="file" class="col-6"><img style="display:none;" id="filepreview" class="img img-responsive" src="#"></div>
+          <div id="txt" style="display:none;" class="col-6"></div>
+      </div>
+  </div>
+  
+  <div class="ecran" id="quizz" style="display:none;">
+     <div class=row><div class="col-1"><i class="bi bi-person-bounding-box"></i></div>
+      <div class=col-11><h5><div id="quizzmesaj" langen="2. I'm thinking...." langma="2. Gondolkodom...." langur="2. Я думаю....">2. Ma gandesc....</div></h5>
+     </div></div>
+  
+     <a id="quizz_solve" class="btn btn-primary w-100" style="display:none;" href="#" onclick="doaction('why');return false;" langen="Explain to me" langma="Magyarázd el nekem" langur="Поясніть мені">Explica-mi</a>
+     <div id="quizzload" class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+    <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 75%"></div>
+  </div>
+     <div id="divintrebare" style="display:none;">
+          <div class="row p-2">
+              <h3 id="question" class="col-12"></h3>
+          </div>
+          <div class="row p-2 border">
+              <span id="okA" class="okansw col-1 bi bi-check-circle-fill"></span>    
+              <a id="answera" href="#" onclick="doaction('raspunsa');return false;" class="btn text-start ps-3 col-11"></a>
+          </div>
+          <div class="row p-2 border">
+              <span id="okB" class="okansw col-1 bi bi-check-circle-fill"></span>    
+              <a id="answerb" href="#" onclick="doaction('raspunsb');return false;" class="btn text-start ps-3 col-11"></a>
+          </div>
+          <div class="row p-2 border">
+              <span id="okC" class="okansw col-1 bi bi-check-circle-fill"></span>    
+              <a id="answerc" href="#" onclick="doaction('raspunsc');return false;" class="btn text-start ps-3 col-11"></a>
+          </div>
+          <div class="row p-2 border">
+              <span id="okD" class="okansw col-1 bi bi-check-circle-fill"></span>    
+              <a id="answerd" href="#" onclick="doaction('raspunsd');return false;" class="btn text-start ps-3 col-11"></a>
+          </div>
+      <div id="correct" style="display:none;" class="w-50 ps-3 col-12"></div>
+     </div><!-- divintrebare -->
+  
+     <a id="quizz_retry" class="btn btn-primary w-100" style="display:none;" href="#" onclick="doaction('quizz');return false;" langen="Try again" langma="Próbáld újra" langur="Спробуйте ще раз">Reincearca</a>
+  
+  </div></div>
+  </div>
+  </div> <!-- /container -->
 
 <div style="display:none">
 
 
 
 <script>
+
+
+<script>
+
+var nickname={};
+var currentlang='ro';
+var language={};
+language['ro']=JSON.parse('{'
+  +'"pname":"Nume",'
+  +'"pdesc":"Descriere",'
+  +'"Please check all elements":"Completati toate campurile",'
+  +'"id":"ID",'
+  +'"ppara":"JSON parametri",'
+  +'"cancel":"X",'
+  +'"sure?":"Esti sigur(a)?",'
+  +'"proj":"Adresa proiect",'
+  +'"url":"Adresa"'
+  +'}');
+language['en']=JSON.parse(`
+{
+  "pname":"Name",
+  "pdesc":"Description",
+  "Please check all elements":"Please check form for all errors",
+  "id":"ID",
+  "ppara":"JSON parameters",
+  "cancel":"X",
+  "sure?":"Are you sure?",
+  "proj":"URL project",
+  "url":"URL",
+  "Esti sigur(a)?":"Are you sure?",
+  "Sterge pagina":"Delete page",
+  "Nu am gasit nimic in document. Va rugam sa faceti o poza clara":"I couldn't find anything in the document. Please take a clear picture",
+  "Ma gandesc...":"I'm thinking...",
+  "Reincearca":"Try again",
+  "Bravo, corect!!!!":"Bravo, correct!!!!",
+  "Alta intrebare":"Another question",
+  "Nope... vrei explicatii?":"Nope... do you want explanations?",
+  "M-am blocat... reincearca":"I'm stuck... try again",
+  "Nu stiu ce sa zic...":"I don't know what to say..."
+  }`
+);
+language['ma']=JSON.parse(`
+{
+  "pname":"Név",
+  "pdesc":"Leírás",
+  "Please check all elements":"Kérjük, ellenőrizze az összes elemet",
+  "id":"Azonosító",
+  "ppara":"JSON paraméterek",
+  "cancel":"X",
+  "sure?":"Biztos benne?",
+  "proj":"URL projekt",
+  "url":"URL",
+  "Esti sigur(a)?":"Biztos benne?",
+  "Sterge pagina":"Oldal törlése",
+  "Nu am gasit nimic in document. Va rugam sa faceti o poza clara":"Nem találtam semmit a dokumentumban. Kérjük, készítsen tiszta képet",
+  "Ma gandesc...":"Gondolkodom...",
+  "Reincearca":"Próbálja újra",
+  "Bravo, corect!!!!":"Bravó, helyes!!!!",
+  "Alta intrebare":"Másik kérdés",
+  "Nope... vrei explicatii?":"Nem... magyarázatot szeretne?",
+  "M-am blocat... reincearca":"Elakadtam... próbálja újra",
+  "Nu stiu ce sa zic...":"Nem tudom, mit mondjak..."
+  }`
+);
+language['ur']=JSON.parse(`
+{
+  "pname":"Ім'я",
+  "pdesc":"Опис",
+  "Please check all elements":"Будь ласка, перевірте всі елементи",
+  "id":"Ідентифікатор",
+  "ppara":"JSON параметри",
+  "cancel":"X",
+  "sure?":"Ви впевнені?",
+  "proj":"URL проекту",
+  "url":"URL",
+  "Esti sigur(a)?":"Ви впевнені?",
+  "Sterge pagina":"Видалити сторінку",
+  "Nu am gasit nimic in document. Va rugam sa faceti o poza clara":"Я нічого не знайшов y документі. Будь ласка, зробіть чітке фото",
+  "Ma gandesc...":"Я думаю...",
+  "Reincearca":"Спробуйте ще раз",
+  "Bravo, corect!!!!":"Браво, правильно!!!!",
+  "Alta intrebare":"Інше питання",
+  "Nope... vrei explicatii?":"Ні... хочете пояснень?",
+  "M-am blocat... reincearca":"Я застряг... спробуйте ще раз",
+  "Nu stiu ce sa zic...":"Не знаю, що сказати..."
+}`);
+function getLT(str)
+{
+  if(language[currentlang][str]) return language[currentlang][str];
+  return str;
+}
+
+function calculateMyProof(el,salveaza)
+{
+  return '';
+}
+function IsJsonString(str) {
+    try {
+        return JSON.parse(str);
+    } catch (e) {
+    }
+    return false;
+}
+var loadafter;
+function processUxFormSubmit(fid,d)
+{
+  return proccessGetPosResponse(d);
+}
+
+
+
+function proccessGetPosResponse(d)
+{
+  $("#loading").hide();
+  if(proccessGetPosResponse.tint) {clearInterval(proccessGetPosResponse.tint);proccessGetPosResponse.tint=false;}
+  if(proccessGetPosResponse.tout) {clearTimeout(proccessGetPosResponse.tint);proccessGetPosResponse.tout=false;}
+  var json=IsJsonString(d);
+  if(!json)
+  {
+    console.log("json invalid");
+    return;
+  }
+
+    if(json.message)
+      if(json.message!="")
+      {
+        if(json.messlang && json.messlang!="")
+          json.message+=getLT(json.messlang);
+        $("#mesaj_text").html(json.message);$("#mesaj").show();
+      }
+      else
+      {
+        $("#mesaj_text").html('');$("#mesaj").hide();
+      }
+
+    switch(json.cod)
+    {
+      case 0://erorr
+        $("#mesaj_text").html('');$("#mesaj").hide();
+        alert(json.message);
+      break;
+      case 1://ok
+      break;
+      case 2:
+        switch(json.module)
+        {
+        
+         default:
+            history.pushState({}, json.module, json.module.replace('?ax=','?ix='));
+            $.get(json.module,proccessGetPosResponse);
+          break;
+        }
+      break;
+    }
+    //process json
+    switch(json.tip)
+    {
+      case 'info':
+      break;
+    }
+    if(json.mod)
+    {
+      for(let i in json.mod)
+      {
+        if(i=="#mycontainer" && json.mod[i]=="")
+        {
+          $.get("?ax=ai_home",proccessGetPosResponse);
+        }
+        else
+        $(i).slice(0,1).html(json.mod[i]);
+      }
+    }
+
+    $("#mycontainer div[dstype]").each(function()
+    {
+      var toadd='';
+      if($(this).attr("newid"))
+      {
+        toadd='<div id="'+$(this).attr("newid")+'">'+toadd+'</div>';
+      }
+      $(this).html(toadd);
+    });
+    if($("#mycontainer div[dstype]").length)
+      reloadFormValidators("#mycontainer");
+
+    if(loadafter)
+    {
+      for(let i in loadafter)
+      {
+        $(i).html(loadafter[i]);
+      }
+      loadafter=undefined;
+    }
+
+    reloadLinks();
+
+
+}
+
+function reloadLinks()
+{
+
+  $("a.mylink").unbind("click").click(function(){
+    if($(this).hasClass("confirm"))
+    {
+      if(!confirm(getLT("Esit sigur(a)?")))
+        return false;
+    }
+    if($(this).attr("href"))
+    {
+      $("#mesaj").hide();
+      $("#loading").show();
+      var iq=$(this).attr("href").indexOf("?");
+      if(iq>-1)
+      {
+        var where=$(this).attr("href").substr(0,iq);
+        var paras=$(this).attr("href").substr(iq+1);
+        if(paras.substr(0,3)=='ix=' || paras.substr(0,3)=='ax=')
+        {
+          //I have one
+          paras=paras.substr(2);
+          var ixlink="?ix"+paras;
+          history.pushState({}, '' , ixlink);
+          $.get("?ax"+paras,proccessGetPosResponse);
+        }
+        else
+        {
+          //go for next
+          var warr=where.split('/');
+          where=warr[warr.length-1];
+          var ixlink="?ix="+where+"&"+paras;
+          history.pushState({}, '' , ixlink);
+          $.get("?ax="+where+"&"+paras,proccessGetPosResponse);
+        }
+      }
+      else
+      {
+        history.pushState({}, '', "?ix="+$(this).attr("href"));
+        $.get("?ax="+$(this).attr("href"),proccessGetPosResponse);
+      }
+      return false;
+    }
+  });
+ 
+  $("a.myform").unbind("click").click(function()
+  {
+    $("#mesaj").hide();
+    openUxForm($(this).attr("fid"),$(this).attr("title"),"",$(this).attr("fbutton"),{});
+  });
+
+
+}
+
 </script>
 </div>
 
