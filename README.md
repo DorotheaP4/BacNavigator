@@ -8,9 +8,7 @@ EduScanTest este o aplicatie inovatoare care isi propune sa ajute elevii sa isi 
 https://docs.google.com/document/d/135ZPrG8AzL4bkqvVz_gQ0r15P4VjGE7Ch2oMJZDa_rs/edit?usp=sharing 
 
 ## Tehnologii folosite:
-📙Javascript:
-
-Acesta este limbajul utilizat pentru scrierea codului paginii web
+📙Javascript
 
 📙HTML cu Bootstrap (CSS) și jQuery 
 
