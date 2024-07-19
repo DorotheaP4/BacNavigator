@@ -234,7 +234,7 @@ function readURL(input) {
         }).then((data)=>data.json()).then((response)=>{
           if(!response.responses || !response.responses[0].textAnnotations)
           {
-            $("#txt").text(getLT("Nu am gasit nimic in document. Va rugam sa faceti o poza clara")).show();
+            $("#txt").text(getLT("Nu am găsit nimic în document. Vă rugăm să faceți o poză clară.")).show();
             return;
           }
           $("#txt").text(response.responses[0].textAnnotations[0].description).hide();
@@ -286,71 +286,71 @@ $("#quizzload").show();
       break;
     case 'exemplu2':
       $("#txt").text(`
-A fost odata ca-n povesti,
-A fost ca niciodata,
-Din rude mari imparatesti,
-O prea frumoasa fata.
+A fost odată ca-n povești,
+A fost ca niciodată,
+Din rude mari împărătești,
+O prea frumoasă fată.
 
-Si era una la părinti
-Si mindra-n toate cele,
-Cum e Fecioara intre sfinti
-Si luna intre stele.
+Și era una la părinți
+Și mândră-n toate cele,
+Cum e Fecioara între sfinți
+Și luna între stele.
 
-Din umbra falnicelor bolti
-Ea pasul si-l indreapta
-Linga fereastra, unde-n colt
-Luceafarul asteapta.
+Din umbra falnicelor bolți
+Ea pasul și-l îndreaptă
+Lângă fereastră, unde-n colț
+Luceafărul așteaptă.
 
-Privea în zare cum pe mari
-Rasare si straluce,
-Pe miscatoarele carari
-Corabii negre duce.
+Privea în zare cum pe mări
+Răsare și străluce,
+Pe mișcătoarele cărări
+Corăbii negre duce.
 
-Il vede azi, il vede mini,
-Astfel dorinta-i gata;
-El iar, privind de saptamini,
-Ii cade draga fata.
+Îl vede azi, îl vede mâni,
+Astfel dorința-i gata;
+El iar, privind de săptămâni,
+Îi cade dragă fata.
 
-Cum ea pe coate-si razima
-Visind ale ei timple
-De dorul lui si inima
-Si sufletu-i se imple.
+Cum ea pe coate-și răzima
+Visând ale ei tâmple
+De dorul lui și inima
+Și sufletu-i se împle.
 
-Si cât de viu s-aprinde el
-In orisicare sara,
+Și cât de viu s-aprinde el
+În orișicare sară,
 Spre umbra negrului castel
-Când ea o să-i apara.
+Când ea o să-i apară.
 
-Si pas cu pas pe urma ei
-Aluneca-n odaie,
-Tesind cu recile-i scântei
-O mreaja de vapaie.
+Și pas cu pas pe urma ei
+Alunecă-n odaie,
+Țesând cu recile-i scântei
+O mreajă de văpaie.
 
-Si când în pat se-ntinde drept
+Și când în pat se-ntinde drept
 Copila să se culce,
-I-atinge miinile pe piept,
-I-nchide geana dulce;.
+I-atinge mâinile pe piept,
+I-nchide geana dulce;
 
-Si din oglinda luminis
-Pe trupu-i se revarsa,
-Pe ochii mari, batind inchisi
-Pe fata ei intoarsa.
+Și din oglindă luminiș
+Pe trupu-i se revarsă,
+Pe ochii mari, bătând închiși
+Pe fața ei întoarsă.
 
-Ea il privea cu un suris,
-El tremura-n oglinda,
+Ea îl privea cu un surâs,
+El tremura-n oglindă,
 Căci o urma adânc în vis
-De suflet să se prinda.
+De suflet să se prindă.
 
 Iar ea vorbind cu el în somn,
-Oftind din greu suspina:
-- "O, dulce-al noptii mele domn,
-De ce nu vii tu? Vina!.
+Oftând din greu suspină
+– „O, dulce-al nopții mele domn,
+De ce nu vii tu? Vină!
+ 
 
-Cobori în jos, luceafar blind,
-Alunecind pe-o raza,
-Patrunde-n casa si în gând
-Si viata-mi lumineaza!
-`
+Cobori în jos, luceafăr blând,
+Alunecând pe-o rază,
+Pătrunde-n casă și în gând
+Și viața-mi luminează!"
 );
       $("#poza_quizz").show();
       doaction('quizz');
@@ -359,7 +359,7 @@ Si viata-mi lumineaza!
     case 'start':
       $("div.ecran").hide();
       $("#quizz").show();
-      $("#quizzmesaj").text(getLT("Ma gandesc...")).show();
+      $("#quizzmesaj").text(getLT("Mă gândesc...")).show();
       $("#quizz_solve").hide();
 
       $("#divintrebare").hide();
@@ -370,7 +370,7 @@ Si viata-mi lumineaza!
       formData.append("ax", "quizz");
       formData.append("txt", $("#txt").text());
 formData.append("lang",currentlang);
-      formData.append("intrebari",intrebari);
+      formData.append("Intrebari",intrebari);
 
       var response = fetch("", {
         method: "POST",
@@ -381,7 +381,7 @@ formData.append("lang",currentlang);
         {
           //console.log(d);
           $("#quizzmesaj").text(d.err);
-          $("#quizz_retry").text(getLT("Reincearca")).show();
+          $("#quizz_retry").text(getLT("Reîncearcă")).show();
         }
         else
         {
@@ -408,9 +408,9 @@ formData.append("lang",currentlang);
       }
       else
       {
-        $("#quizzmesaj").text("Nu e corect... vrei explicatii?").show();
+        $("#quizzmesaj").text("Nu e corect... vrei explicații?").show();
       }
-      $("#quizz_retry").text("Alta intrebare").show();
+      $("#quizz_retry").text("Altă întrebare").show();
       $("#quizz_solve").show();
       break;
       case 'raspunsb':
@@ -421,9 +421,9 @@ formData.append("lang",currentlang);
       }
       else
       {
-        $("#quizzmesaj").text("Nope... vrei explicatii?").show();
+        $("#quizzmesaj").text("Nope... vrei explicații?").show();
       }
-      $("#quizz_retry").text("Alta intrebare").show();
+      $("#quizz_retry").text("Altă întrebare").show();
       $("#quizz_solve").show();
       break;
       case 'raspunsc':
@@ -434,9 +434,9 @@ formData.append("lang",currentlang);
       }
       else
       {
-        $("#quizzmesaj").text(getLT("Nope... vrei explicatii?")).show();
+        $("#quizzmesaj").text(getLT("Nope... vrei explicații?")).show();
       }
-      $("#quizz_retry").text(getLT("Alta intrebare")).show();
+      $("#quizz_retry").text(getLT("Altă întrebare")).show();
       $("#quizz_solve").show();
       break;
       case 'raspunsd':
@@ -447,9 +447,9 @@ formData.append("lang",currentlang);
       }
       else
       {
-        $("#quizzmesaj").text(getLT("Nope... vrei explicatii?")).show();
+        $("#quizzmesaj").text(getLT("Nope... vrei explicații?")).show();
       }
-      $("#quizz_retry").text(getLT("Alta intrebare")).show();
+      $("#quizz_retry").text(getLT("Altă întrebare")).show();
       $("#quizz_solve").show();
       break;
     case 'why':
@@ -475,13 +475,13 @@ formData.append("lang",currentlang);
         {
           //console.log(d);
           if(!d)
-           $("#quizzmesaj").text(getLT('M-am blocat... reincearca'));
+           $("#quizzmesaj").text(getLT('M-am blocat... reîncearcă'));
           else
             $("#quizzmesaj").text(d.err);
         }
         else
         {
-          if(!d.explicatii) d.explicatii=getLT("Nu stiu ce sa zic...");
+          if(!d.explicatii) d.explicatii=getLT("Nu stiu ce să zic...");
           $("#quizzmesaj").text(d.explicatii).show();
           $("#quizz_solve").hide();
         }
@@ -567,7 +567,7 @@ $(document).ready(function(){
         </a>
         <div class="form-group">
         <a class="btn btn-secondary" href="#" onclick="doaction('langen');return false;">English</a>
-        <a class="btn btn-secondary" href="#" onclick="doaction('langro');return false;">Romana</a>
+        <a class="btn btn-secondary" href="#" onclick="doaction('langro');return false;">Română</a>
         <a class="btn btn-secondary" href="#" onclick="doaction('langma');return false;">Magyar</a>
         <a class="btn btn-secondary" href="#" onclick="doaction('langur');return false;">Українська</a>
       </div>
@@ -595,14 +595,14 @@ $(document).ready(function(){
   <div id=mycontainer class="p-3">
   <div class="ecran" id="start">
   <h1>EDU-SCAN-TEST</h1>
-  <p langen="I help you learn what's essential faster!" langma="Segítek gyorsabban megtanulni a lényeget!" langur="Я допомагаю вам швидше вивчити найважливіше!">Te ajut sa inveti mai repede ce e esential!</p>
+  <p langen="I help you learn what's essential faster!" langma="Segítek gyorsabban megtanulni a lényeget!" langur="Я допомагаю вам швидше вивчити найважливіше!">Te ajută să înveți mai repede ce e esențial!</p>
   
   <br>
-  <h3 langen="1. To begin, you need the educational material you want to learn" langma="1. A kezdéshez szükséged van a megtanulandó tananyagra" langur="1. Для початку вам потрібен навчальний матеріал, який ви хочете вивчити">1. Pentru a incepe ai nevoie de materialul didactic pe care vrei sa-l inveti</h3>
+  <h3 langen="1. To begin, you need the educational material you want to learn" langma="1. A kezdéshez szükséged van a megtanulandó tananyagra" langur="1. Для початку вам потрібен навчальний матеріал, який ви хочете вивчити">1. Pentru a începe ai nevoie de materialul didactic pe care vrei să-l înveți</h3>
   
-  <h3 langen="2. Take a picture of a page" langma="2. Készíts egy képet egy oldalról" langur="2. Зробіть фотографію сторінки">2. Faci o poza la o pagina</h3>
+  <h3 langen="2. Take a picture of a page" langma="2. Készíts egy képet egy oldalról" langur="2. Зробіть фотографію сторінки">2. Faci o poză la o pagină</h3>
   
-  <h3 langen="3. I will create tests for you on the spot and help you understand through exercise." langma="3. Azonnal teszteket készítek neked, és segítek megérteni gyakorlás útján." langur="3. Я створю для вас тести на місці та допоможу зрозуміти через вправи.">3. Voi crea pe loc teste pentru tine si te ajut sa intelegi prin exercitiu.</h3>
+  <h3 langen="3. I will create tests for you on the spot and help you understand through exercise." langma="3. Azonnal teszteket készítek neked, és segítek megérteni gyakorlás útján." langur="3. Я створю для вас тести на місці та допоможу зрозуміти через вправи.">3. Voi crea pe loc teste pentru tine și te ajut să înțelegi prin exercițiu.</h3>
   
   <br><br>
   <a class="btn btn-primary w-100" href="#" onclick="doaction('poza');return false;" langen="Start now" langma="Kezdés most" langur="Почати зараз">Incepe acum</a>
@@ -611,11 +611,11 @@ $(document).ready(function(){
   <div class="ecran" id="poza" style="display:none;">
       <div class="mb-3">
       <label for="formFile" class="form-label">
-      <h3 langen="2. Take a picture here" langma="2. Készíts itt egy képet" langur="2. Зробіть фотографію тут">2. Fa o poza aici</h3> 
+      <h3 langen="2. Take a picture here" langma="2. Készíts itt egy képet" langur="2. Зробіть фотографію тут">2. Fa o poză aici</h3> 
       <a href="#" onclick="doaction('exemplu1');return false;" langen="example 1 (chemistry)" langma="1. példa (kémia)" langur="приклад 1 (хімія)">exemplu 1 (chimie)</a>
-      <a href="#" onclick="doaction('exemplu2');return false;" langen="example 2 (lucefarul)" langma="2. példa (luceafarul)" langur="приклад 2 (luceafarul)">exemplu 2 (lucefarul)</a>
+      <a href="#" onclick="doaction('exemplu2');return false;" langen="example 2 (lucefarul)" langma="2. példa (luceafarul)" langur="приклад 2 (luceafarul)">exemplu 2 (Lucefărul)</a>
       <a href="#" onclick="doaction('exemplu3');return false;" langen="example 3 (biology)" langma="3. példa (biológia)" langur="приклад 3 (біологія)">exemplu 3 (biologie)</a>
-      <a href="#" onclick="doaction('exemplu4');return false;" langen="example 4 (physics)" langma="4. példa (fizika)" langur="приклад 4 (фізика)">exemplu 4 (fizica)</a>
+      <a href="#" onclick="doaction('exemplu4');return false;" langen="example 4 (physics)" langma="4. példa (fizika)" langur="приклад 4 (фізика)">exemplu 4 (fizică)</a>
       <a href="#" onclick="doaction('exemplu5');return false;" langen="example 5 (history)" langma="5. példa (történelem)" langur="приклад 5 (історія)">exemplu 5 (istorie)</a>
   </label>
       <input class="form-control color-primary" type="file" id="formFile" onchange="doaction('getpoza');return false;">
@@ -631,10 +631,10 @@ $(document).ready(function(){
   
   <div class="ecran" id="quizz" style="display:none;">
      <div class=row><div class="col-1"><i class="bi bi-person-bounding-box"></i></div>
-      <div class=col-11><h5><div id="quizzmesaj" langen="2. I'm thinking...." langma="2. Gondolkodom...." langur="2. Я думаю....">2. Ma gandesc....</div></h5>
+      <div class=col-11><h5><div id="quizzmesaj" langen="2. I'm thinking...." langma="2. Gondolkodom...." langur="2. Я думаю....">2. Mă gândesc....</div></h5>
      </div></div>
   
-     <a id="quizz_solve" class="btn btn-primary w-100" style="display:none;" href="#" onclick="doaction('why');return false;" langen="Explain to me" langma="Magyarázd el nekem" langur="Поясніть мені">Explica-mi</a>
+     <a id="quizz_solve" class="btn btn-primary w-100" style="display:none;" href="#" onclick="doaction('why');return false;" langen="Explain to me" langma="Magyarázd el nekem" langur="Поясніть мені">Explică-mi</a>
      <div id="quizzload" class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
     <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 75%"></div>
   </div>
@@ -661,7 +661,7 @@ $(document).ready(function(){
       <div id="correct" style="display:none;" class="w-50 ps-3 col-12"></div>
      </div><!-- divintrebare -->
   
-     <a id="quizz_retry" class="btn btn-primary w-100" style="display:none;" href="#" onclick="doaction('quizz');return false;" langen="Try again" langma="Próbáld újra" langur="Спробуйте ще раз">Reincearca</a>
+     <a id="quizz_retry" class="btn btn-primary w-100" style="display:none;" href="#" onclick="doaction('quizz');return false;" langen="Try again" langma="Próbáld újra" langur="Спробуйте ще раз">Reîncearcă</a>
   
   </div></div>
   </div>
@@ -703,14 +703,14 @@ language['en']=JSON.parse(`
   "url":"URL",
   "Esti sigur(a)?":"Are you sure?",
   "Sterge pagina":"Delete page",
-  "Nu am gasit nimic in document. Va rugam sa faceti o poza clara":"I couldn't find anything in the document. Please take a clear picture",
-  "Ma gandesc...":"I'm thinking...",
-  "Reincearca":"Try again",
+  "Nu am găsit nimic în document. Vă rugăm să faceți o poză clară":"I couldn't find anything in the document. Please take a clear picture",
+  "Mă gândesc...":"I'm thinking...",
+  "Reîncearcă":"Try again",
   "Bravo, corect!!!!":"Bravo, correct!!!!",
-  "Alta intrebare":"Another question",
-  "Nope... vrei explicatii?":"Nope... do you want explanations?",
-  "M-am blocat... reincearca":"I'm stuck... try again",
-  "Nu stiu ce sa zic...":"I don't know what to say..."
+  "Altă întrebare":"Another question",
+  "Nope... vrei explicații?":"Nope... do you want explanations?",
+  "M-am blocat... reîncearcă":"I'm stuck... try again",
+  "Nu știu ce să zic...":"I don't know what to say..."
   }`
 );
 language['ma']=JSON.parse(`
@@ -726,14 +726,14 @@ language['ma']=JSON.parse(`
   "url":"URL",
   "Esti sigur(a)?":"Biztos benne?",
   "Sterge pagina":"Oldal törlése",
-  "Nu am gasit nimic in document. Va rugam sa faceti o poza clara":"Nem találtam semmit a dokumentumban. Kérjük, készítsen tiszta képet",
-  "Ma gandesc...":"Gondolkodom...",
-  "Reincearca":"Próbálja újra",
+  "Nu am găsit nimic in document. Vă rugăm să faceți o poză clară":"Nem találtam semmit a dokumentumban. Kérjük, készítsen tiszta képet",
+  "Ma gândesc...":"Gondolkodom...",
+  "Reîncearcă":"Próbálja újra",
   "Bravo, corect!!!!":"Bravó, helyes!!!!",
-  "Alta intrebare":"Másik kérdés",
-  "Nope... vrei explicatii?":"Nem... magyarázatot szeretne?",
-  "M-am blocat... reincearca":"Elakadtam... próbálja újra",
-  "Nu stiu ce sa zic...":"Nem tudom, mit mondjak..."
+  "Altă întrebare":"Másik kérdés",
+  "Nope... vrei explicații?":"Nem... magyarázatot szeretne?",
+  "M-am blocat... reîncearcă":"Elakadtam... próbálja újra",
+  "Nu știu ce să zic...":"Nem tudom, mit mondjak..."
   }`
 );
 language['ur']=JSON.parse(`
@@ -749,14 +749,14 @@ language['ur']=JSON.parse(`
   "url":"URL",
   "Esti sigur(a)?":"Ви впевнені?",
   "Sterge pagina":"Видалити сторінку",
-  "Nu am gasit nimic in document. Va rugam sa faceti o poza clara":"Я нічого не знайшов y документі. Будь ласка, зробіть чітке фото",
-  "Ma gandesc...":"Я думаю...",
-  "Reincearca":"Спробуйте ще раз",
+  "Nu am găsit nimic in document. Vă rugăm să faceți o poză clară":"Я нічого не знайшов y документі. Будь ласка, зробіть чітке фото",
+  "Mă gândesc...":"Я думаю...",
+  "Reîncearcă":"Спробуйте ще раз",
   "Bravo, corect!!!!":"Браво, правильно!!!!",
-  "Alta intrebare":"Інше питання",
-  "Nope... vrei explicatii?":"Ні... хочете пояснень?",
-  "M-am blocat... reincearca":"Я застряг... спробуйте ще раз",
-  "Nu stiu ce sa zic...":"Не знаю, що сказати..."
+  "Altă întrebare":"Інше питання",
+  "Nope... vrei explicații?":"Ні... хочете пояснень?",
+  "M-am blocat... reîncearcă":"Я застряг... спробуйте ще раз",
+  "Nu stiu ce să zic...":"Не знаю, що сказати..."
 }`);
 function getLT(str)
 {
