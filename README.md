@@ -1,10 +1,10 @@
-# EduScanTest
+# BacNavigator
 
 ## Prezentare generala🏫: 
 
-EduScanTest este o aplicatie inovatoare care isi propune sa ajute elevii sa isi verifice cunostintele la o materie, folosind fie notitele din caiet, al lor sau al colegilor, fie o imagine tiparita. Prin intermediul aplicatiei, elevii isi scaneaza notitele si vor primi un test grila pe baza acestor notite.Ce e este inovator este folosirea AI pentru a genera intrebari din notitele incarcate, dar si faptul ca putem folosi scris de mana, in limita in care avem un scris lizibil. Intrebarile ne sunt puse fix din ceea ce ni s-a predat noua, mai mult,  putem alege sa primim explicatii in cazul in care am raspuns gresit. 
+BacNavigator este o aplicație web care ajută elevii să se pregătească pentru Bacalaureat prin generarea de teste grilă personalizate din notițele proprii (scanate sau scrise de mână), dar și prin accesul la lecții deja introduse în platformă. Testele includ explicații detaliate pentru fiecare răspuns, iar aplicația suportă mai multe limbi (română, engleză, maghiară, ucraineană). Este realizată cu JavaScript, HTML, CSS (Bootstrap), jQuery, folosește OCR Google Vision API pentru recunoașterea textului și Gemini 1.5T API pentru generarea întrebărilor. Poate fi accesată de pe orice dispozitiv conectat la internet.
 
-## Documentatia EduScan Test 📓: 
+## Documentatia BacNavigator 📓: 
 https://docs.google.com/document/d/135ZPrG8AzL4bkqvVz_gQ0r15P4VjGE7Ch2oMJZDa_rs/edit?usp=sharing 
 
 ## Tehnologii folosite:
