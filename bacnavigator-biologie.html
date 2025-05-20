@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BacNavigator - Lecții Biologie</title>
+    <style>
+        :root {
+            --primary: #3498db;
+            --secondary: #2ecc71;
+            --accent: #e74c3c;
+            --text: #2c3e50;
+            --bg-light: #f5f7fa;
+            --bg-white: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            
+            /* Culori pentru materii */
+            --biologie: #27ae60;
+            --fizica: #3498db;
+            --romana: #e74c3c;
+            --istorie: #f39c12;
+            --matematica: #9b59b6;
+            --chimie: #16a085;
+            --informatica: #2980b9;
+            
+            /* Culoarea actuală a materiei (setată dinamic) */
+            --current-subject: var(--biologie);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: var(--bg-light);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: var(--bg-white);
+            box-shadow: var(--shadow);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .logo img {
+            width: 40px;
+            height: auto;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        button {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #2980b9;
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+        
+        .btn-secondary:hover {
+            background-color: rgba(52, 152, 219, 0.1);
+        }
+        
+        .btn-subject {
+            background-color: var(--current-subject);
+            color: white;
+        }
+        
+        .btn-subject:hover {
+            opacity: 0.9;
+        }
+        
+        .subject-header {
+            background-color: var(--current-subject);
+            color: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+        }
+        
+        .subject-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .subject-header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 800px;
+        }
+        
+        .breadcrumbs {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .breadcrumbs a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        
+        .breadcrumbs .separator {
+            color: #95a5a6;
+        }
+        
+        .breadcrumbs .current {
+            color: var(--current-subject);
+            font-weight: 500;
+        }
+        
+        .lessons-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 2rem;
+        }
+        
+        .sidebar {
+            background-color: var(--bg-white);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            padding: 1.5rem;
+            position: sticky;
+            top: 90px;
+            height: fit-content;
+            max-height: calc(100vh - 120px);
+            overflow-y: auto;
+        }
+        
+        .category-title {
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--current-subject);
+            font-weight: 600;
+            color: var(--current-subject);
+        }
+        
+        .chapters-list {
+            list-style: none;
+        }
+        
+        .chapter {
+            margin-bottom: 1rem;
+        }
+        
+        .chapter-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        
+        .chapter-header h3 {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        
+        .chapter-toggle {
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .chapter.active .chapter-toggle {
+            transform: rotate(180deg);
+        }
+        
+        .chapter-lessons {
+            list-style: none;
+            padding-left: 1rem;
+            margin-top: 0.5rem;
+            display: none;
+        }
+        
+        .chapter.active .chapter-lessons {
+            display: block;
+        }
+        
+        .chapter-lesson {
+            padding: 0.5rem;
+            margin-bottom: 0.3rem;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            color: var(--text);
+        }
+        
+        .chapter-lesson:hover {
+            background-color: #f5f7fa;
+        }
+        
+        .chapter-lesson.active {
+            background-color: rgba(39, 174, 96, 0.1);
+            color: var(--current-subject);
+            font-weight: 500;
+        }
+        
+        .main-content {
+            background-color: var(--bg-white);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            padding: 2rem;
+        }
+        
+        .lesson-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        
+        .lesson-title h2 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .lesson-meta {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.9rem;
+            color: #7f8c8d;
+        }
+        
+        .lesson-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        
+        .lesson-content {
+            margin-bottom: 3rem;
+        }
+        
+        .lesson-content h3 {
+            font-size: 1.5rem;
+            margin: 1.5rem 0 1rem;
+        }
+        
+        .lesson-content p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+        
+        .lesson-content img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+        
+        .lesson-content ul, .lesson-content ol {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+        }
+        
+        .lesson-content li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .info-box {
+            background-color: rgba(52, 152, 219, 0.1);
+            border-left: 4px solid var(--primary);
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        .warning-box {
+            background-color: rgba(243, 156, 18, 0.1);
+            border-left: 4px solid #f39c12;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        .quiz-container {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .quiz-container h3 {
+            margin-top: 0;
+        }
+        
+        .question {
+            margin-bottom: 1.5rem;
+        }
+        
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+        
+        .option {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .option:hover {
+            background-color: #edf2f7;
+        }
+        
+        .lesson-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 2rem;
+            border-top: 1px solid #ecf0f1;
+        }
+        
+        .lesson-navigation {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .lesson-navigation a {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+        
+        .resources-list {
+            margin-top: 1rem;
+        }
+        
+        .resource-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .resource-item:hover {
+            background-color: #f5f7fa;
+        }
+        
+        .resource-icon {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #ecf0f1;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+        
+        .resource-pdf {
+            background-color: rgba(231, 76, 60, 0.1);
+            color: #e74c3c;
+        }
+        
+        .resource-video {
+            background-color: rgba(52, 152, 219, 0.1);
+            color: #3498db;
+        }
+        
+        .resource-quiz {
+            background-color: rgba(46, 204, 113, 0.1);
+            color: #2ecc71;
+        }
+        
+        /* Test la final de lectie */
+        .test-section {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .test-section h3 {
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+        
+        .test-section .btn-primary {
+            margin-top: 1rem;
+        }
+        
+        /* Responsivitatea */
+        @media (max-width: 992px) {
+            .lessons-layout {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                position: static;
+                margin-bottom: 2rem;
+                max-height: none;
+            }
+            
+            .lesson-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .subject-header h1 {
+                font-size: 2rem;
+            }
+            
+            .lesson-footer {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .lesson-navigation {
+                width: 100%;
+                justify-content: space-between;
+            }
+        }
+        
+        /* Mobile Nav */
+        .mobile-nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text);
+            cursor: pointer;
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-nav-toggle {
+                display: block;
+            }
+            
+            .nav-links.active {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background-color: var(--bg-white);
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+                padding: 1rem 2rem;
+                z-index: 100;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    
+                    <span>BacNavigator</span>
+                </div>
+                <div class="nav-links">
+                    <a href="bacnavigator.html">Acasă</a>
+                    <a href="bacnavigator.html#materii">Materii</a>
+                    <a href="bacnavigator.html#cumfunctioneaza">Cum funcționează</a>
+                </div>
+                <button class="mobile-nav-toggle">☰</button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="subject-header">
+            <div class="container">
+                <h1>Lecții Biologie</h1>
+                <p>Învață și aprofundează noțiunile esențiale pentru examenul de bacalaureat la Biologie, cu ajutorul materialelor didactice și testelor interactive.</p>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="breadcrumbs">
+                <a href="index.html">Acasă</a>
+                <span class="separator">></span>
+                <a href="materii.html">Materii</a>
+                <span class="separator">></span>
+                <a href="biologie.html">Biologie</a>
+                <span class="separator">></span>
+                <span class="current">Lecții</span>
+            </div>
+
+            <div class="lessons-layout">
+                <!-- Sidebar cu lista de lecții -->
+                <div class="sidebar">
+                    <h2 class="category-title">Capitole și Lecții</h2>
+                    
+                    <ul class="chapters-list">
+                        <!-- Capitolul 1 -->
+                        <li class="chapter active" id="cap1">
+                            <div class="chapter-header" onclick="toggleChapter('cap1')">
+                                <h3>Capitolul 1: Sistemul nervos</h3>
+                                <span class="chapter-toggle">▼</span>
+                            </div>
+                            <ul class="chapter-lessons">
+                                <li>
+                                    <a href="biologie/cap1/lectia1.html" class="chapter-lesson">
+                                        <span>Introducere în anatomia sistemului nervos</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="biologie/cap1/lectia2.html" class="chapter-lesson">
+                                        <span>Neuronul - unitatea structurală și funcțională</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="biologie/cap1/lectia3.html" class="chapter-lesson active">
+                                        <span>Funcțiile sistemului nervos central</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="biologie/cap1/lectia4.html" class="chapter-lesson">
+                                        <span>Sistemul nervos periferic</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- Capitolul 2 -->
+                        <li class="chapter" id="cap2">
+                            <div class="chapter-header" onclick="toggleChapter('cap2')">
+                                <h3>Capitolul 2: Sistemul circulator</h3>
+                                <span class="chapter-toggle">▼</span>
+                            </div>
+                            <ul class="chapter-lessons">
+                                <li>
+                                    <a href="biologie/cap2/lectia1.html" class="chapter-lesson">
+                                        <span>Anatomia inimii și a vaselor de sânge</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="biologie/cap2/lectia2.html" class="chapter-lesson">
+                                        <span>Circulația mare și mică</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="biologie/cap2/lectia3.html" class="chapter-lesson">
+                                        <span>Sângele - componente și funcții</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="biologie/cap2/lectia4.html" class="chapter-lesson">
+                                        <span>Afecțiuni ale sistemului circulator</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- Capitolul 3 -->
+                        <li class="chapter" id="cap3">
+                            <div class="chapter-header" onclick="toggleChapter('cap3')">
+                                <h3>Capitolul 3: Sistemul respirator</h3>
+                                <span class="chapter-toggle">▼</span>
+                            </div>
+                            <ul class="chapter-lessons">
+                                <li>
+                                    <a href="biologie/cap3/lectia1.html" class="chapter-lesson">
+                                        <span>Căile respiratorii superioare și inferioare</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="biologie/cap3/lectia2.html" class="chapter-lesson">
+                                        <span>Plămânii și schimburile gazoase</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="biologie/cap3/lectia3.html" class="chapter-lesson">
+                                        <span>Mecanismul respirației</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- Capitolul 4 -->
+                        <li class="chapter" id="cap4">
+                            <div class="chapter-header" onclick="toggleChapter('cap4')">
+                                <h3>Capitolul 4: Sistemul digestiv</h3>
+                                <span class="chapter-toggle">▼</span>
+                            </div>
+                            <ul class="chapter-lessons">
+                                <li>
+                                    <a href="biologie/cap4/lectia1.html" class="chapter-lesson">
+                                        <span>Tubul digestiv - anatomie și funcții</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="biologie/cap4/lectia2.html" class="chapter-lesson">
+                                        <span>Procesul digestiei</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="biologie/cap4/lectia3.html" class="chapter-lesson">
+                                        <span>Ficatul și pancreasul - roluri în digestie</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="biologie/cap4/lectia4.html" class="chapter-lesson">
+                                        <span>Absorbția intestinală</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- Capitolul 5 -->
+                        <li class="chapter" id="cap5">
+                            <div class="chapter-header" onclick="toggleChapter('cap5')">
+                                <h3>Capitolul 5: Genetică</h3>
+                                <span class="chapter-toggle">▼</span>
+                            </div>
+                            <ul class="chapter-lessons">
+                                <li>
+                                    <a href="biologie/cap5/lectia1.html" class="chapter-lesson">
+                                        <span>Acizii nucleici: ADN și ARN</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="biologie/cap5/lectia2.html" class="chapter-lesson">
+                                        <span>Legile lui Mendel</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="biologie/cap5/lectia3.html" class="chapter-lesson">
+                                        <span>Mutații genetice</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="biologie/cap5/lectia4.html" class="chapter-lesson">
+                                        <span>Genetică umană</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Conținutul lecției -->
+                <div class="main-content">
+                    <div class="lesson-header">
+                        <div class="lesson-title">
+                            <h2>Funcțiile sistemului nervos central</h2>
+                            <div class="lesson-meta">
+                                <span>Capitolul 1: Sistemul nervos</span>
+                                <span>Lecția 3/4</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lesson-content">
+                        <p>Sistemul nervos central (SNC) este format din <strong>encefal</strong> și <strong>măduva spinării</strong>. Acesta reprezintă principalul centru de control și coordonare a tuturor activităților organismului, fiind responsabil pentru integrarea informațiilor primite și emiterea de comenzi către țesuturi și organe.</p>
+
+                        <img src="/api/placeholder/700/350" alt="Structura sistemului nervos central">
+
+                        <h3>Encefalul</h3>
+                        <p>Encefalul este localizat în cutia craniană și este format din:</p>
+                        <ul>
+                            <li><strong>Creierul (telencefalul)</strong> - cea mai voluminoasă parte a encefalului, format din emisferele cerebrale și structuri profunde;</li>
+                            <li><strong>Cerebelul</strong> - situat în partea posterioară a encefalului, cu rol în coordonarea mișcărilor și echilibru;</li>
+                            <li><strong>Trunchiul cerebral</strong> - format din bulbul rahidian, puntea și mezencefalul, controlează funcții vitale precum respirația și bătăile inimii.</li>
+                        </ul>
+
+                        <div class="info-box">
+                            <h4>Știai că?</h4>
+                            <p>Creierul uman conține aproximativ 86 de miliarde de neuroni și consumă în jur de 20% din energia totală a organismului, deși reprezintă doar 2% din greutatea corporală.</p>
+                        </div>
+
+                        <h3>Funcțiile emisferelor cerebrale</h3>
+                        <p>Emisferele cerebrale sunt responsabile pentru:</p>
+                        <ul>
+                            <li>Controlul mișcărilor voluntare;</li>
+                            <li>Procesarea informațiilor senzoriale;</li>
+                            <li>Funcții cognitive superioare (gândire, memorie, atenție);</li>
+                            <li>Comportament și emoții;</li>
+                            <li>Limbaj și comunicare;</li>
+                            <li>Conștiență și personalitate.</li>
+                        </ul>
+
+                        <p>Scoarța cerebrală (cortexul cerebral) este stratul exterior al emisferelor cerebrale și este împărțită în lobi, fiecare cu funcții specifice:</p>
+                        <ul>
+                            <li><strong>Lobul frontal</strong> - controlul mișcărilor voluntare, vorbire, funcții executive;</li>
+                            <li><strong>Lobul parietal</strong> - procesarea informațiilor senzoriale, orientare spațială;</li>
+                            <li><strong>Lobul temporal</strong> - auz, procesarea limbajului, memorie;</li>
+                            <li><strong>Lobul occipital</strong> - procesarea informațiilor vizuale.</li>
+                        </ul>
+
+                        <h3>Cerebelul</h3>
+                        <p>Cerebelul, al doilea ca mărime după telencefal, are rol în:</p>
+                        <ul>
+                            <li>Coordonarea mișcărilor fine;</li>
+                            <li>Menținerea echilibrului corporal;</li>
+                            <li>Controlul posturii;</li>
+                            <li>Învățarea motorie.</li>
+                        </ul>
+
+                        <div class="warning-box">
+                            <h4>Important pentru examen!</h4>
+                            <p>Afecțiunile cerebelului duc la tulburări de coordonare a mișcărilor (ataxie), tremor intențional și nistagmus. Aceste aspecte sunt frecvent testate la examenul de bacalaureat.</p>
+                        </div>
+
+                        <h3>Trunchiul cerebral</h3>
+                        <p>Trunchiul cerebral este format din trei componente principale:</p>
+                        <ul>
+                            <li><strong>Bulbul rahidian</strong> - controlează funcții vitale (respirație, bătăile inimii, tensiunea arterială);</li>
+                            <li><strong>Puntea</strong> - participă la controlul respirației și conectează cerebelul cu creierul;</li>
+                            <li><strong>Mezencefalul</strong> - implicat în controlul mișcărilor oculare și reflexelor auditive.</li>
+                        </ul>
+
+                        <h3>Măduva spinării</h3>
+                        <p>Măduva spinării este localizată în canalul vertebral și are următoarele funcții:</p>
+                        <ul>
+                            <li>Transmiterea impulsurilor nervoase între encefal și restul corpului;</li>
+                            <li>Controlul reflexelor spinale (reflexe nervoase rapide care nu necesită implicarea creierului);</li>
+                            <li>Coordonarea unor activități motorii ritmice.</li>
+                        </ul>
+
+                        <p>Reflexele spinale reprezintă răspunsuri rapide și involuntare la stimuli, având ca centru de comandă măduva spinării. Arcul reflex are cinci componente: receptor, cale aferentă, centru de comandă, cale eferentă și efector.</p>
+                    </div>
+
+                    <!-- Secțiunea de test la finalul lecției -->
+                    <div class="test-section">
+                        <h3>Testează-ți cunoștințele</h3>
+                        <p>Ai finalizat lecția despre funcțiile sistemului nervos central. Apasă butonul de mai jos pentru a genera un test bazat pe conținutul parcurs.</p>
+                        <button class="btn-primary" onclick="generateTest()">Generează test</button>
+                    </div>
+
+                    <!-- Footer-ul lecției cu navigare între lecții -->
+                    <div class="lesson-footer">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- JavaScript pentru funcționalitățile UI -->
+    <script>
+        // Funcție pentru afișarea/ascunderea capitolelor
+        function toggleChapter(id) {
+            const chapter = document.getElementById(id);
+            chapter.classList.toggle('active');
+        }
+        
+        // Funcția pentru generarea testului
+        function generateTest() {
+            // Aici va fi logica pentru generarea testului cu API-ul LLM
+            alert('Se generează un test bazat pe conținutul lecției...');
+            // În implementarea finală, aici se va face un apel către API-ul LLM
+        }
+        
+        // Funcția pentru meniul mobil
+        document.querySelector('.mobile-nav-toggle')?.addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+        
+        // Deschide automat capitolul curent (pentru usability)
+        document.addEventListener('DOMContentLoaded', function() {
+            // Capitolul care conține lecția activă este deschis automat
+            const activeLesson = document.querySelector('.chapter-lesson.active');
+            if (activeLesson) {
+                const parentChapter = activeLesson.closest('.chapter');
+                if (parentChapter) {
+                    parentChapter.classList.add('active');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
