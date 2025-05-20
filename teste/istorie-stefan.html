@@ -1,0 +1,594 @@
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            color: #333;
+            line-height: 1.6;
+            background-color: #f8f4e5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .title-box {
+            background-color: #94290d;
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .section-heading {
+            color: #94290d;
+            border-bottom: 2px solid #94290d;
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        .timeline-item {
+            border-left: 3px solid #94290d;
+            padding-left: 20px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        .timeline-item:before {
+            content: "";
+            position: absolute;
+            left: -10px;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #94290d;
+        }
+        .battle-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1.5rem;
+        }
+        .battle-card-header {
+            background-color: #94290d;
+            color: white;
+            padding: 0.75rem 1rem;
+        }
+        .battle-card-body {
+            padding: 1rem;
+        }
+        .quote {
+            font-style: italic;
+            background-color: #f0e6d2;
+            border-left: 4px solid #94290d;
+            padding: 1rem;
+            margin: 1.5rem 0;
+        }
+        .image-frame {
+            border: 8px solid #d9b99b;
+            border-radius: 4px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin: 1rem 0;
+        }
+        .ctitorie-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s;
+        }
+        .ctitorie-card:hover {
+            transform: translateY(-5px);
+        }
+        @media print {
+            body {
+                background-color: white;
+            }
+            .container {
+                width: 100%;
+                max-width: none;
+            }
+            .timeline-item, .battle-card, .ctitorie-card, .image-frame {
+                break-inside: avoid;
+            }
+        }
+    </style>
+
+    <div class="container">
+        <!-- Header Section -->
+        <div class="title-box text-center">
+            <h1 class="text-4xl font-bold mb-2">ȘTEFAN CEL MARE</h1>
+            <h2 class="text-xl">1457 - 1504</h2>
+            <p class="mt-3">O lecție de istorie despre viața și faptele celui mai mare domnitor al Moldovei</p>
+        </div>
+
+        <!-- Introduction -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+            <div class="md:col-span-2">
+                <h2 class="text-2xl font-bold section-heading">Introducere</h2>
+                <p class="mb-4">
+                    Ștefan al III-lea, supranumit Ștefan cel Mare și Sfânt, a fost domnul Moldovei între 1457 și 1504. Cu o domnie de aproape 47 de ani, cea mai lungă din epoca medievală din Țările Române, Ștefan cel Mare este considerat una dintre cele mai importante figuri din istoria României. În timpul domniei sale, Moldova a atins apogeul dezvoltării sale statale, cunoscând o perioadă îndelungată de stabilitate internă, prosperitate economică și liniște socială.
+                </p>
+                <p>
+                    Recunoscut pentru geniul său militar și diplomatic, Ștefan a purtat 36 de bătălii majore, câștigând 34 dintre ele. A fost un apărător al creștinătății împotriva expansiunii Imperiului Otoman și un mare ctitor de biserici și mănăstiri, pentru care a fost canonizat de Biserica Ortodoxă Română în anul 1992.
+                </p>
+            </div>
+            <div class="md:col-span-1">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/%C5%9Etefan_cel_Mare_%28Stephen_the_Great%29_1488%2C_Vorone%C5%A3_Monastery.jpg" alt="Portret Ștefan cel Mare - frescă contemporană din timpul vieții domnitorului, anul 1488, Mănăstirea Voroneț" class="image-frame w-full">
+                <p class="text-sm text-center italic">Ștefan cel Mare - frescă contemporană din timpul vieții domnitorului, anul 1488, Mănăstirea Voroneț</p>
+            </div>
+        </div>
+
+        <!-- Biography and Family -->
+        <h2 class="text-2xl font-bold section-heading">Biografie și Familie</h2>
+        <div class="timeline-item">
+            <h3 class="text-xl font-bold">Naștere și Origine</h3>
+            <p class="mb-4">
+                Ștefan cel Mare s-a născut în jurul anilor 1438-1439 la Borzești (astăzi în județul Bacău). A fost fiul lui Bogdan al II-lea și al Oltei (Maria Oltea), o nobilă din regiunea Bacăului. Familia sa aparținea dinastiei Mușatinilor.
+            </p>
+        </div>
+        <div class="timeline-item">
+            <h3 class="text-xl font-bold">Căsătorii și Descendenți</h3>
+            <p class="mb-2">
+                Ștefan cel Mare s-a căsătorit de trei ori:
+            </p>
+            <ul class="list-disc pl-8 mb-4">
+                <li><strong>Evdochia de Kiev</strong> (1463-1467) - fiica cneazului Simeon Olelkovici din Kiev. Din această căsătorie s-au născut:</li>
+                <ul class="list-disc pl-8 mb-2">
+                    <li>Alexandru - mort de tânăr</li>
+                    <li>Elena - căsătorită cu Ivan cel Tânăr, fiul țarului Rusiei</li>
+                    <li>Petru - mort de tânăr</li>
+                </ul>
+                <li><strong>Maria de Mangop</strong> (1472-1477) - din familia imperială bizantină. Căsătoria nu a avut urmași.</li>
+                <li><strong>Maria Voichița</strong> (1478-1504) - fiica lui Radu cel Frumos, domnul Țării Românești. Din această căsătorie s-au născut:</li>
+                <ul class="list-disc pl-8">
+                    <li>Bogdan al III-lea, viitor domn al Moldovei</li>
+                    <li>Maria Cneajna</li>
+                </ul>
+            </ul>
+            <p>
+                Ștefan a avut și copii nelegitimi, cel mai cunoscut fiind Petru Rareș, care va deveni și el domn al Moldovei.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-8">
+            <div class="text-center">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/1465_-_Evdochia_de_Kiev_1.png/170px-1465_-_Evdochia_de_Kiev_1.png" alt="Evdochia de Kiev" class="image-frame mx-auto h-48">
+                <p class="text-sm italic">Evdochia de Kiev</p>
+            </div>
+            <div class="text-center">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Maria_Asanina_Palaiologina.gif/250px-Maria_Asanina_Palaiologina.gif" alt="Maria de Mangop" class="image-frame mx-auto h-48">
+                <p class="text-sm italic">Maria de Mangop</p>
+            </div>
+            <div class="text-center">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/1480_-_Maria_Voichita_-_sotia_lui_Stefan_cel_Mare.png/250px-1480_-_Maria_Voichita_-_sotia_lui_Stefan_cel_Mare.png" alt="Maria Voichița" class="image-frame mx-auto h-48">
+                <p class="text-sm italic">Maria Voichița</p>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <h3 class="text-xl font-bold">Moartea</h3>
+            <p>
+                Ștefan cel Mare a murit la 2 iulie 1504, la Suceava, după o domnie de 47 de ani. A fost înmormântat la Mănăstirea Putna, ctitoria sa, conform dorinței sale. Pe mormântul său se poate citi inscripția: "Binecredinciosul domn, Io Ștefan Voievod, domn al Țării Moldovei, care a domnit 47 de ani și 2 luni și 3 săptămâni și a trecut la veșnicele lăcașuri în anul 7012 (1504), luna iulie, ziua a 2-a, marți, în ceasul al 4-lea din zi."
+            </p>
+        </div>
+
+        <!-- Accession to the throne -->
+        <h2 class="text-2xl font-bold section-heading">Urcarea pe tron</h2>
+        <p class="mb-4">
+            Tatăl lui Ștefan, Bogdan al II-lea, a fost asasinat în 1451 la Reuseni de către fratele său vitreg, Petru Aron. Tânărul Ștefan a fost nevoit să plece în exil în Transilvania și apoi în Țara Românească. Cu sprijinul domnului muntean Vlad Țepeș, Ștefan a revenit în Moldova în primăvara anului 1457 cu o armată de aproximativ 6.000 de oameni.
+        </p>
+        <p class="mb-4">
+            La 12 aprilie 1457, Ștefan l-a învins pe Petru Aron la Doljești pe Siret, iar două zile mai târziu, la 14 aprilie, l-a înfrânt definitiv la Orbic (astăzi Gârleni), în Joia Mare. Petru Aron a fost nevoit să fugă în Polonia.
+        </p>
+        <p class="mb-4">
+            După aceste victorii, Ștefan a organizat o ceremonie de încoronare la locul numit "Direptate", pe valea Siretului, unde a fost aclamat ca domn de boieri și popor, și uns în domnie de către mitropolitul Teoctist.
+        </p>
+        <div class="quote">
+            "Deciia Ștefan vodă strâns-au boierii țării și mari și mici și altă curte măruntă dimpreună cu mitropolitul Theoctistu și cu mulți călugări, la locul ce să chiamă Direptatea și i-au intrebatu pre toți: este-le cu voie tuturor să le fie domnu? Ei cu toții au strigat într-un glas: "În mulți ani de la Dumnezeu sa domnești". Și decii cu toții l-au rădicatu domnu și l-au pomăzuitu spre domnie mitropolitul Theoctistu. Și de acolea luo Ștefan vodă steagul țărâi Moldovei și să duse la scaunul Sucevii."<br>
+            <span class="text-right block mt-2">- Grigore Ureche, Letopisețul Țării Moldovei</span>
+        </div>
+
+        <!-- Personality -->
+        <h2 class="text-2xl font-bold section-heading">Personalitatea</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+            <div class="md:col-span-2">
+                <p class="mb-4">
+                    Din relatările contemporane, Ștefan cel Mare era un bărbat de statură medie spre mică (sub 160 cm), cu fața rotundă, frunte largă, ochi albaștri și păr lung și blond. După cum spunea cronicarul Grigore Ureche, "Fost-au Ștefan Vodă om nu mare de stat, mânios și de grabu a vărsa sânge nevinovat; de multe ori la ospețe omora fără județ. Amintrelea era om întreg la fire, neleneș și lucrul său îl știa a-l acoperi și unde nu gândeai, acolo îl aflai."
+                </p>
+                <p class="mb-4">
+                    Avea un temperament coleric, dar pe măsură ce a înaintat în vârstă a reușit să-și controleze accesele de furie. Era cunoscut pentru curajul său în luptă, inteligență ascuțită și capacitatea de a lua decizii rapide și eficiente.
+                </p>
+                <p>
+                    Ștefan cel Mare avea două trăsături aparent contradictorii: era profund religios și în același timp putea fi nemilos cu dușmanii săi. Această dualitate reflecta realitatea dură a epocii în care a trăit, când supraviețuirea statului moldovean depindea de decizii ferme și acțiuni hotărâte.
+                </p>
+            </div>
+            <div class="md:col-span-1">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Humorstefan.jpg/170px-Humorstefan.jpg" alt="Ștefan cel Mare după Evangheliarul de la Mănăstirea Humor" class="image-frame w-full">
+                <p class="text-sm text-center italic">Ștefan cel Mare după Evangheliarul de la Mănăstirea Humor</p>
+            </div>
+        </div>
+
+        <div class="quote">
+            "La lucru de războaie meșter, unde era nevoe însuși se vâra, ca văzându-l ai săi, să nu îndărăpteze și pentru aceia rar războiu de nu biruia și unde-l biruia alții, nu pierdea nădejdea, știindu-se căzut jos, se ridica deasupra biruitorilor."<br>
+            <span class="text-right block mt-2">- Grigore Ureche, Letopisețul Țării Moldovei</span>
+        </div>
+
+        <!-- Internal Politics -->
+        <h2 class="text-2xl font-bold section-heading">Politica Internă</h2>
+        <p class="mb-4">
+            Politica internă a lui Ștefan cel Mare a urmărit întărirea puterii centrale a domnului și asigurarea stabilității țării. Principalele direcții de acțiune au fost:
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-bold mb-4 text-center text-red-800">Relația cu Boierimea</h3>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>Limitarea puterii marii boierimi prin crearea unei noi clase de mici boieri fideli domnului</li>
+                    <li>Stabilizarea ierarhiei boierești, cu dregătorii militari (pârcălabii) având o poziție privilegiată</li>
+                    <li>Asigurarea loialității Sfatului Domnesc prin numirea de rude și apropiați în funcții importante</li>
+                    <li>În cei 47 de ani de domnie a avut de înfruntat doar două conspirații boierești (1471 și 1504)</li>
+                </ul>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-bold mb-4 text-center text-red-800">Susținerea Țărănimii Libere</h3>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>Împroprietărirea răzeșilor (țărani liberi) cu pământuri, în special după războaie</li>
+                    <li>Reformarea sistemului de obligații militare, incluzând țărănimea liberă în apărarea țării</li>
+                    <li>Colonizarea regiunilor de graniță cu oșteni-plugari pentru apărarea frontierelor</li>
+                    <li>Folosirea răzeșilor în "oastea cea mare" pentru a contracara puterea marii boierimi</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-bold mb-4 text-center text-red-800">Economie și Comerț</h3>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>Dezvoltarea orașelor ca centre meșteșugărești și comerciale</li>
+                    <li>Stabilirea de monopoluri domnești (sare, argint, pește, ceară)</li>
+                    <li>Baterea unei monede proprii - "grosul moldovenesc"</li>
+                    <li>Acordarea de privilegii comerciale negustorilor din Brașov și Lvov</li>
+                    <li>Construirea și întreținerea drumurilor și podurilor comerciale</li>
+                </ul>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-bold mb-4 text-center text-red-800">Administrație și Justiție</h3>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>Reorganizarea administrativă a ținuturilor și cetăților</li>
+                    <li>Crearea sistemului de "ocoale domnești" - regiuni administrate direct de domn</li>
+                    <li>Introducerea codului de legi "Sintagma" a lui Matei Vlastares</li>
+                    <li>Trecerea graduală de la dreptul cutumiar la dreptul scris</li>
+                    <li>Introducerea de pedepse severe pentru trădare și hiclenie</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Foreign Policy -->
+        <h2 class="text-2xl font-bold section-heading">Politica Externă</h2>
+        <p class="mb-4">
+            Politica externă a lui Ștefan cel Mare a fost una realistă și echilibrată, având ca scop principal păstrarea independenței Moldovei în fața marilor puteri vecine: Imperiul Otoman, Regatul Poloniei și Regatul Ungariei.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div class="text-center">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Fatih_Sultan_Mehmet_Alternatif_Portre.jpg/170px-Fatih_Sultan_Mehmet_Alternatif_Portre.jpg" alt="Mahomed al II-lea" class="image-frame mx-auto h-48">
+                <p class="text-sm italic">Mahomed al II-lea</p>
+            </div>
+            <div class="text-center">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Casimir_IV_Jagiellon.PNG/250px-Casimir_IV_Jagiellon.PNG" alt="Cazimir al IV-lea" class="image-frame mx-auto h-48">
+                <p class="text-sm italic">Cazimir al IV-lea</p>
+            </div>
+            <div class="text-center">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/M%C3%A1ty%C3%A1s_Kir%C3%A1ly_arcm%C3%A1sa.jpg/250px-M%C3%A1ty%C3%A1s_Kir%C3%A1ly_arcm%C3%A1sa.jpg" alt="Matei Corvin" class="image-frame mx-auto h-48">
+                <p class="text-sm italic">Matei Corvin</p>
+            </div>
+        </div>
+
+        <p class="mb-4">
+            Istoricii împart politica externă a lui Ștefan cel Mare în trei perioade principale:
+        </p>
+
+        <div class="timeline-item">
+            <h3 class="text-xl font-bold">1457-1469: Consolidarea domniei</h3>
+            <ul class="list-disc pl-8 mb-4">
+                <li>Conflicte cu polonii care-l adăposteau pe Petru Aron</li>
+                <li>Încercări de cucerire a Chiliei</li>
+                <li>Lupta de la Baia (1467) împotriva lui Matei Corvin</li>
+                <li>Victoria de la Lipnic (1469) împotriva tătarilor</li>
+                <li>Reînnoirea privilegiilor comerciale pentru negustorii din Brașov și Lvov</li>
+            </ul>
+        </div>
+
+        <div class="timeline-item">
+            <h3 class="text-xl font-bold">1470-1486: Lupta antiotomană</h3>
+            <ul class="list-disc pl-8 mb-4">
+                <li>Intervențiile în Țara Românească pentru instalarea unor domni favorabili</li>
+                <li>Marea victorie de la Vaslui (1475) împotriva otomanilor</li>
+                <li>Înfrângerea de la Războieni-Valea Albă (1476)</li>
+                <li>Pierderea cetăților Chilia și Cetatea Albă (1484)</li>
+                <li>Încheierea păcii cu Imperiul Otoman (1487)</li>
+            </ul>
+        </div>
+
+        <div class="timeline-item">
+            <h3 class="text-xl font-bold">1487-1504: Relațiile cu Polonia</h3>
+            <ul class="list-disc pl-8 mb-4">
+                <li>Alianța cu Moscova și Hanatul Crimeii împotriva Poloniei</li>
+                <li>Victoria de la Codrii Cosminului (1497) împotriva regelui polon Ioan Albert</li>
+                <li>Expediția în Galiția (1498)</li>
+                <li>Încercarea de recuperare a Pocuției (1502-1503)</li>
+            </ul>
+        </div>
+
+        <div class="quote">
+            "Ștefan urmări încă din tinerețea lui un principiu, care îi fu prea folositor în lunga și viforoasa lui carieră. Niciodată doi dușmani, ci totdeauna împăcarea cu unul, cât era în ceartă cu celălalt."<br>
+            <span class="text-right block mt-2">- A.D. Xenopol, Istoria românilor din Dacia Traiană</span>
+        </div>
+
+        <!-- Military Power -->
+        <h2 class="text-2xl font-bold section-heading">Puterea Militară</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+            <div class="md:col-span-2">
+                <p class="mb-4">
+                    Ștefan cel Mare a acordat o atenție deosebită organizării armatei și sistemului de apărare al Moldovei. Armata era formată din "oastea cea mică" - forța permanentă, compusă din cetele boierești și curteni, și "oastea cea mare" - mobilizată doar în cazuri excepționale, când erau chemați la luptă toți bărbații valizi.
+                </p>
+                <p class="mb-4">
+                    Realizarea cea mai importantă a fost crearea unui sistem de cetăți care protejau granițele țării: Suceava, Neamț, Hotin, Roman, Chilia, Cetatea Albă, Crăciuna, Orhei, Soroca. Aceste fortărețe erau amplasate strategic pentru a controla principalele căi de acces în Moldova și pentru a servi ca puncte de rezistență în fața invaziilor.
+                </p>
+                <p>
+                    Sub conducerea lui Ștefan, arta militară moldovenească a atins un nivel remarcabil de dezvoltare. Domnitorul folosea cu măiestrie elementele de teren, condițiile meteorologice și tacticile de luptă asimetrice pentru a contracara superioritatea numerică a inamicilor. Victoriile sale împotriva unor armate mult mai numeroase demonstrează geniul său militar.
+                </p>
+            </div>
+            <div class="md:col-span-1">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Istanbul.Topkapi079.jpg/250px-Istanbul.Topkapi079.jpg" alt="Sabia lui Ștefan cel Mare" class="image-frame w-full">
+                <p class="text-sm text-center italic">Sabia lui Ștefan cel Mare</p>
+            </div>
+        </div>
+
+        <!-- Major Battles -->
+        <h2 class="text-2xl font-bold section-heading">Marile Bătălii</h2>
+        <p class="mb-6">
+            În timpul domniei sale, Ștefan cel Mare a purtat 36 de bătălii, dintre care a câștigat 34. Iată cele mai importante confruntări care au marcat istoria Moldovei:
+        </p>
+
+        <div class="battle-card">
+            <div class="battle-card-header">
+                <h3 class="text-xl font-bold">Bătălia de la Baia (14-15 decembrie 1467)</h3>
+            </div>
+            <div class="battle-card-body grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="md:col-span-2">
+                    <p class="mb-4"><strong>Adversar:</strong> Regatul Ungariei, condus de regele Matei Corvin</p>
+                    <p class="mb-4"><strong>Context:</strong> Matei Corvin a invadat Moldova cu aproximativ 40.000 de oameni, cu intenția de a-l înlocui pe Ștefan cu un domn fidel intereselor ungare.</p>
+                    <p class="mb-4"><strong>Desfășurare:</strong> Ștefan a atacat prin surprindere armata maghiară cantonată la Baia, în timpul nopții. A incendiat orașul din mai multe direcții simultan, creând panică în rândurile inamicului. Regele Matei Corvin a fost rănit în timpul luptei.</p>
+                    <p><strong>Rezultat:</strong> Victoria lui Ștefan cel Mare. Armata maghiară a fost nevoită să se retragă în grabă din Moldova, abandonând planurile de subjugare a țării.</p>
+                </div>
+                <div class="md:col-span-1">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e2/Kingdom_of_Hungary_against_Moldavians_flag_in_battle.jpg" alt="Bătălia de la Baia" class="image-frame w-full">
+                    <p class="text-sm italic text-center">Reprezentare a Bătăliei de la Baia</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="battle-card">
+            <div class="battle-card-header">
+                <h3 class="text-xl font-bold">Bătălia de la Vaslui (Podul Înalt) (10 ianuarie 1475)</h3>
+            </div>
+            <div class="battle-card-body grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="md:col-span-2">
+                    <p class="mb-4"><strong>Adversar:</strong> Imperiul Otoman, armată condusă de Suleiman Pașa, beilerbeiul Rumeliei</p>
+                    <p class="mb-4"><strong>Context:</strong> După ce Ștefan a refuzat să mai plătească tribut Porții și a intervenit în Țara Românească, sultanul Mehmed al II-lea a trimis o armată numeroasă pentru a-l pedepsi.</p>
+                    <p class="mb-4"><strong>Desfășurare:</strong> Beneficiind de teren mlăștinos, ceață densă și o iarnă grea, Ștefan a atras armata otomană într-o poziție dezavantajoasă. Oastea moldoveană, inferioară numeric (aproximativ 40.000 față de 120.000), a folosit tactici de ambuscadă și a beneficiat de prezența a 20 de tunuri.</p>
+                    <p><strong>Rezultat:</strong> Victoria strălucită a lui Ștefan cel Mare. Cronicile vremii menționează că "moldovenii au făcut un asemenea măcel încât au dat turcilor o rană de nevindecat". Papa Sixt al IV-lea l-a numit pe Ștefan "Athleta Christi" (Atletul lui Hristos).</p>
+                </div>
+                <div class="md:col-span-1">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Vaslui_Battle_map.svg/250px-Vaslui_Battle_map.svg.png" alt="Harta Bătăliei de la Vaslui" class="image-frame w-full">
+                    <p class="text-sm italic text-center">Harta Bătăliei de la Vaslui</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="battle-card">
+            <div class="battle-card-header">
+                <h3 class="text-xl font-bold">Bătălia de la Valea Albă-Războieni (26 iulie 1476)</h3>
+            </div>
+            <div class="battle-card-body">
+                <p class="mb-4"><strong>Adversar:</strong> Imperiul Otoman, armată condusă personal de sultanul Mehmed al II-lea</p>
+                <p class="mb-4"><strong>Context:</strong> După înfrângerea de la Vaslui, sultanul a decis să conducă personal o expediție punitivă împotriva Moldovei.</p>
+                <p class="mb-4"><strong>Desfășurare:</strong> Ștefan a mobilizat "oastea cea mare", dar numărul moldovenilor (circa 20.000) era mult inferior otomanilor (150.000). Lupta s-a dat în câmp deschis, fără posibilitatea utilizării tacticilor de ambuscadă.</p>
+                <p class="mb-4"><strong>Rezultat:</strong> Una din cele două înfrângeri recunoscute ale lui Ștefan cel Mare. După bătălie, domnitorul s-a retras în cetățile din nord, organizând o rezistență de gherilă care a epuizat armata otomană. Turcii nu au reușit să cucerească cetățile Suceava, Neamț și Hotin, fiind nevoiți să se retragă din Moldova.</p>
+                <p class="italic">"Ne-am luptat război greu și am pierdut oameni buni, boieri, osteni, mai ales, dată fiind furia păgânilor, pentru credința creștină, pentru salvarea bisericilor lui Hristos, pentru a ocroti țara de păgâni."
+                <br><span class="text-right block">- Din scrisoarea lui Ștefan către suveranii creștini, după înfrângere</span></p>
+            </div>
+        </div>
+
+        <div class="battle-card">
+            <div class="battle-card-header">
+                <h3 class="text-xl font-bold">Bătălia de la Codrii Cosminului (26-30 octombrie 1497)</h3>
+            </div>
+            <div class="battle-card-body">
+                <p class="mb-4"><strong>Adversar:</strong> Regatul Poloniei, armată condusă de regele Ioan Albert</p>
+                <p class="mb-4"><strong>Context:</strong> Sub pretextul unei campanii antiotomane, regele Poloniei a intrat în Moldova cu intenția de a-l înlocui pe Ștefan cu fratele său, Sigismund.</p>
+                <p class="mb-4"><strong>Desfășurare:</strong> După eșecul asediului Sucevei, armata poloneză se retrăgea spre țara lor. Ștefan a blocat drumul de retragere prin tăierea și răsturnarea copacilor în calea armatei poloneze, într-o zonă de pădure deasă (Codrii Cosminului).</p>
+                <p><strong>Rezultat:</strong> Victoria categorică a lui Ștefan cel Mare. O mare parte din nobilimea poloneză a fost capturată sau ucisă. Ștefan a continuat campania cu o invazie în Galiția în 1498, pentru a pedepsi Polonia pentru agresiune.</p>
+            </div>
+        </div>
+
+        <!-- Churches and Monasteries -->
+        <h2 class="text-2xl font-bold section-heading">Ctitorii - Biserici și Mănăstiri</h2>
+        <p class="mb-6">
+            Ștefan cel Mare este cunoscut ca unul dintre cei mai mari ctitori de lăcașe sfinte din istoria românilor. Tradiția populară spune că a ridicat câte o biserică sau mănăstire după fiecare victorie, însă documentele atestă cu certitudine 21 de biserici și mănăstiri construite la inițiativa sa. Iată cele mai importante:
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="ctitorie-card">
+                <img src="https://www.stefancelmare.ro/documente/dyn_img/biserici/Putna-1.jpg" alt="Mănăstirea Putna" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-bold mb-2">Mănăstirea Putna (1469)</h3>
+                    <p class="mb-2">
+                        Cea mai importantă ctitorie a lui Ștefan cel Mare, unde se află și mormântul său. A fost concepută ca necropolă domnească și centru spiritual al Moldovei.
+                    </p>
+                    <p class="text-sm italic">
+                        "La anul 6977 (1469), luna iulie, 10 zile, s-a sfârșit și s-a sfințit această biserică, în numele Preacuratei Născătoare de Dumnezeu și Pururea Fecioarei Maria."
+                    </p>
+                </div>
+            </div>
+
+            <div class="ctitorie-card">
+                <img src="https://www.stefancelmare.ro/documente/dyn_img/biserici/Voronet-1.jpg" alt="Mănăstirea Voroneț" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-bold mb-2">Mănăstirea Voroneț (1488)</h3>
+                    <p class="mb-2">
+                        Ridicată în doar trei luni și trei săptămâni după victoria împotriva turcilor. Este supranumită "Capela Sixtină a Estului" datorită frescelor sale exterioare de un albastru unic.
+                    </p>
+                    <p class="text-sm italic">
+                        "Io Ștefan Voievod, din mila lui Dumnezeu domn al Țării Moldovei, fiul lui Bogdan Voievod, a început să zidească acest lăcaș în numele Sfântului și slăvitului mare mucenic și purtător de biruință Gheorghe."
+                    </p>
+                </div>
+            </div>
+
+            <div class="ctitorie-card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Biserica_Manastirii_Neamt.jpg/220px-Biserica_Manastirii_Neamt.jpg" alt="Mănăstirea Neamț" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-bold mb-2">Mănăstirea Neamț (1497)</h3>
+                    <p class="mb-2">
+                        Reconstruită de Ștefan, a devenit unul dintre cele mai importante centre culturale și spirituale ale Moldovei, renumit pentru școala de caligrafi și miniaturiști.
+                    </p>
+                    <p class="text-sm italic">
+                        "Io Ștefan Voievod, din mila lui Dumnezeu domn al Țării Moldovei, a zidit și a săvârșit acest hram în numele Înălțării Domnului, în anul 7005 (1497)."
+                    </p>
+                </div>
+            </div>
+
+            <div class="ctitorie-card">
+                <img src="https://www.stefancelmare.ro/documente/dyn_img/biserici/Patrauti-1.jpg" alt="Biserica din Pătrăuți" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-bold mb-2">Biserica din Pătrăuți (1487)</h3>
+                    <p class="mb-2">
+                        Prima ctitorie după victoria de la Șcheia împotriva turcilor, dedicată Înălțării Sfintei Cruci. Păstrează valoroase fresce interioare, inclusiv "Cavalcada Sfinților".
+                    </p>
+                    <p class="text-sm italic">
+                        "Io Ștefan voievod, domn al țării Moldovei, fiul lui Bogdan, a început să zidească casa aceasta întru numele cinstitei Cruci în anul 6995 (1487), luna iunie 13."
+                    </p>
+                </div>
+            </div>
+
+            <div class="ctitorie-card">
+                <img src="https://www.stefancelmare.ro/documente/dyn_img/biserici/Razboieni-1.jpg" alt="Biserica de la Războieni" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-bold mb-2">Biserica de la Războieni (1496)</h3>
+                    <p class="mb-2">
+                        Ridicată pe locul înfrângerii de la Valea Albă, în memoria ostașilor căzuți în lupta cu turcii. Este un monument comemorativ cu valoare simbolică deosebită.
+                    </p>
+                    <p class="text-sm italic">
+                        "În anul 7004 (1496), eu Ștefan voievod, am zidit această biserică pentru sufletul și pomenirea tuturor creștinilor care au pierit aici în bătălia cu păgânii."
+                    </p>
+                </div>
+            </div>
+
+            <div class="ctitorie-card">
+                <img src="https://www.stefancelmare.ro/documente/dyn_img/biserici/Borzesti-1.jpg" alt="Biserica din Borzești" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-bold mb-2">Biserica din Borzești (1494)</h3>
+                    <p class="mb-2">
+                        Construită în satul natal al lui Ștefan cel Mare, este dedicată Adormirii Maicii Domnului. Arhitectura sa simplă dar elegantă reflectă spiritul locului.
+                    </p>
+                    <p class="text-sm italic">
+                        "Binecredinciosul și de Hristos iubitorul Io Ștefan voievod, din mila lui Dumnezeu domn al Țării Moldovei, a zidit această biserică întru numele Adormirii Preacuratei Născătoare de Dumnezeu."
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <p class="mt-6 mb-4">
+            Pe lângă bisericile și mănăstirile din Moldova, Ștefan cel Mare a sprijinit financiar și lăcașuri din afara granițelor: mănăstirile de la Muntele Athos (Zografu, Grigoriu, Sfântul Pavel), Transilvania (Vad și Feleacu) și Țara Românească.
+        </p>
+        <p>
+            Stilul arhitectonic al ctitoriilor lui Ștefan cel Mare îmbină elemente bizantine, gotice și autohtone, creând stilul moldovenesc, caracterizat prin eleganță, proporții armonioase și decor exterior specific (ocnițe, discuri smălțuite, arcade).
+        </p>
+
+        <!-- Cultural and Spiritual Contributions -->
+        <h2 class="text-2xl font-bold section-heading">Contribuții Culturale și Spirituale</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+                <h3 class="text-xl font-bold mb-4">Scriptoriile și Mănăstirile</h3>
+                <p class="mb-4">
+                    Ștefan cel Mare a transformat mănăstirile în centre culturale și spirituale. La Putna și Neamț au funcționat importante ateliere de caligrafiere și miniatură, unde s-au realizat capodopere ale artei manuscriselor medievale românești.
+                </p>
+                <p>
+                    Cele mai valoroase manuscrise din această perioadă sunt Tetraevanghelele, cărți de o frumusețe excepțională, executate pe pergament fin, cu ornamente și miniaturi în culori vii și aur. Dintre acestea, cele mai cunoscute sunt Tetraevanghelul lui Paladie (1489) și Tetraevanghelul de la Humor (1473).
+                </p>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/1489_-_Tetraevanghelul_lui_Paladie.jpg/250px-1489_-_Tetraevanghelul_lui_Paladie.jpg" alt="Tetraevanghelul lui Paladie" class="image-frame w-full mt-4">
+                <p class="text-sm italic text-center">Tetraevanghelul lui Paladie, 1489</p>
+            </div>
+            <div>
+                <h3 class="text-xl font-bold mb-4">Istoriografia și Broderia</h3>
+                <p class="mb-4">
+                    Ștefan cel Mare este considerat inițiatorul istoriografiei moldovene. Din vremea sa s-au păstrat mai multe cronici care relatează evenimentele domniei sale într-un stil sobru și concis: Letopisețul anonim al Moldovei, Letopisețul de la Putna, Cronica moldo-germană și Cronica moldo-polonă.
+                </p>
+                <p class="mb-4">
+                    Broderia medievală moldovenească a atins un nivel artistic excepțional. Cele mai importante piese sunt epitafurile, aerele și dvere realizate la atelierul de la Mănăstirea Putna. Capodopera acestei arte este "Acoperământul Mariei de Mangop", realizat în 1477.
+                </p>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/1477_-_Acoperamantul_Mariei_de_Mangop.jpg/170px-1477_-_Acoperamantul_Mariei_de_Mangop.jpg" alt="Acoperamântul Mariei de Mangop" class="image-frame w-full mt-4">
+                <p class="text-sm italic text-center">Acoperamântul Mariei de Mangop, 1477</p>
+            </div>
+        </div>
+
+        <!-- Legacy and Historical Importance -->
+        <h2 class="text-2xl font-bold section-heading">Moștenire și Importanță Istorică</h2>
+        <p class="mb-4">
+            Amintirea lui Ștefan cel Mare a rămas vie în memoria colectivă a românilor, figura sa fiind venerată atât ca erou național, cât și ca sfânt al Bisericii Ortodoxe Române. Imaginea sa a inspirat generații de conducători și a contribuit la formarea identității naționale românești.
+        </p>
+
+        <div class="quote">
+            "Lui Ștefan cel Mare românul îi atribuie tot ce-i pare curios, mare, vitejesc și chiar neînțeles în pământul nostru. Orice cetate, orice zid, orice val, orice șanț, întreabă-l cine le-au făcut; el îți va răspunde: Ștefan cel Mare. Orice pod, orice biserică, orice fântână, orice curte sau palat vechi, el le va raporta eroului său."<br>
+            <span class="text-right block mt-2">- Mihail Kogălniceanu</span>
+        </div>
+
+        <p class="mb-4">
+            În 1992, Biserica Ortodoxă Română l-a canonizat pe Ștefan cel Mare, cu numele de "Ștefan cel Mare și Sfânt", recunoscându-i meritele de apărător al creștinătății și ctitor de lăcașe sfinte.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+                <h3 class="text-xl font-bold mb-4">Realizări Majore</h3>
+                <ul class="list-disc pl-8 space-y-2">
+                    <li>Asigurarea independenței Moldovei într-o perioadă de mari tulburări geopolitice</li>
+                    <li>Modernizarea statului și armatei moldovenești</li>
+                    <li>Crearea unui sistem eficient de fortificații pentru apărarea țării</li>
+                    <li>Înființarea a peste 40 de biserici și mănăstiri</li>
+                    <li>Promovarea culturii, artei și spiritualității ortodoxe</li>
+                    <li>Impunerea Moldovei ca factor politic și militar important în regiune</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-xl font-bold mb-4">Simbolism și Comemorare</h3>
+                <ul class="list-disc pl-8 space-y-2">
+                    <li>Statui și monumente în toată România și Republica Moldova</li>
+                    <li>Prezent pe bancnota de 1 leu (România) și pe cea de 1 leu moldovenesc</li>
+                    <li>Numeroase școli, instituții și străzi îi poartă numele</li>
+                    <li>Ziua de 2 iulie (data morții sale) este sărbătorită anual ca zi de comemorare</li>
+                    <li>Personaj central în opere literare, filme și opere de artă</li>
+                    <li>Imaginea sa definește idealul de conducător în cultura românească</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Conclusion -->
+        <h2 class="text-2xl font-bold section-heading">Concluzie</h2>
+        <p class="mb-4">
+            Ștefan cel Mare rămâne una dintre cele mai strălucite figuri ale istoriei românești, un simbol al luptei pentru independență și al rezistenței în fața invadatorilor. Prin realizările sale politice, militare, culturale și spirituale, și-a câștigat un loc permanent în memoria colectivă a românilor.
+        </p>
+        <p class="mb-4">
+            Ultima sa dorință, transmisă fiului său Bogdan al III-lea, reflectă înțelepciunea politică dobândită în cei 47 de ani de domnie: să păstreze pacea cu Imperiul Otoman, "socotindu din toții mai puternicu pre turcu și mai înțeleptu".
+        </p>
+        <p>
+            Domnia sa reprezintă o perioadă de apogeu a statalității moldovenești medievale, iar moștenirea sa culturală, spirituală și politică continuă să inspire și astăzi. Monumentele pe care le-a lăsat, în special bisericile și mănăstirile, stau mărturie măreției sale și sunt incluse astăzi în patrimoniul UNESCO.
+        </p>
+
+        <div class="text-center mt-10 mb-6">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Constantin_Lecca_-_Stefan_cel_Mare.jpg/89px-Constantin_Lecca_-_Stefan_cel_Mare.jpg" alt="Portret Ștefan cel Mare" class="image-frame mx-auto h-40">
+            <p class="text-sm italic">Portret de Constantin Lecca (sec. XIX)</p>
+        </div>
+
+
+    </div>
