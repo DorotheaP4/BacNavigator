@@ -1,0 +1,179 @@
+
+    <style>
+
+        .instructions {
+            margin-bottom: 20px;
+            font-style: italic;
+            border: 1px solid #ccc;
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
+        .subject {
+            margin-bottom: 40px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            background-color: #fff;
+        }
+        .subject h2 {
+            margin-top: 0;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .question {
+            margin-bottom: 15px;
+        }
+        .question label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .question p {
+             margin-bottom: 5px;
+             display: inline; /* Keep text and input on same line if possible */
+        }
+         .question span.points {
+            font-weight: normal;
+            margin-right: 10px;
+        }
+        .question input[type="text"] {
+            width: calc(100% - 150px); /* Adjust width considering the label/text */
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box; /* Include padding and border in the element's total width and height */
+        }
+         /* Style for sub-parts of a question */
+        .question .sub-question {
+             margin-left: 20px; /* Indent sub-questions */
+             margin-top: 10px;
+        }
+         .question .sub-question input[type="text"] {
+             width: calc(100% - 170px); /* Adjust width further for sub-questions */
+         }
+
+
+        .footer {
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #666;
+        }
+    </style>
+
+
+    <div class="instructions">
+        <ul>
+            <li>Toate subiectele sunt obligatorii. Se acordă zece puncte din oficiu.</li>
+            <li>Timpul de lucru efectiv este de trei ore.</li>
+        </ul>
+    </div>
+
+    <div class="subject">
+        <h2>SUBIECTUL I (30 de puncte)</h2>
+
+        <div class="question">
+            <span class="points">5p</span> <p>1. Într-o progresie aritmetică (a<sub>n</sub>)<sub>n≥1</sub>, se cunosc a₄ = 11 și suma primilor 5 termeni S₅ = 35. Determinați primul termen a₁.</p>
+            <input type="text" name="subject1_q1">
+        </div>
+
+        <div class="question">
+            <span class="points">5p</span> <p>2. Se consideră funcțiile f : R &rarr; R, f(x) = x - 3 și g : R &rarr; R, g(x) = 2x + 1. Determinați (g &omicron; f)(x).</p>
+            <input type="text" name="subject1_q2">
+        </div>
+
+        <div class="question">
+            <span class="points">5p</span> <p>3. Rezolvați în mulțimea numerelor reale ecuația 4<sup>x</sup> - 2 &middot; 2<sup>x</sup> - 8 = 0.</p>
+            <input type="text" name="subject1_q3">
+        </div>
+
+        <div class="question">
+            <span class="points">5p</span> <p>4. Calculați numărul de submulțimi cu exact 2 elemente ale mulțimii {1, 2, 3, 4, 5, 6}.</p>
+            <input type="text" name="subject1_q4">
+        </div>
+
+        <div class="question">
+            <span class="points">5p</span> <p>5. În reperul cartezian xOy se consideră punctele A(4, -3) și B(1, 1). Calculați distanța AB.</p>
+            <input type="text" name="subject1_q5">
+        </div>
+
+        <div class="question">
+            <span class="points">5p</span> <p>6. Se consideră triunghiul ABC cu AB = 6, AC = 8 și m(&ang;A) = 30°. Arătați că aria triunghiului ABC este egală cu 24.</p>
+            <input type="text" name="subject1_q6">
+        </div>
+
+    </div>
+
+    <div class="subject">
+        <h2>SUBIECTUL al II-lea (30 de puncte)</h2>
+
+        <div class="question">
+            <span class="points">5p</span> <p>1. Se consideră matricea M(a) = [[1, a], [a, 1]], unde a este număr real.</p>
+            <div class="sub-question">
+                 <span class="points">5p</span> <p>a) Calculați det(M(3)).</p>
+                 <input type="text" name="subject2_q1a">
+            </div>
+             <div class="sub-question">
+                 <span class="points">5p</span> <p>b) Arătați că M(a) + M(b) = 2 &middot; M((a+b)/2), pentru orice numere reale a și b.</p>
+                 <input type="text" name="subject2_q1b">
+            </div>
+             <div class="sub-question">
+                 <span class="points">5p</span> <p>c) Determinați numărul real a pentru care M(a) &middot; M(a) = M(2a).</p>
+                 <input type="text" name="subject2_q1c">
+            </div>
+        </div>
+
+        <div class="question">
+             <span class="points">5p</span> <p>2. Se consideră polinomul P(X) = X&sup3; + aX&sup2; + 3, unde a este număr real.</p>
+            <div class="sub-question">
+                 <span class="points">5p</span> <p>a) Determinați numărul real a știind că P(2) = 15.</p>
+                 <input type="text" name="subject2_q2a">
+            </div>
+             <div class="sub-question">
+                 <span class="points">5p</span> <p>b) Pentru a = -6, arătați că polinomul P are o rădăcină întreagă.</p>
+                 <input type="text" name="subject2_q2b">
+            </div>
+             <div class="sub-question">
+                 <span class="points">5p</span> <p>c) Pentru a = -6, determinați suma pătratelor rădăcinilor polinomului P.</p>
+                 <input type="text" name="subject2_q2c">
+            </div>
+        </div>
+
+    </div>
+
+    <div class="subject">
+        <h2>SUBIECTUL al III-lea (30 de puncte)</h2>
+
+        <div class="question">
+            <span class="points">5p</span> <p>1. Se consideră funcția f : R &rarr; R, f(x) = x&sup3; - 3x&sup2; + 5.</p>
+            <div class="sub-question">
+                 <span class="points">5p</span> <p>a) Arătați că f'(x) = 3x(x-2), x &isin; R.</p>
+                 <input type="text" name="subject3_q1a">
+            </div>
+             <div class="sub-question">
+                 <span class="points">5p</span> <p>b) Calculați lim<sub>x&rarr;1</sub> (f(x) - f(1)) / (x-1).</p>
+                 <input type="text" name="subject3_q1b">
+            </div>
+             <div class="sub-question">
+                 <span class="points">5p</span> <p>c) Determinați punctele de extrem local ale funcției f.</p>
+                 <input type="text" name="subject3_q1c">
+            </div>
+        </div>
+
+        <div class="question">
+             <span class="points">5p</span> <p>2. Se consideră funcția f : (0, &infin;) &rarr; R, f(x) = 1/x + x.</p>
+            <div class="sub-question">
+                 <span class="points">5p</span> <p>a) Arătați că &int;<sub>1</sub><sup>e</sup> (f(x) - x) dx = 1.</p>
+                 <input type="text" name="subject3_q2a">
+            </div>
+             <div class="sub-question">
+                 <span class="points">5p</span> <p>b) Calculați &int;<sub>1</sub><sup>2</sup> (f(x) - 1/x) e<sup>x</sup> dx.</p>
+                 <input type="text" name="subject3_q2b">
+            </div>
+             <div class="sub-question">
+                 <span class="points">5p</span> <p>c) Calculați lim<sub>x&rarr;0, x>0</sub> (&frac1x²) &int;<sub>0</sub><sup>x</sup> t &middot; f(t) dt.</p>
+                 <input type="text" name="subject3_q2c">
+            </div>
+        </div>
+
+    </div>
+

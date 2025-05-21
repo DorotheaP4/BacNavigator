@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Istorie Simulare BAC</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        .header, .subject-title, .source-text, .instructions {
+            margin-bottom: 15px;
+        }
+        .header {
+            text-align: center;
+            border-bottom: 1px solid #000;
+            padding-bottom: 10px;
+        }
+        .subject-title {
+            font-weight: bold;
+            margin-top: 20px;
+            border-bottom: 1px solid #000;
+            padding-bottom: 5px;
+        }
+        .instructions {
+            font-style: italic;
+        }
+        .source-text {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 15px;
+            background-color: #f9f9f9;
+        }
+        .questions ol {
+            list-style-type: decimal;
+            padding-left: 20px;
+        }
+        .questions li {
+            margin-bottom: 15px;
+        }
+        input[type="text"] {
+            width: 80%;
+            padding: 5px;
+            margin-top: 5px;
+        }
+         textarea {
+            width: 95%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+         }
+        .points {
+            font-weight: bold;
+        }
+        .essay-instructions {
+            margin-top: 20px;
+            border-top: 1px solid #000;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+
+    <div class="instructions">
+        <ul>
+            <li>Toate subiectele sunt obligatorii. Se acordă zece puncte din oficiu.</li>
+            <li>Timpul de lucru efectiv este de trei ore.</li>
+        </ul>
+    </div>
+
+    <div class="subject-title">SUBIECTUL I (30 de puncte)</div>
+
+    <div class="source-text">
+        <h3>Citiţi, cu atenţie, sursele de mai jos:</h3>
+        <p><strong>A.</strong> „Adus în țară în 1866, Carol I de Hohenzollern-Sigmaringen a devenit Principe al Principatelor Unite. În același an, a fost adoptată o nouă Constituție, considerată cea mai modernă din epocă pentru sud-estul Europei. Aceasta prevedea separarea puterilor în stat, garanta drepturi și libertăți cetățenești și stabilea un regim parlamentar-constituțional. Stabilitatea dinastică și cadrul juridic modern au favorizat procesul de dezvoltare internă a noului stat.”</p>
+        <p><strong>B.</strong> „Contextul european marcat de conflictul ruso-turc din 1877 a oferit României ocazia de a-și proclama independența de stat. După participarea armatei române la luptele de la Plevna, contribuind la victoria împotriva Imperiului Otoman, independența a fost recunoscută internațional prin Tratatul de la Berlin din 1878. Prin acest tratat, România primea Dobrogea și Insula Șerpilor, dar era obligată să cedeze sudul Basarabiei Imperiului Rus. În 1881, România a fost proclamată Regat.”</p>
+    </div>
+
+    <div class="questions">
+        <p>Pornind de la aceste surse, răspundeţi la următoarele cerinţe:</p>
+        <ol>
+            <li>Numiţi un document fundamental al statului român menționat în sursa A. <span class="points">2 puncte</span><br><input type="text" name="q1_s1_v7"></li>
+            <li>Precizaţi, din sursa B, un an în care s-a desfășurat un eveniment major pentru obținerea independenței. <span class="points">2 puncte</span><br><input type="text" name="q2_s1_v7"></li>
+            <li>Menţionaţi două puteri implicate în conflictul din 1877, conform sursei B. <span class="points">6 puncte</span><br><input type="text" name="q3_s1_v7_1"><br><input type="text" name="q3_s1_v7_2"></li>
+            <li>Scrieţi, pe foaia de examen, litera corespunzătoare sursei care susţine că Principele a fost adus în țară în 1866. <span class="points">3 puncte</span><br><input type="text" name="q4_s1_v7"></li>
+            <li>Scrieţi o relaţie cauză-efect stabilită între două informaţii selectate din sursa B, precizând rolul fiecăreia dintre aceste informaţii (cauză, respectiv efect). <span class="points">7 puncte</span><br>Cauză: <textarea name="q5_s1_v7_cause" rows="2"></textarea><br>Efect: <textarea name="q5_s1_v7_effect" rows="2"></textarea></li>
+            <li>Prezentaţi alte două fapte istorice legate de viața politică internă a României în perioada 1866-1881, în afara celor precizate în sursele A și B. <span class="points">6 puncte</span><br><textarea name="q6_s1_v7_1" rows="2"></textarea><br><textarea name="q6_s1_v7_2" rows="2"></textarea></li>
+            <li>Menţionaţi o asemănare între obținerea independenței României în 1877-1878 și statutul Țării Românești față de Poarta Otomană în secolul al XV-lea. <span class="points">4 puncte</span><br><textarea name="q7_s1_v7" rows="2"></textarea></li>
+        </ol>
+    </div>
+
+    <div class="subject-title">SUBIECTUL al II-lea (30 de puncte)</div>
+
+    <div class="source-text">
+        <h3>Citiţi, cu atenţie, sursa de mai jos:</h3>
+        <p>"Spre sfârșitul Primului Război Mondial, pe fondul dezagregării imperiilor multinaționale (Austro-Ungar, Rus) și al afirmării principiului autodeterminării popoarelor, s-a creat contextul favorabil pentru realizarea Marii Uniri. În Basarabia, Sfatul Țării a votat unirea cu România la 27 martie/9 aprilie 1918. În Bucovina, Congresul General al Bucovinei a adoptat hotărârea de unire la 28 noiembrie 1918. Cel mai important moment a fost Adunarea Națională de la Alba Iulia, unde, la 1 decembrie 1918, reprezentanții românilor din Transilvania, Banat, Crișana și Maramureș au votat unirea cu Regatul României, completând astfel statul național unitar român."</p>
+    </div>
+
+    <div class="questions">
+        <p>Pornind de la această sursă, răspundeţi la următoarele cerinţe:</p>
+        <ol>
+            <li>Numiţi un teritoriu românesc care s-a unit cu România, conform sursei date. <span class="points">2 puncte</span><br><input type="text" name="q1_s2_v7"></li>
+            <li>Precizaţi data Unirii din Basarabia, conform sursei date. <span class="points">2 puncte</span><br><input type="text" name="q2_s2_v7"></li>
+            <li>Menţionaţi două imperii multinaționale menționate în sursa dată. <span class="points">6 puncte</span><br><input type="text" name="q3_s2_v7_1"><br><input type="text" name="q3_s2_v7_2"></li>
+            <li>Menţionaţi, din sursa dată, două informaţii referitoare la evenimentul de la Alba Iulia. <span class="points">6 puncte</span><br><textarea name="q4_s2_v7_1" rows="2"></textarea><br><textarea name="q4_s2_v7_2" rows="2"></textarea></li>
+            <li>Formulaţi, pe baza sursei date, un punct de vedere referitor la rolul principiului autodeterminării popoarelor în contextul anului 1918, susţinându-l cu două informaţii selectate din sursă. <span class="points">10 puncte</span><br>Punct de vedere: <textarea name="q5_s2_v7_view" rows="3"></textarea><br>Informație 1: <textarea name="q5_s2_v7_info1" rows="2"></textarea><br>Informație 2: <textarea name="q5_s2_v7_info2" rows="2"></textarea></li>
+            <li>Argumentaţi, printr-un fapt istoric relevant, afirmaţia conform căreia perioada postbelică imediată (după 1918) a implicat eforturi diplomatice pentru recunoașterea internațională a unirilor. (Se punctează prezentarea unui fapt istoric relevant și utilizarea conectorilor care exprimă cauzalitatea şi concluzia.) <span class="points">4 puncte</span><br><textarea name="q6_s2_v7_argument" rows="4"></textarea></li>
+        </ol>
+    </div>
+
+    <div class="subject-title">SUBIECTUL al III-lea (30 de puncte)</div>
+
+    <div class="essay-instructions">
+        <h3>Elaboraţi, în aproximativ două pagini, un eseu despre România în Al Doilea Război Mondial (1939-1945), având în vedere:</h3>
+        <ul>
+            <li>precizarea unei consecințe teritoriale pentru România în urma evenimentelor din 1940;</li>
+            <li>menţionarea a două aspecte ale participării României la Al Doilea Război Mondial (ex: perioade de participare, direcții de acțiune militară, regim politic) și a câte unui aspect referitor la fiecare dintre acestea;</li>
+            <li>prezentarea unui fapt istoric referitor la politica României față de minoritatea evreiască în perioada 1940-1944 (Holocaustul);</li>
+            <li>formularea unui punct de vedere referitor la semnificația actului de la 23 august 1944 pentru evoluția ulterioară a României și susținerea acestuia printr-un argument istoric.</li>
+        </ul>
+        <p><strong>Notă!</strong> Se punctează şi utilizarea limbajului istoric adecvat, structurarea prezentării, evidenţierea relaţiei cauză-efect, elaborarea argumentului istoric (prezentarea unui fapt istoric relevant și utilizarea conectorilor care exprimă cauzalitatea şi concluzia), respectarea succesiunii cronologice/logice a faptelor istorice şi încadrarea eseului în limita de spaţiu precizată.</p>
+    </div>
+
+    <div class="essay-area">
+        <p><strong>Spațiu pentru eseu:</strong> (Simulare - într-un examen real se scrie pe foaia tipizată)</p>
+        <textarea name="essay_s3_v7" rows="20"></textarea>
+    </div>
+
+
+
+</body>
+</html>
