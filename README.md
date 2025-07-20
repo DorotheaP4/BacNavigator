@@ -3,7 +3,7 @@
 
 ## Prezentare generala🏫: 
 
-BacNavigator este o aplicație web care ajută elevii să se pregătească pentru Bacalaureat prin generarea de teste grilă personalizate din notițele proprii (scanate sau scrise de mână), dar și prin accesul la lecții deja introduse în platformă. Testele includ explicații detaliate pentru fiecare răspuns, iar aplicația suportă mai multe limbi (română, engleză, maghiară, ucraineană). Este realizată cu JavaScript, HTML, CSS (Bootstrap), jQuery, folosește OCR Google Vision API pentru recunoașterea textului și Gemini 1.5T API pentru generarea întrebărilor. Poate fi accesată de pe orice dispozitiv conectat la internet.
+BacNavigator este o aplicație web care ajută elevii să se pregătească pentru Bacalaureat prin generarea de teste grilă personalizate din notițele proprii (scanate sau scrise de mână), corectarea temelor, dar și prin accesul la lecții și subiecte de examen deja introduse în platformă. Testele includ explicații detaliate pentru fiecare răspuns, cât și feedback personalizat. Este realizată cu JavaScript, HTML, CSS (Bootstrap), jQuery, folosește OCR Google Vision API pentru recunoașterea textului și Gemini 1.5T API pentru generarea întrebărilor. Poate fi accesată de pe orice dispozitiv conectat la internet.
 
 ## Documentatia BacNavigator 📓: 
 https://docs.google.com/document/d/135ZPrG8AzL4bkqvVz_gQ0r15P4VjGE7Ch2oMJZDa_rs/edit?usp=sharing 
