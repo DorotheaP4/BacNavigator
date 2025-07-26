@@ -1,0 +1,343 @@
+
+    <style>
+
+        h1, h2, h3 {
+            color: #0056b3;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+        .card {
+            margin-bottom: 30px;
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+        .card-header {
+            background-color: #e9ecef;
+            border-bottom: 1px solid #dee2e6;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+            padding: 15px 20px;
+            font-weight: 700;
+            color: #495057;
+        }
+        .form-label {
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: #495057;
+        }
+        .form-control, .form-select {
+            border-radius: 8px;
+            padding: 10px 15px;
+            border: 1px solid #ced4da;
+            transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .form-control:focus, .form-select:focus {
+            border-color: #80bdff;
+            box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            border-radius: 10px;
+            padding: 12px 25px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+            transform: translateY(-2px);
+        }
+        .form-check-label {
+            margin-left: 5px;
+        }
+        .form-check-input {
+            margin-top: 0.3em;
+        }
+        pre {
+            background-color: #e9ecef;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 0.9em;
+            color: #333;
+            border: 1px solid #dee2e6;
+        }
+        .text-muted {
+            font-size: 0.85em;
+            color: #6c757d !important;
+        }
+        textarea.form-control {
+            min-height: 120px;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+            h2 {
+                font-size: 1.5rem;
+            }
+            .btn-primary {
+                width: 100%;
+                font-size: 1rem;
+            }
+        }
+    </style>
+
+        <h1 class="text-center mb-4">Test Model de Informatică pentru Examenul de Bacalaureat</h1>
+        <p class="text-center text-muted">Profil Matematică-Informatică, Limbajul C/C++</p>
+
+        <div class="card mb-4">
+            <div class="card-header">Instrucțiuni Generale pentru Candidat</div>
+            <div class="card-body">
+                <ul>
+                    <li>Toate subiectele sunt obligatorii. Se acordă 10 puncte din oficiu.</li>
+                    <li>Timpul efectiv de lucru este de 3 ore.</li>
+                    <li>Se scriu în câmpurile de răspuns rezolvările complete.</li>
+                </ul>
+            </div>
+        </div>
+
+        <form>
+            <!-- SUBIECTUL I -->
+            <div class="card mb-5">
+                <div class="card-header">
+                    <h2>SUBIECTUL I (20 de puncte)</h2>
+                </div>
+                <div class="card-body">
+                    <p class="mb-4">Pentru fiecare dintre itemii de la 1 la 5, selectați răspunsul corect. Fiecare răspuns corect se notează cu 4 puncte.</p>
+
+                    <!-- Întrebarea 1 -->
+                    <div class="mb-4">
+                        <p class="mb-2"><strong>1.</strong> Ce valoare va avea variabila `z` după execuția secvenței de cod C/C++ de mai jos, dacă `a = 10`, `b = 3` și `c = 2`?</p>
+                        <pre><code>int a = 10, b = 3, c = 2;
+int z = (a + b) / c * b - a % c;</code></pre>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q1_v4" id="q1_v4_a" value="a">
+                            <label class="form-check-label" for="q1_v4_a">a. 18</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q1_v4" id="q1_v4_b" value="b">
+                            <label class="form-check-label" for="q1_v4_b">b. 19</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q1_v4" id="q1_v4_c" value="c">
+                            <label class="form-check-label" for="q1_v4_c">c. 20</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q1_v4" id="q1_v4_d" value="d">
+                            <label class="form-check-label" for="q1_v4_d">d. 21</label>
+                        </div>
+                    </div>
+
+                    <!-- Întrebarea 2 -->
+                    <div class="mb-4">
+                        <p class="mb-2"><strong>2.</strong> Considerăm subprogramul `f` definit alăturat. Ce valoare va returna apelul `f(1234, 5)`?</p>
+                        <pre><code>int f(int n, int c) {
+    if (n == 0) return 0;
+    if (n % 10 == c) return 1 + f(n / 10, c);
+    return f(n / 10, c);
+}</code></pre>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q2_v4" id="q2_v4_a" value="a">
+                            <label class="form-check-label" for="q2_v4_a">a. 0</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q2_v4" id="q2_v4_b" value="b">
+                            <label class="form-check-label" for="q2_v4_b">b. 1</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q2_v4" id="q2_v4_c" value="c">
+                            <label class="form-check-label" for="q2_v4_c">c. 2</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q2_v4" id="q2_v4_d" value="d">
+                            <label class="form-check-label" for="q2_v4_d">d. 4</label>
+                        </div>
+                    </div>
+
+                    <!-- Întrebarea 3 -->
+                    <div class="mb-4">
+                        <p class="mb-2"><strong>3.</strong> Câte numere naturale din intervalul `[100, 500]` sunt pătrate perfecte?</p>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q3_v4" id="q3_v4_a" value="a">
+                            <label class="form-check-label" for="q3_v4_a">a. 10</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q3_v4" id="q3_v4_b" value="b">
+                            <label class="form-check-label" for="q3_v4_b">b. 11</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q3_v4" id="q3_v4_c" value="c">
+                            <label class="form-check-label" for="q3_v4_c">c. 12</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q3_v4" id="q3_v4_d" value="d">
+                            <label class="form-check-label" for="q3_v4_d">d. 13</label>
+                        </div>
+                    </div>
+
+                    <!-- Întrebarea 4 -->
+                    <div class="mb-4">
+                        <p class="mb-2"><strong>4.</strong> Se consideră un graf neorientat cu 6 noduri și 5 muchii. Dacă graful este conex, atunci el este:</p>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q4_v4" id="q4_v4_a" value="a">
+                            <label class="form-check-label" for="q4_v4_a">a. arbore</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q4_v4" id="q4_v4_b" value="b">
+                            <label class="form-check-label" for="q4_v4_b">b. graf complet</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q4_v4" id="q4_v4_c" value="c">
+                            <label class="form-check-label" for="q4_v4_c">c. graf eulerian</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q4_v4" id="q4_v4_d" value="d">
+                            <label class="form-check-label" for="q4_v4_d">d. graf hamiltonian</label>
+                        </div>
+                    </div>
+
+                    <!-- Întrebarea 5 -->
+                    <div class="mb-4">
+                        <p class="mb-2"><strong>5.</strong> Se consideră algoritmul alăturat. Dacă se citește `n=12345`, care este valoarea afișată?</p>
+                        <pre><code>citește n
+s &lt;- 0
+cât timp n > 0 execută
+    s &lt;- s + n % 10
+    n &lt;- n / 100
+sfarsit_cât_timp
+scrie s</code></pre>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q5_v4" id="q5_v4_a" value="a">
+                            <label class="form-check-label" for="q5_v4_a">a. 9</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q5_v4" id="q5_v4_b" value="b">
+                            <label class="form-check-label" for="q5_v4_b">b. 15</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q5_v4" id="q5_v4_c" value="c">
+                            <label class="form-check-label" for="q5_v4_c">c. 6</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q5_v4" id="q5_v4_d" value="d">
+                            <label class="form-check-label" for="q5_v4_d">d. 12</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SUBIECTUL al II-lea -->
+            <div class="card mb-5">
+                <div class="card-header">
+                    <h2>SUBIECTUL al II-lea (40 de puncte)</h2>
+                </div>
+                <div class="card-body">
+                    <!-- Problema 1 -->
+                    <div class="mb-4">
+                        <p class="mb-2"><strong>1. (28 puncte)</strong> Se consideră algoritmul alăturat, descris în pseudocod.</p>
+                        <pre><code>citește n (număr natural)
+p &lt;- 1
+cât timp n > 0 execută
+    dacă n % 10 % 2 == 1 atunci
+        p &lt;- p * (n % 10)
+    sfarsit_daca
+    n &lt;- n / 10
+sfarsit_cât_timp
+scrie p</code></pre>
+                        <div class="mb-3">
+                            <label for="sub2_v4_p1_a" class="form-label"><strong>a) (6 puncte)</strong> Scrieți valoarea afișată dacă se citește `n=13524`.</label>
+                            <input type="text" class="form-control" id="sub2_v4_p1_a" name="sub2_v4_p1_a">
+                        </div>
+                        <div class="mb-3">
+                            <label for="sub2_v4_p1_b" class="form-label"><strong>b) (6 puncte)</strong> Scrieți două numere naturale distincte din intervalul `[100, 200]` pentru care, la execuția algoritmului, se afișează valoarea `1`.</label>
+                            <input type="text" class="form-control" id="sub2_v4_p1_b" name="sub2_v4_p1_b">
+                        </div>
+                        <div class="mb-3">
+                            <label for="sub2_v4_p1_c" class="form-label"><strong>c) (10 puncte)</strong> Scrieți un program C/C++ corespunzător algoritmului dat.</label>
+                            <textarea class="form-control" id="sub2_v4_p1_c" name="sub2_v4_p1_c" rows="10"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="sub2_v4_p1_d" class="form-label"><strong>d) (6 puncte)</strong> Scrieți în pseudocod un algoritm, echivalent cu cel dat, care să utilizeze o structură repetitivă de tip `pentru` (sau `for` în C/C++).</label>
+                            <textarea class="form-control" id="sub2_v4_p1_d" name="sub2_v4_p1_d" rows="8"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Problema 2 -->
+                    <div class="mb-4">
+                        <p class="mb-2"><strong>2. (6 puncte)</strong> Subprogramul `oglindit` este definit alăturat. Ce valoare va afișa apelul `cout &lt;&lt; oglindit(1234);`?</p>
+                        <pre><code>int oglindit(int n) {
+    int og = 0;
+    while (n > 0) {
+        og = og * 10 + n % 10;
+        n = n / 10;
+    }
+    return og;
+}</code></pre>
+                        <div class="mb-3">
+                            <label for="sub2_v4_p2" class="form-label">Răspuns:</label>
+                            <input type="text" class="form-control" id="sub2_v4_p2" name="sub2_v4_p2">
+                        </div>
+                    </div>
+
+                    <!-- Problema 3 -->
+                    <div class="mb-4">
+                        <p class="mb-2"><strong>3. (6 puncte)</strong> Definiți în C/C++ o structură `Elev` care să rețină numele (șir de caractere de maxim 30 de caractere) și media generală (număr real). Declarați o variabilă `e` de acest tip și inițializați-o cu numele "Popescu Ana" și media 9.75.</p>
+                        <div class="mb-3">
+                            <label for="sub2_v4_p3" class="form-label">Cod C/C++:</label>
+                            <textarea class="form-control" id="sub2_v4_p3" name="sub2_v4_p3" rows="8"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SUBIECTUL al III-lea -->
+            <div class="card mb-5">
+                <div class="card-header">
+                    <h2>SUBIECTUL al III-lea (30 de puncte)</h2>
+                </div>
+                <div class="card-body">
+                    <!-- Problema 1 -->
+                    <div class="mb-4">
+                        <p class="mb-2"><strong>1. (10 puncte)</strong> Scrieți definiția completă a unui subprogram C/C++ `crescator(a, b)` care primește prin parametrii `a` și `b` două numere întregi și returnează `1` dacă `a <= b`, și `0` în caz contrar.</p>
+                        <p class="text-muted"><em>Exemplu: Dacă `a=5, b=8`, subprogramul va returna `1`. Dacă `a=10, b=7`, subprogramul va returna `0`.</em></p>
+                        <div class="mb-3">
+                            <label for="sub3_v4_p1" class="form-label">Cod C/C++:</label>
+                            <textarea class="form-control" id="sub3_v4_p1" name="sub3_v4_p1" rows="10"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Problema 2 -->
+                    <div class="mb-4">
+                        <p class="mb-2"><strong>2. (10 puncte)</strong> Se consideră un tablou unidimensional `v` cu `N` elemente ($N \in [1, 100]$) numere întregi. Scrieți un program C/C++ care citește de la tastatură valoarea `N`, apoi elementele tabloului. Programul va elimina din tablou toate elementele impare și va afișa tabloul rezultat pe ecran, elementele fiind separate prin spații. Ordinea elementelor rămase trebuie să se păstreze.</p>
+                        <p class="text-muted"><em>Exemplu: Pentru `N=7` și tabloul `v = {1, 8, 3, 6, 2, 9, 4}`, se va afișa: `8 6 2 4`</em></p>
+                        <div class="mb-3">
+                            <label for="sub3_v4_p2" class="form-label">Cod C/C++:</label>
+                            <textarea class="form-control" id="sub3_v4_p2" name="sub3_v4_p2" rows="12"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Problema 3 -->
+                    <div class="mb-4">
+                        <p class="mb-2"><strong>3. (10 puncte)</strong> Fișierul `interval.in` conține pe prima linie un număr natural `P` ($P \in [1, 10^5]$), iar pe a doua linie `P` numere naturale din intervalul `[0, 10000]`, separate prin spații. Se cere să se determine și să se afișeze pe ecran numărul de perechi de numere consecutive din fișier care se află în intervalul `[100, 200]`.</p>
+                        <div class="mb-3">
+                            <label for="sub3_v4_p3_a" class="form-label"><strong>a) (2 puncte)</strong> Descrieți în limbaj natural un algoritm eficient din punct de vedere al timpului de execuție și al memoriei utilizate pentru rezolvarea problemei.</label>
+                            <textarea class="form-control" id="sub3_v4_p3_a" name="sub3_v4_p3_a" rows="8"></textarea>
+                            <p class="text-muted mt-2"><em>O soluție eficientă implică citirea numerelor pe rând și menținerea unei variabile care să rețină numărul anterior citit. Se inițializează un contor la 0. Se citește primul număr. Apoi, într-o buclă, se citește fiecare număr următor. Pentru fiecare pereche (număr anterior, număr curent), se verifică dacă ambele numere se află în intervalul `[100, 200]`. Dacă da, se incrementează contorul. Numărul curent devine numărul anterior pentru următoarea iterație. Această abordare necesită doar stocarea a două numere la un moment dat (cel curent și cel anterior) și o singură parcurgere a fișierului, având o complexitate liniară ($O(P)$) din punct de vedere al timpului și o complexitate constantă ($O(1)$) din punct de vedere al memoriei.</em></p>
+                        </div>
+                        <div class="mb-3">
+                            <label for="sub3_v4_p3_b" class="form-label"><strong>b) (8 puncte)</strong> Scrieți un program C/C++ care implementează algoritmul descris la punctul a).</label>
+                            <textarea class="form-control" id="sub3_v4_p3_b" name="sub3_v4_p3_b" rows="15"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>

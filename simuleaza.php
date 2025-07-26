@@ -542,7 +542,7 @@
         <div class="container">
             <nav>
                 <div class="logo">
-                    <span>BacNavigator</span>
+                    <a href="bacnavigator.html"><span>BacNavigator</span></a>
                 </div>
                 <div class="nav-links">
                     <a href="bacnavigator.html">Acasă</a>
@@ -592,7 +592,18 @@ function getTextWithInputValues(selector) {
   const textareaElements = clonedElement.querySelectorAll('textarea');
 
   inputElements.forEach(input => {
-    input.textContent = 'RASPUNS: '+input.value+"\n";
+
+    if (input.type === 'radio' || input.type === 'checkbox') {
+      if (input.checked) {
+        input.textContent = 'RASPUNS: ' + input.value + "\n";
+      } else {
+        input.textContent = ''; // Clear text for unchecked boxes
+
+      }
+    } else {
+      input.textContent = 'RASPUNS: ' + input.value + "\n";
+    }
+
   });
 
   textareaElements.forEach(textarea => {
@@ -605,7 +616,6 @@ function getTextWithInputValues(selector) {
 function evaleazaTest()
 {
     let text=getTextWithInputValues("#test_body");
-
 
     var formData = new FormData();
     formData.append("ax", "simuleaza");

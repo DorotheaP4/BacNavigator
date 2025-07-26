@@ -1,0 +1,244 @@
+
+    <style>
+
+        .card {
+            background-color: #fff;
+            border-radius: 0.75rem; /* Colțuri rotunjite */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Umbra subtila */
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .header {
+            background-color: #1e3a8a; /* Albastru inchis pentru antet */
+            color: #fff;
+            border-radius: 0.75rem 0.75rem 0 0; /* Colțuri rotunjite doar sus */
+            padding: 1.5rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        .question-group {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            border: 1px solid #e5e7eb; /* Margine subtila pentru grupuri de intrebari */
+            border-radius: 0.5rem;
+        }
+        .form-control {
+            border: 1px solid #d1d5db; /* Culoare margine input */
+            border-radius: 0.5rem;
+            padding: 0.75rem 1rem;
+            width: 100%;
+            transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .form-control:focus {
+            border-color: #6366f1; /* Culoare margine la focus (indigo-500) */
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.25); /* Umbra la focus */
+        }
+        .btn-primary {
+            background-color: #1e3a8a; /* Albastru inchis pentru butoane */
+            color: #fff;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: background-color 0.2s ease-in-out;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .btn-primary:hover {
+            background-color: #172554; /* Culoare mai inchisa la hover */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+        .text-muted {
+            color: #6b7280; /* Culoare text pentru note */
+            font-size: 0.875rem;
+        }
+        label {
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        .radio-option, .checkbox-option {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        .radio-option input[type="radio"],
+        .checkbox-option input[type="checkbox"] {
+            margin-right: 0.75rem;
+            width: 1.25rem;
+            height: 1.25rem;
+        }
+        textarea {
+            min-height: 100px; /* Inaltime minima pentru textarea */
+            resize: vertical; /* Permite redimensionarea pe verticala */
+        }
+    </style>
+
+        <div class="header">
+            <h1 class="text-3xl font-bold mb-2">Test Model Logică și Argumentare</h1>
+            <p class="text-lg">Examenul Național de Bacalaureat</p>
+            <p class="text-sm mt-2">Toate subiectele sunt obligatorii. Se acordă zece puncte din oficiu. Timpul de lucru efectiv este de trei ore.</p>
+        </div>
+
+        <!-- Subiectul I -->
+        <div class="card">
+            <h2 class="text-2xl font-semibold mb-4 text-blue-800">SUBIECTUL I (30 de puncte)</h2>
+            <p class="mb-4 text-muted">A. Pentru fiecare dintre următorii itemi, scrieți, pe foaia de examen, doar cifra corespunzătoare și notați în dreptul ei doar litera asociată răspunsului corect. Este corectă o singură variantă de răspuns.</p>
+
+            <!-- Intrebarea 1.1 -->
+            <div class="question-group">
+                <p class="mb-3 font-medium">1.1. Din punct de vedere intensional, termenul „triunghi” este:</p>
+                <div class="radio-option">
+                    <input class="form-check-input" type="radio" name="q1_1" id="q1_1_a" value="a">
+                    <label class="form-check-label" for="q1_1_a">a. absolut, concret, pozitiv, simplu</label>
+                </div>
+                <div class="radio-option">
+                    <input class="form-check-input" type="radio" name="q1_1" id="q1_1_b" value="b">
+                    <label class="form-check-label" for="q1_1_b">b. relativ, abstract, pozitiv, compus</label>
+                </div>
+                <div class="radio-option">
+                    <input class="form-check-input" type="radio" name="q1_1" id="q1_1_c" value="c">
+                    <label class="form-check-label" for="q1_1_c">c. absolut, abstract, pozitiv, simplu</label>
+                </div>
+                <div class="radio-option">
+                    <input class="form-check-input" type="radio" name="q1_1" id="q1_1_d" value="d">
+                    <label class="form-check-label" for="q1_1_d">d. relativ, concret, negativ, compus</label>
+                </div>
+            </div>
+
+            <!-- Intrebarea 1.2 -->
+            <div class="question-group">
+                <p class="mb-3 font-medium">1.2. Propoziția „Niciun politician nu este perfect” este:</p>
+                <div class="radio-option">
+                    <input class="form-check-input" type="radio" name="q1_2" id="q1_2_a" value="a">
+                    <label class="form-check-label" for="q1_2_a">a. universală afirmativă</label>
+                </div>
+                <div class="radio-option">
+                    <input class="form-check-input" type="radio" name="q1_2" id="q1_2_b" value="b">
+                    <label class="form-check-label" for="q1_2_b">b. particulară negativă</label>
+                </div>
+                <div class="radio-option">
+                    <input class="form-check-input" type="radio" name="q1_2" id="q1_2_c" value="c">
+                    <label class="form-check-label" for="q1_2_c">c. universală negativă</label>
+                </div>
+                <div class="radio-option">
+                    <input class="form-check-input" type="radio" name="q1_2" id="q1_2_d" value="d">
+                    <label class="form-check-label" for="q1_2_d">d. particulară afirmativă</label>
+                </div>
+            </div>
+
+            <!-- Intrebarea 1.3 -->
+            <div class="question-group">
+                <p class="mb-3 font-medium">1.3. Raționamentul „Dacă toate mamiferele sunt vertebrate și toți câinii sunt mamifere, atunci toți câinii sunt vertebrate” este un exemplu de:</p>
+                <div class="radio-option">
+                    <input class="form-check-input" type="radio" name="q1_3" id="q1_3_a" value="a">
+                    <label class="form-check-label" for="q1_3_a">a. inducție incompletă</label>
+                </div>
+                <div class="radio-option">
+                    <input class="form-check-input" type="radio" name="q1_3" id="q1_3_b" value="b">
+                    <label class="form-check-label" for="q1_3_b">b. silogism</label>
+                </div>
+                <div class="radio-option">
+                    <input class="form-check-input" type="radio" name="q1_3" id="q1_3_c" value="c">
+                    <label class="form-check-label" for="q1_3_c">c. obversiune</label>
+                </div>
+                <div class="radio-option">
+                    <input class="form-check-input" type="radio" name="q1_3" id="q1_3_d" value="d">
+                    <label class="form-check-label" for="q1_3_d">d. conversiune</label>
+                </div>
+            </div>
+
+            <!-- Intrebarea 1.4 -->
+            <div class="question-group">
+                <p class="mb-3 font-medium">1.4. Raportul dintre termenii „alb” și „nealb” este un raport de:</p>
+                <div class="radio-option">
+                    <input class="form-check-input" type="radio" name="q1_4" id="q1_4_a" value="a">
+                    <label class="form-check-label" for="q1_4_a">a. contrarietate</label>
+                </div>
+                <div class="radio-option">
+                    <input class="form-check-input" type="radio" name="q1_4" id="q1_4_b" value="b">
+                    <label class="form-check-label" for="q1_4_b">b. subordonare</label>
+                </div>
+                <div class="radio-option">
+                    <input class="form-check-input" type="radio" name="q1_4" id="q1_4_c" value="c">
+                    <label class="form-check-label" for="q1_4_c">c. contradicție</label>
+                </div>
+                <div class="radio-option">
+                    <input class="form-check-input" type="radio" name="q1_4" id="q1_4_d" value="d">
+                    <label class="form-check-label" for="q1_4_d">d. încrucișare</label>
+                </div>
+            </div>
+
+            <!-- Intrebarea 1.5 -->
+            <div class="question-group">
+                <p class="mb-3 font-medium">1.5. Operația logică prin care dintr-o propoziție universală afirmativă se obține o propoziție particulară afirmativă este:</p>
+                <div class="radio-option">
+                    <input class="form-check-input" type="radio" name="q1_5" id="q1_5_a" value="a">
+                    <label class="form-check-label" for="q1_5_a">a. conversiunea simplă</label>
+                </div>
+                <div class="radio-option">
+                    <input class="form-check-input" type="radio" name="q1_5" id="q1_5_b" value="b">
+                    <label class="form-check-label" for="q1_5_b">b. obversiunea</label>
+                </div>
+                <div class="radio-option">
+                    <input class="form-check-input" type="radio" name="q1_5" id="q1_5_c" value="c">
+                    <label class="form-check-label" for="q1_5_c">c. subalternarea</label>
+                </div>
+                <div class="radio-option">
+                    <input class="form-check-input" type="radio" name="q1_5" id="q1_5_d" value="d">
+                    <label class="form-check-label" for="q1_5_d">d. conversiunea prin accident</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Subiectul II -->
+        <div class="card">
+            <h2 class="text-2xl font-semibold mb-4 text-blue-800">SUBIECTUL II (30 de puncte)</h2>
+            <p class="mb-4 text-muted">A. Se dau termenii A, B, C, D și E astfel încât termenul A este în raport de contradicție cu termenul B; termenul C este supraordonat termenilor A și B; termenul D este în raport de încrucișare cu termenul A, dar este subordonat lui C; termenul E este subordonat lui B.</p>
+
+            <!-- Intrebarea 2.1 -->
+            <div class="question-group">
+                <label for="q2_1" class="mb-3 font-medium">2.1. Reprezentați prin metoda diagramelor Euler relațiile dintre termenii A, B, C, D și E, descriind verbal fiecare relație:</label>
+                <textarea class="form-control" id="q2_1" rows="6" placeholder="Descrieți diagrama Euler și relațiile dintre termeni aici. Ex: C include A și B. A și B sunt disjuncte și exhaustive..."></textarea>
+            </div>
+
+            <!-- Intrebarea 2.2 -->
+            <div class="question-group">
+                <p class="mb-3 font-medium">2.2. Fie propoziția „Unii elevi nu sunt studioși”.</p>
+                <label for="q2_2_conv" class="mb-2">a) Realizați conversiunea acesteia, specificând tipul de propoziție obținut și condițiile de validitate:</label>
+                <textarea class="form-control mb-3" id="q2_2_conv" rows="3" placeholder="Propoziția convertită:&#10;Tipul propoziției:&#10;Condiții de validitate:"></textarea>
+
+                <label for="q2_2_obv" class="mb-2">b) Realizați obversiunea acesteia, specificând tipul de propoziție obținut și condițiile de validitate:</label>
+                <textarea class="form-control" id="q2_2_obv" rows="3" placeholder="Propoziția obvertită:&#10;Tipul propoziției:&#10;Condiții de validitate:"></textarea>
+            </div>
+
+            <!-- Intrebarea 2.3 -->
+            <div class="question-group">
+                <label for="q2_3" class="mb-3 font-medium">2.3. Verificați validitatea silogismului următor prin metoda diagramelor Venn, descriind modul în care ați reprezentat premisele și concluzia:</label>
+                <p class="mb-2 italic">„Toți sportivii sunt persoane active. Niciun sedentar nu este sportiv. Prin urmare, niciun sedentar nu este o persoană activă.”</p>
+                <textarea class="form-control" id="q2_3" rows="6" placeholder="Descrieți reprezentarea Venn pentru fiecare premisă și apoi pentru concluzie. Explicați dacă silogismul este valid sau nu."></textarea>
+            </div>
+        </div>
+
+        <!-- Subiectul III -->
+        <div class="card">
+            <h2 class="text-2xl font-semibold mb-4 text-blue-800">SUBIECTUL III (30 de puncte)</h2>
+
+            <!-- Intrebarea 3.1 -->
+            <div class="question-group">
+                <label for="q3_1" class="mb-3 font-medium">3.1. Construiți un silogism valid, în figura a II-a, care să conțină o propoziție particulară negativă. (Precizați explicit premisele, concluzia și termenii silogismului):</label>
+                <textarea class="form-control" id="q3_1" rows="7" placeholder="Premisa Majoră:&#10;Premisa Minoră:&#10;Concluzie:&#10;Termen Major (P):&#10;Termen Minor (S):&#10;Termen Mediu (M):"></textarea>
+            </div>
+
+            <!-- Intrebarea 3.2 -->
+            <div class="question-group">
+                <label for="q3_2" class="mb-3 font-medium">3.2. Analizați următorul argument și identificați cel puțin două erori logice, explicând de ce sunt erori:</label>
+                <p class="mb-2 italic">„Am văzut o pisică neagră azi dimineață și apoi am avut ghinion toată ziua. Prin urmare, pisicile negre aduc ghinion. De asemenea, vecinul meu a spus că toți politicienii sunt corupți, deci trebuie să fie adevărat.”</p>
+                <textarea class="form-control" id="q3_2" rows="8" placeholder="Eroare 1 (Nume):&#10;Explicație:&#10;&#10;Eroare 2 (Nume):&#10;Explicație:"></textarea>
+            </div>
+
+            <!-- Intrebarea 3.3 -->
+            <div class="question-group">
+                <label for="q3_3" class="mb-3 font-medium">3.3. Demonstrați că „Toate păsările au aripi” folosind un raționament deductiv. Precizați explicit premisele și concluzia demonstrației:</label>
+                <textarea class="form-control" id="q3_3" rows="5" placeholder="Premisa 1:&#10;Premisa 2:&#10;Concluzie:"></textarea>
+            </div>
+        </div>
