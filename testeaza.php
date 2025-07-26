@@ -542,7 +542,7 @@
         <div class="container">
             <nav>
                 <div class="logo">
-                    <span>BacNavigator</span>
+                    <a href="bacnavigator.html"><span>BacNavigator</span></a>
                 </div>
                 <div class="nav-links">
                     <a href="bacnavigator.html">Acasă</a>

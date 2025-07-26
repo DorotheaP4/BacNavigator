@@ -611,7 +611,7 @@
                             <p>Anatomie, fiziologie, genetică și ecologie pentru bacalaureat.</p>
                             <div class="card-footer">
                                 <button class="btn-secondary" onclick="location.href='bacnavigator-biologie.html';">Lecții</button>
-                                <button class="btn-primary" disabled>Simulare</button>
+                                <button class="btn-primary"  onclick="window.open('simuleaza.php?test=biologie'+(Math.floor(Math.random() * 4) + 1)+'','','_blank')">Simulare</button>
                             </div>
                         </div>
                     </div>
@@ -622,8 +622,8 @@
                             <h3>Fizică</h3>
                             <p>Mecanică, termodinamică, electricitate și fizică modernă.</p>
                             <div class="card-footer">
-                                <button class="btn-secondary"  disabled>Lecții</button>
-                                <button class="btn-primary"  disabled>Simulare</button>
+                                <button class="btn-secondary" onclick="location.href='bacnavigator-fizica.php';">Lecții</button>
+                                <button class="btn-primary" onclick="window.open('simuleaza.php?test=fizica'+(Math.floor(Math.random() * 3) + 1)+'','','_blank')">Simulare</button>
                             </div>
                         </div>
                     </div>
@@ -634,7 +634,7 @@
                             <h3>Română</h3>
                             <p>Literatură, gramatică și comunicare pentru bacalaureat.</p>
                             <div class="card-footer">
-                                <button class="btn-secondary" disabled>Lecții</button>
+                                <button class="btn-secondary"  onclick="location.href='bacnavigator-romana.php';">Lecții</button>
                                 <button class="btn-primary" onclick="window.open('simuleaza.php?test=romana'+(Math.floor(Math.random() * 8) + 1)+'','','_blank')">Simulare</button>
                             </div>
                         </div>
@@ -646,7 +646,8 @@
                             <h3>Istorie</h3>
                             <p>De la antichitate până la istoria contemporană.</p>
                             <div class="card-footer">
-                                <button class="btn-secondary" onclick="window.open('lectie.php?test=istorie-stefan','','_blank')">Lecții</button>
+                                <!-- window.open('lectie.php?test=istorie-stefan','','_blank') -->
+                                <button class="btn-secondary" onclick="location.href='bacnavigator-istorie.php';">Lecții</button>
                                 <button class="btn-primary" onclick="window.open('simuleaza.php?test=istorie'+(Math.floor(Math.random() * 6) + 1)+'','','_blank')">Simulare</button>
                             </div>
                         </div>
@@ -658,7 +659,7 @@
                             <h3>Matematică</h3>
                             <p>Algebră, analiză matematică și geometrie.</p>
                             <div class="card-footer">
-                                <button class="btn-secondary" disabled>Lecții</button>
+                                <button class="btn-secondary"  onclick="location.href='bacnavigator-matematica.php';">Lecții</button>
                                 <button class="btn-primary" onclick="window.open('simuleaza.php?test=mate'+(Math.floor(Math.random() * 6) + 1)+'','','_blank')">Simulare</button>
                             </div>
                         </div>
@@ -670,8 +671,8 @@
                             <h3>Economie</h3>
                             <p>Concepte economice, piețe, politici macroeconomice.</p>
                             <div class="card-footer">
-                                <button class="btn-secondary" disabled>Lecții</button>
-                                <button class="btn-primary" disabled>Simulare</button>
+                                <button class="btn-secondary"  onclick="location.href='bacnavigator-economie.php';">Lecții</button>
+                                <button class="btn-primary"  onclick="window.open('simuleaza.php?test=economie'+(Math.floor(Math.random() * 4) + 1)+'','','_blank')">Simulare</button>
                             </div>
                         </div>
                     </div>
@@ -682,8 +683,8 @@
                             <h3>Informatică</h3>
                             <p>Algoritmi, programare și structuri de date.</p>
                             <div class="card-footer">
-                                <button class="btn-secondary" disabled>Lecții</button>
-                                <button class="btn-primary" disabled>Simulare</button>
+                                <button class="btn-secondary"  onclick="location.href='bacnavigator-informatica.php';">Lecții</button>
+                                <button class="btn-primary"  onclick="window.open('simuleaza.php?test=informatica'+(Math.floor(Math.random() * 4) + 1)+'','','_blank')">Simulare</button>
                             </div>
                         </div>
                     </div>
@@ -694,8 +695,8 @@
                             <h3>Logică</h3>
                             <p>Argumentare, raționament și gândire critică.</p>
                             <div class="card-footer">
-                                <button class="btn-secondary" disabled>Lecții</button>
-                                <button class="btn-primary" disabled>Simulare</button>
+                                <button class="btn-secondary"  onclick="location.href='bacnavigator-logica.php';">Lecții</button>
+                                <button class="btn-primary"  onclick="window.open('simuleaza.php?test=logica'+(Math.floor(Math.random() * 4) + 1)+'','','_blank')">Simulare</button>
                             </div>
                         </div>
                     </div>

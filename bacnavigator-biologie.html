@@ -453,6 +453,67 @@
         .test-section .btn-primary {
             margin-top: 1rem;
         }
+
+        /* Loading indicator for test generation */
+        .loading-indicator {
+            display: none; /* Hidden by default */
+            margin-top: 1rem;
+            font-style: italic;
+            color: #555;
+        }
+
+        /* Test results display */
+        .test-results {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #ecf0f1;
+        }
+
+        .test-results h4 {
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .test-question {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background-color: #f0f4f7;
+            border-radius: 8px;
+        }
+
+        .test-question p {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .test-question ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .test-question li {
+            margin-bottom: 0.3rem;
+            padding: 0.3rem 0.5rem;
+            border-radius: 4px;
+        }
+
+        .test-question li.correct {
+            background-color: rgba(46, 204, 113, 0.2);
+            color: #27ae60;
+        }
+
+        .test-question li.incorrect {
+            background-color: rgba(231, 76, 60, 0.2);
+            color: #e74c3c;
+        }
+
+        .test-question .explanation {
+            font-size: 0.9em;
+            color: #555;
+            margin-top: 0.5rem;
+            padding-top: 0.5rem;
+            border-top: 1px dashed #ccc;
+        }
         
         /* Responsivitatea */
         @media (max-width: 992px) {
@@ -528,8 +589,8 @@
         <div class="container">
             <nav>
                 <div class="logo">
-                    
-                    <span>BacNavigator</span>
+                    <!-- Placeholder pentru logo. Poți înlocui cu o imagine reală sau SVG -->
+                    <a href="bacnavigator.html"><span>BacNavigator</span></a>
                 </div>
                 <div class="nav-links">
                     <a href="bacnavigator.html">Acasă</a>
@@ -550,23 +611,16 @@
         </section>
 
         <div class="container">
-            <div class="breadcrumbs">
-                <a href="index.html">Acasă</a>
-                <span class="separator">></span>
-                <a href="materii.html">Materii</a>
-                <span class="separator">></span>
-                <a href="biologie.html">Biologie</a>
-                <span class="separator">></span>
-                <span class="current">Lecții</span>
-            </div>
+
 
             <div class="lessons-layout">
                 <!-- Sidebar cu lista de lecții -->
                 <div class="sidebar">
                     <h2 class="category-title">Capitole și Lecții</h2>
                     
-                    <ul class="chapters-list">
-                        <!-- Capitolul 1 -->
+                    <ul class="chapters-list" id="chapters-list">
+                        <!-- Capitolele și lecțiile vor fi generate dinamic sau pre-populate aici -->
+                        <!-- Exemplu de structură pentru un capitol și lecțiile sale -->
                         <li class="chapter active" id="cap1">
                             <div class="chapter-header" onclick="toggleChapter('cap1')">
                                 <h3>Capitolul 1: Sistemul nervos</h3>
@@ -574,29 +628,28 @@
                             </div>
                             <ul class="chapter-lessons">
                                 <li>
-                                    <a href="biologie/cap1/lectia1.html" class="chapter-lesson">
+                                    <a href="#" class="chapter-lesson" data-chapter="1" data-lesson="1">
                                         <span>Introducere în anatomia sistemului nervos</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="biologie/cap1/lectia2.html" class="chapter-lesson">
+                                    <a href="#" class="chapter-lesson" data-chapter="1" data-lesson="2">
                                         <span>Neuronul - unitatea structurală și funcțională</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="biologie/cap1/lectia3.html" class="chapter-lesson active">
+                                    <a href="#" class="chapter-lesson active" data-chapter="1" data-lesson="3">
                                         <span>Funcțiile sistemului nervos central</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="biologie/cap1/lectia4.html" class="chapter-lesson">
+                                    <a href="#" class="chapter-lesson" data-chapter="1" data-lesson="4">
                                         <span>Sistemul nervos periferic</span>
                                     </a>
                                 </li>
                             </ul>
                         </li>
 
-                        <!-- Capitolul 2 -->
                         <li class="chapter" id="cap2">
                             <div class="chapter-header" onclick="toggleChapter('cap2')">
                                 <h3>Capitolul 2: Sistemul circulator</h3>
@@ -604,29 +657,28 @@
                             </div>
                             <ul class="chapter-lessons">
                                 <li>
-                                    <a href="biologie/cap2/lectia1.html" class="chapter-lesson">
+                                    <a href="#" class="chapter-lesson" data-chapter="2" data-lesson="1">
                                         <span>Anatomia inimii și a vaselor de sânge</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="biologie/cap2/lectia2.html" class="chapter-lesson">
+                                    <a href="#" class="chapter-lesson" data-chapter="2" data-lesson="2">
                                         <span>Circulația mare și mică</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="biologie/cap2/lectia3.html" class="chapter-lesson">
+                                    <a href="#" class="chapter-lesson" data-chapter="2" data-lesson="3">
                                         <span>Sângele - componente și funcții</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="biologie/cap2/lectia4.html" class="chapter-lesson">
+                                    <a href="#" class="chapter-lesson" data-chapter="2" data-lesson="4">
                                         <span>Afecțiuni ale sistemului circulator</span>
                                     </a>
                                 </li>
                             </ul>
                         </li>
 
-                        <!-- Capitolul 3 -->
                         <li class="chapter" id="cap3">
                             <div class="chapter-header" onclick="toggleChapter('cap3')">
                                 <h3>Capitolul 3: Sistemul respirator</h3>
@@ -634,24 +686,23 @@
                             </div>
                             <ul class="chapter-lessons">
                                 <li>
-                                    <a href="biologie/cap3/lectia1.html" class="chapter-lesson">
+                                    <a href="#" class="chapter-lesson" data-chapter="3" data-lesson="1">
                                         <span>Căile respiratorii superioare și inferioare</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="biologie/cap3/lectia2.html" class="chapter-lesson">
+                                    <a href="#" class="chapter-lesson" data-chapter="3" data-lesson="2">
                                         <span>Plămânii și schimburile gazoase</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="biologie/cap3/lectia3.html" class="chapter-lesson">
+                                    <a href="#" class="chapter-lesson" data-chapter="3" data-lesson="3">
                                         <span>Mecanismul respirației</span>
                                     </a>
                                 </li>
                             </ul>
                         </li>
 
-                        <!-- Capitolul 4 -->
                         <li class="chapter" id="cap4">
                             <div class="chapter-header" onclick="toggleChapter('cap4')">
                                 <h3>Capitolul 4: Sistemul digestiv</h3>
@@ -659,29 +710,28 @@
                             </div>
                             <ul class="chapter-lessons">
                                 <li>
-                                    <a href="biologie/cap4/lectia1.html" class="chapter-lesson">
+                                    <a href="#" class="chapter-lesson" data-chapter="4" data-lesson="1">
                                         <span>Tubul digestiv - anatomie și funcții</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="biologie/cap4/lectia2.html" class="chapter-lesson">
+                                    <a href="#" class="chapter-lesson" data-chapter="4" data-lesson="2">
                                         <span>Procesul digestiei</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="biologie/cap4/lectia3.html" class="chapter-lesson">
+                                    <a href="#" class="chapter-lesson" data-chapter="4" data-lesson="3">
                                         <span>Ficatul și pancreasul - roluri în digestie</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="biologie/cap4/lectia4.html" class="chapter-lesson">
+                                    <a href="#" class="chapter-lesson" data-chapter="4" data-lesson="4">
                                         <span>Absorbția intestinală</span>
                                     </a>
                                 </li>
                             </ul>
                         </li>
 
-                        <!-- Capitolul 5 -->
                         <li class="chapter" id="cap5">
                             <div class="chapter-header" onclick="toggleChapter('cap5')">
                                 <h3>Capitolul 5: Genetică</h3>
@@ -689,23 +739,51 @@
                             </div>
                             <ul class="chapter-lessons">
                                 <li>
-                                    <a href="biologie/cap5/lectia1.html" class="chapter-lesson">
+                                    <a href="#" class="chapter-lesson" data-chapter="5" data-lesson="1">
                                         <span>Acizii nucleici: ADN și ARN</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="biologie/cap5/lectia2.html" class="chapter-lesson">
+                                    <a href="#" class="chapter-lesson" data-chapter="5" data-lesson="2">
                                         <span>Legile lui Mendel</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="biologie/cap5/lectia3.html" class="chapter-lesson">
+                                    <a href="#" class="chapter-lesson" data-chapter="5" data-lesson="3">
                                         <span>Mutații genetice</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="biologie/cap5/lectia4.html" class="chapter-lesson">
+                                    <a href="#" class="chapter-lesson" data-chapter="5" data-lesson="4">
                                         <span>Genetică umană</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="chapter" id="cap6">
+                            <div class="chapter-header" onclick="toggleChapter('cap6')">
+                                <h3>Capitolul 6: Scheletul</h3>
+                                <span class="chapter-toggle">▼</span>
+                            </div>
+                            <ul class="chapter-lessons">
+                                <li>
+                                    <a href="#" class="chapter-lesson" data-chapter="6" data-lesson="1">
+                                        <span>Structura generală a scheletului uman</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="chapter-lesson" data-chapter="6" data-lesson="2">
+                                        <span>Oasele capului și trunchiului</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="chapter-lesson" data-chapter="6" data-lesson="3">
+                                        <span>Oasele membrelor</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="chapter-lesson" data-chapter="6" data-lesson="4">
+                                        <span>Articulații și funcții ale scheletului</span>
                                     </a>
                                 </li>
                             </ul>
@@ -717,18 +795,18 @@
                 <div class="main-content">
                     <div class="lesson-header">
                         <div class="lesson-title">
-                            <h2>Funcțiile sistemului nervos central</h2>
+                            <h2 id="lesson-title">Funcțiile sistemului nervos central</h2>
                             <div class="lesson-meta">
-                                <span>Capitolul 1: Sistemul nervos</span>
-                                <span>Lecția 3/4</span>
+                                <span id="lesson-chapter-info">Capitolul 1: Sistemul nervos</span>
+                                <span id="lesson-number-info">Lecția 3/4</span>
                             </div>
                         </div>
                     </div>
 
-                    <div class="lesson-content">
+                    <div class="lesson-content" id="lesson-content">
+                        <!-- Conținutul lecției va fi încărcat dinamic aici -->
                         <p>Sistemul nervos central (SNC) este format din <strong>encefal</strong> și <strong>măduva spinării</strong>. Acesta reprezintă principalul centru de control și coordonare a tuturor activităților organismului, fiind responsabil pentru integrarea informațiilor primite și emiterea de comenzi către țesuturi și organe.</p>
 
-                        <img src="/api/placeholder/700/350" alt="Structura sistemului nervos central">
 
                         <h3>Encefalul</h3>
                         <p>Encefalul este localizat în cutia craniană și este format din:</p>
@@ -795,17 +873,8 @@
                         <p>Reflexele spinale reprezintă răspunsuri rapide și involuntare la stimuli, având ca centru de comandă măduva spinării. Arcul reflex are cinci componente: receptor, cale aferentă, centru de comandă, cale eferentă și efector.</p>
                     </div>
 
-                    <!-- Secțiunea de test la finalul lecției -->
-                    <div class="test-section">
-                        <h3>Testează-ți cunoștințele</h3>
-                        <p>Ai finalizat lecția despre funcțiile sistemului nervos central. Apasă butonul de mai jos pentru a genera un test bazat pe conținutul parcurs.</p>
-                        <button class="btn-primary" onclick="generateTest()">Generează test</button>
-                    </div>
 
-                    <!-- Footer-ul lecției cu navigare între lecții -->
-                    <div class="lesson-footer">
-
-                    </div>
+                   
                 </div>
             </div>
         </div>
@@ -819,28 +888,798 @@
             chapter.classList.toggle('active');
         }
         
-        // Funcția pentru generarea testului
-        function generateTest() {
-            // Aici va fi logica pentru generarea testului cu API-ul LLM
-            alert('Se generează un test bazat pe conținutul lecției...');
-            // În implementarea finală, aici se va face un apel către API-ul LLM
-        }
-        
         // Funcția pentru meniul mobil
         document.querySelector('.mobile-nav-toggle')?.addEventListener('click', function() {
             document.querySelector('.nav-links').classList.toggle('active');
         });
         
-        // Deschide automat capitolul curent (pentru usability)
+        // Datele lecțiilor (structura simplificată pentru demonstrație)
+        // În aplicația reală, acestea ar putea veni dintr-o bază de date sau fișiere separate
+        const lessonsData = {
+            "cap1": [
+                { id: 1, title: "Introducere în anatomia sistemului nervos", content: `
+                    <p>Sistemul nervos este o rețea complexă de nervi și celule care transmit mesaje către și de la creier și măduva spinării, către diferite părți ale corpului. Este responsabil pentru controlul tuturor funcțiilor corpului, de la respirație și digestie, la mișcare, gândire și emoții.</p>
+                    <h3>Organizarea sistemului nervos</h3>
+                    <p>Sistemul nervos este împărțit în două părți principale:</p>
+
+                      <img class="img img-responsive" src="teste/creier.jpeg">
+
+
+                    <ul>
+                        <li><strong>Sistemul Nervos Central (SNC):</strong> Include creierul și măduva spinării. Este centrul de comandă al corpului, unde informațiile sunt procesate și deciziile sunt luate.</li>
+                        <li><strong>Sistemul Nervos Periferic (SNP):</strong> Este format din toți nervii care se ramifică din creier și măduva spinării și se extind către toate părțile corpului, inclusiv mușchii, organele și pielea.</li>
+                    </ul>
+                    <h4>Rolul neuronilor</h4>
+                    <p>Unitatea fundamentală a sistemului nervos este neuronul, o celulă specializată în transmiterea impulsurilor nervoase. Neuronii comunică între ei prin intermediul sinapselor, unde neurotransmițătorii joacă un rol crucial.</p>
+                `},
+                { id: 2, title: "Neuronul - unitatea structurală și funcțională", content: `
+                    <p>Neuronul este celula fundamentală a sistemului nervos, responsabilă pentru transmiterea informațiilor sub formă de impulsuri nervoase. Un neuron tipic este format din trei părți principale:</p>
+                    <ul>
+                        <li><strong>Corpul celular (soma):</strong> Conține nucleul și majoritatea organitelor celulare, fiind centrul metabolic al neuronului.</li>
+                        <li><strong>Dendritele:</strong> Extensii scurte, ramificate, care primesc semnale de la alți neuroni și le transmit către corpul celular.</li>
+                        <li><strong>Axonul:</strong> O extensie lungă, unică, care transmite impulsurile nervoase de la corpul celular către alți neuroni, mușchi sau glande. Axonii pot fi mielinizați (acoperiți cu o teacă de mielină, care accelerează transmiterea impulsurilor) sau nemielinizați.</li>
+                    </ul>
+                    <h3>Tipuri de neuroni</h3>
+                    <p>Neuronii pot fi clasificați în funcție de funcția lor:</p>
+                    <ul>
+                        <li><strong>Neuroni senzitivi (aferenți):</strong> Transmit informații de la receptori (piele, ochi, urechi etc.) către sistemul nervos central.</li>
+                        <li><strong>Neuroni motori (eferenți):</strong> Transmit comenzi de la sistemul nervos central către mușchi și glande.</li>
+                        <li><strong>Interneuroni (neuroni de asociație):</strong> Conectează neuronii senzitivi cu cei motori în cadrul sistemului nervos central, facilitând comunicarea internă.</li>
+                    </ul>
+                    <div class="info-box">
+                        <h4>Transmiterea sinaptică</h4>
+                        <p>Impulsurile nervoase sunt transmise de la un neuron la altul prin sinapse. La nivelul sinapsei, impulsul electric este transformat într-un semnal chimic (neurotransmițător), care traversează fanta sinaptică și se leagă de receptori specifici pe neuronul postsinaptic, generând un nou impuls electric.</p>
+                    </div>
+                `},
+                { id: 3, title: "Funcțiile sistemului nervos central", content: `
+                    <p>Sistemul nervos central (SNC) este format din <strong>encefal</strong> și <strong>măduva spinării</strong>. Acesta reprezintă principalul centru de control și coordonare a tuturor activităților organismului, fiind responsabil pentru integrarea informațiilor primite și emiterea de comenzi către țesuturi și organe.</p>
+                    <h3>Encefalul</h3>
+                    <p>Encefalul este localizat în cutia craniană și este format din:</p>
+                    <ul>
+                        <li><strong>Creierul (telencefalul)</strong> - cea mai voluminoasă parte a encefalului, format din emisferele cerebrale și structuri profunde;</li>
+                        <li><strong>Cerebelul</strong> - situat în partea posterioară a encefalului, cu rol în coordonarea mișcărilor și echilibru;</li>
+                        <li><strong>Trunchiul cerebral</strong> - format din bulbul rahidian, puntea și mezencefalul, controlează funcții vitale precum respirația și bătăile inimii.</li>
+                    </ul>
+                    <div class="info-box">
+                        <h4>Știai că?</h4>
+                        <p>Creierul uman conține aproximativ 86 de miliarde de neuroni și consumă în jur de 20% din energia totală a organismului, deși reprezintă doar 2% din greutatea corporală.</p>
+                    </div>
+                    <h3>Funcțiile emisferelor cerebrale</h3>
+                    <p>Emisferele cerebrale sunt responsabile pentru:</p>
+                    <ul>
+                        <li>Controlul mișcărilor voluntare;</li>
+                        <li>Procesarea informațiilor senzoriale;</li>
+                        <li>Funcții cognitive superioare (gândire, memorie, atenție);</li>
+                        <li>Comportament și emoții;</li>
+                        <li>Limbaj și comunicare;</li>
+                        <li>Conștiență și personalitate.</li>
+                    </ul>
+                    <p>Scoarța cerebrală (cortexul cerebral) este stratul exterior al emisferelor cerebrale și este împărțită în lobi, fiecare cu funcții specifice:</p>
+                    <ul>
+                        <li><strong>Lobul frontal</strong> - controlul mișcărilor voluntare, vorbire, funcții executive;</li>
+                        <li><strong>Lobul parietal</strong> - procesarea informațiilor senzoriale, orientare spațială;</li>
+                        <li><strong>Lobul temporal</strong> - auz, procesarea limbajului, memorie;</li>
+                        <li><strong>Lobul occipital</strong> - procesarea informațiilor vizuale.</li>
+                    </ul>
+                    <h3>Cerebelul</h3>
+                    <p>Cerebelul, al doilea ca mărime după telencefal, are rol în:</p>
+                    <ul>
+                        <li>Coordonarea mișcărilor fine;</li>
+                        <li>Menținerea echilibrului corporal;</li>
+                        <li>Controlul posturii;</li>
+                        <li>Învățarea motorie.</li>
+                    </ul>
+                    <div class="warning-box">
+                        <h4>Important pentru examen!</h4>
+                        <p>Afecțiunile cerebelului duc la tulburări de coordonare a mișcărilor (ataxie), tremor intențional și nistagmus. Aceste aspecte sunt frecvent testate la examenul de bacalaureat.</p>
+                    </div>
+                    <h3>Trunchiul cerebral</h3>
+                    <p>Trunchiul cerebral este format din trei componente principale:</p>
+                    <ul>
+                        <li><strong>Bulbul rahidian</strong> - controlează funcții vitale (respirație, bătăile inimii, tensiunea arterială);</li>
+                        <li><strong>Puntea</strong> - participă la controlul respirației și conectează cerebelul cu creierul;</li>
+                        <li><strong>Mezencefalul</strong> - implicat în controlul mișcărilor oculare și reflexelor auditive.</li>
+                    </ul>
+                    <h3>Măduva spinării</h3>
+                    <p>Măduva spinării este localizată în canalul vertebral și are următoarele funcții:</p>
+                    <ul>
+                        <li>Transmiterea impulsurilor nervoase între encefal și restul corpului;</li>
+                        <li>Controlul reflexelor spinale (reflexe nervoase rapide care nu necesită implicarea creierului);</li>
+                        <li>Coordonarea unor activități motorii ritmice.</li>
+                    </ul>
+                    <p>Reflexele spinale reprezintă răspunsuri rapide și involuntare la stimuli, având ca centru de comandă măduva spinării. Arcul reflex are cinci componente: receptor, cale aferentă, centru de comandă, cale eferentă și efector.</p>
+                `},
+                { id: 4, title: "Sistemul nervos periferic", content: `
+                    <p>Sistemul nervos periferic (SNP) este format din toate structurile nervoase situate în afara sistemului nervos central (creier și măduva spinării). Rolul său principal este de a conecta SNC-ul cu organele, membrele și pielea, permițând creierului și măduvei spinării să primească și să trimită informații către și de la aceste zone.</p>
+                    <h3>Componentele SNP</h3>
+                    <p>SNP este alcătuit din:</p>
+                    <ul>
+                        <li><strong>Nervi cranieni:</strong> 12 perechi de nervi care își au originea în creier și controlează funcții precum vederea, auzul, mirosul, gustul și mișcările faciale.</li>
+                        <li><strong>Nervi spinali:</strong> 31 de perechi de nervi care își au originea în măduva spinării și inervează restul corpului. Aceștia sunt responsabili pentru senzațiile și mișcările membrelor și trunchiului.</li>
+                        <li><strong>Ganglioni:</strong> Grupuri de corpi celulari neuronali situați în afara SNC.</li>
+                    </ul>
+                    <h3>Diviziunile funcționale ale SNP</h3>
+                    <p>SNP este împărțit în două diviziuni funcționale:</p>
+                    <ul>
+                        <li><strong>Sistemul Nervos Somatic:</strong> Controlează mișcările voluntare ale mușchilor scheletici și transmite informații senzoriale de la piele, mușchi și articulații către SNC.</li>
+                        <li><strong>Sistemul Nervos Autonom (Vegetativ):</strong> Reglează funcțiile involuntare ale organelor interne, cum ar fi ritmul cardiac, digestia, respirația și tensiunea arterială. Acesta are două subdiviziuni:
+                            <ul>
+                                <li><strong>Sistemul Nervos Simpatic:</strong> Pregătește corpul pentru "luptă sau fugă", activând răspunsuri la stres (ex: creșterea ritmului cardiac).</li>
+                                <li><strong>Sistemul Nervos Parasimpatic:</strong> Responsabil pentru "odihnă și digestie", promovând relaxarea și conservarea energiei.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="info-box">
+                        <h4>Importanța SNP</h4>
+                        <p>SNP este esențial pentru interacțiunea noastră cu mediul înconjurător și pentru menținerea homeostaziei interne. Leziunile la nivelul SNP pot duce la pierderea sensibilității, paralizie sau disfuncții ale organelor interne.</p>
+                    </div>
+                `}
+            ],
+            "cap2": [
+                { id: 1, title: "Anatomia inimii și a vaselor de sânge", content: `
+                    <p>Sistemul circulator este responsabil pentru transportul sângelui, oxigenului, nutrienților, hormonilor și a deșeurilor metabolice în tot corpul. Componentele sale principale sunt inima, vasele de sânge (artere, vene, capilare) și sângele însuși.</p>
+                    <h3>Inima</h3>
+                    <img class="img img-responsive" src="teste/inima.jpeg">
+
+                    <p>Inima este un organ muscular gol, de mărimea unui pumn, situat în cavitatea toracică, ușor spre stânga. Funcționează ca o pompă, propulsând sângele prin sistemul circulator. Este împărțită în patru camere:</p>
+                    <ul>
+                        <li><strong>Două atrii (stâng și drept):</strong> Camerele superioare care primesc sângele.</li>
+                        <li><strong>Două ventricule (stâng și drept):</strong> Camerele inferioare care pompează sângele din inimă.</li>
+                    </ul>
+                    <p>Între atrii și ventricule, precum și la ieșirea din ventricule, există valve care asigură un flux unidirecțional al sângelui.</p>
+                    <h3>Vasele de sânge</h3>
+                    <ul>
+                        <li><strong>Artere:</strong> Transportă sângele oxigenat de la inimă către țesuturi (excepție: artera pulmonară). Au pereți groși și elastici.</li>
+                        <li><strong>Vene:</strong> Transportă sângele dezoxigenat de la țesuturi înapoi la inimă (excepție: venele pulmonare). Au pereți mai subțiri și conțin valve pentru a preveni refluxul sângelui.</li>
+                        <li><strong>Capilare:</strong> Cele mai mici vase de sânge, formează o rețea extinsă în țesuturi. La nivelul capilarelor au loc schimburile de gaze, nutrienți și deșeuri între sânge și celule.</li>
+                    </ul>
+                    <div class="info-box">
+                        <h4>Circuitul sanguin</h4>
+                        <p>Sângele circulă prin două circuite principale: circulația pulmonară (între inimă și plămâni) și circulația sistemică (între inimă și restul corpului).</p>
+                    </div>
+                `},
+                { id: 2, title: "Circulația mare și mică", content: `
+                    <p>Sistemul circulator uman este un sistem închis, dublu, ceea ce înseamnă că sângele circulă prin două circuite distincte care pornesc și se întorc la inimă: circulația mare (sistemică) și circulația mică (pulmonară).</p>
+                    <h3>Circulația Mică (Pulmonară)</h3>
+                    <p>Scopul circulației mici este de a oxigena sângele și de a elimina dioxidul de carbon. Circuitul este următorul:</p>
+                    <ol>
+                        <li>Sângele dezoxigenat din ventriculul drept este pompat în <strong>artera pulmonară</strong>.</li>
+                        <li>Artera pulmonară se ramifică în arteriole și apoi în <strong>capilarele pulmonare</strong> din plămâni.</li>
+                        <li>La nivelul capilarelor pulmonare, are loc schimbul de gaze: dioxidul de carbon este eliberat din sânge în alveole, iar oxigenul difuzează din alveole în sânge.</li>
+                        <li>Sângele oxigenat este colectat de venulele și apoi de <strong>venele pulmonare</strong>.</li>
+                        <li>Venele pulmonare transportă sângele oxigenat înapoi în atriul stâng al inimii.</li>
+                    </ol>
+                    <h3>Circulația Mare (Sistemică)</h3>
+                    <p>Scopul circulației mari este de a distribui sângele oxigenat și nutrienții către toate țesuturile corpului și de a colecta deșeurile metabolice.</p>
+                    <ol>
+                        <li>Sângele oxigenat din ventriculul stâng este pompat în <strong>aortă</strong>, cea mai mare arteră din corp.</li>
+                        <li>Aorta se ramifică în artere din ce în ce mai mici, care transportă sângele către toate organele și țesuturile.</li>
+                        <li>La nivelul <strong>capilarelor sistemice</strong> din țesuturi, oxigenul și nutrienții difuzează din sânge în celule, iar dioxidul de carbon și alte deșeuri metabolice difuzează din celule în sânge.</li>
+                        <li>Sângele dezoxigenat este colectat de venule și apoi de vene, care se unesc pentru a forma <strong>venele cave</strong> (superioară și inferioară).</li>
+                        <li>Venele cave transportă sângele dezoxigenat înapoi în atriul drept al inimii.</li>
+                    </ol>
+                    <div class="warning-box">
+                        <h4>Reține!</h4>
+                        <p>În circulația mică, artera pulmonară transportă sânge dezoxigenat, iar venele pulmonare transportă sânge oxigenat, ceea ce reprezintă o excepție de la regula generală a arterelor și venelor.</p>
+                    </div>
+                `},
+                { id: 3, title: "Sângele - componente și funcții", content: `
+                    <p>Sângele este un țesut conjunctiv lichid, esențial pentru viață, care circulă prin sistemul cardiovascular. Reprezintă aproximativ 7-8% din greutatea corporală și are multiple funcții vitale.</p>
+                    <h3>Compoziția sângelui</h3>
+                    <p>Sângele este compus din două părți principale:</p>
+                    <ul>
+                        <li><strong>Plasma sanguină (55%):</strong> Partea lichidă a sângelui, formată în mare parte din apă (90%), proteine plasmatice (albumine, globuline, fibrinogen), săruri minerale, glucoză, aminoacizi, hormoni, vitamine și deșeuri metabolice.</li>
+                        <li><strong>Elemente figurate (45%):</strong> Celule și fragmente celulare suspendate în plasmă:
+                            <ul>
+                                <li><strong>Globule roșii (eritrocite):</strong> Cele mai numeroase celule sanguine, conțin hemoglobină și sunt responsabile pentru transportul oxigenului și al unei mici părți din dioxidul de carbon.</li>
+                                <li><strong>Globule albe (leucocite):</strong> Joacă un rol crucial în sistemul imunitar al organismului, apărând împotriva infecțiilor și a bolilor. Există mai multe tipuri (neutrofile, eozinofile, bazofile, limfocite, monocite).</li>
+                                <li><strong>Plachete sanguine (trombocite):</strong> Fragmente celulare implicate în procesul de coagulare a sângelui, oprind sângerările.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <h3>Funcțiile sângelui</h3>
+                    <ul>
+                        <li><strong>Transport:</strong> Oxigen de la plămâni la țesuturi, dioxid de carbon de la țesuturi la plămâni, nutrienți de la tubul digestiv la celule, hormoni, deșeuri metabolice.</li>
+                        <li><strong>Apărare:</strong> Leucocitele și anticorpii protejează organismul împotriva agenților patogeni.</li>
+                        <li><strong>Homeostazie:</strong> Menținerea echilibrului intern al corpului (temperatură, pH, volum de lichide).</li>
+                        <li><strong>Coagulare:</strong> Prevenirea pierderii excesive de sânge prin formarea cheagurilor.</li>
+                    </ul>
+                    <div class="info-box">
+                        <h4>Grupele sanguine</h4>
+                        <p>Sângele este clasificat în grupe sanguine (A, B, AB, 0) pe baza prezenței sau absenței anumitor antigene pe suprafața globulelor roșii și a anticorpilor în plasmă. Compatibilitatea grupelor sanguine este vitală pentru transfuziile de sânge.</p>
+                    </div>
+                `},
+                { id: 4, title: "Afecțiuni ale sistemului circulator", content: `
+                    <p>Sistemul circulator este vital pentru menținerea sănătății, dar poate fi afectat de diverse boli. Aceste afecțiuni cardiovasculare sunt o cauză majoră de morbiditate și mortalitate la nivel global.</p>
+                    <h3>Hipertensiunea arterială</h3>
+                    <p>Cunoscută și sub denumirea de "tensiune arterială mare", este o afecțiune cronică în care presiunea sângelui în artere este persistent ridicată. Poate duce la complicații grave precum boli de inimă, accident vascular cerebral, insuficiență renală.</p>
+                    <h3>Ateroscleroza</h3>
+                    <p>Este o boală în care plăci de grăsime (aterom) se acumulează pe pereții interiori ai arterelor, îngustându-le și îngreunând fluxul sanguin. Poate duce la:</p>
+                    <ul>
+                        <li><strong>Boala coronariană:</strong> Afectarea arterelor care irigă inima, putând provoca angină pectorală sau infarct miocardic.</li>
+                        <li><strong>Accident vascular cerebral (AVC):</strong> Blocarea sau ruperea unui vas de sânge la nivelul creierului.</li>
+                        <li><strong>Boala arterială periferică:</strong> Îngustarea arterelor care irigă membrele.</li>
+                    </ul>
+                    <h3>Infarctul miocardic</h3>
+                    <p>Reprezintă moartea unei porțiuni a mușchiului cardiac din cauza întreruperii fluxului sanguin, de obicei printr-un cheag de sânge care blochează o arteră coronară afectată de ateroscleroză.</p>
+                    <h3>Insuficiența cardiacă</h3>
+                    <p>Este o afecțiune cronică în care inima nu mai poate pompa suficient sânge pentru a satisface nevoile organismului. Poate fi cauzată de boli coronariene, hipertensiune, valvulopatii etc.</p>
+                    <h3>Anemia</h3>
+                    <p>O condiție caracterizată printr-un număr redus de globule roșii sănătoase sau o cantitate insuficientă de hemoglobină, ceea ce duce la o capacitate redusă a sângelui de a transporta oxigen.</p>
+                    <div class="warning-box">
+                        <h4>Prevenție</h4>
+                        <p>Adoptarea unui stil de viață sănătos (dietă echilibrată, exerciții fizice regulate, evitarea fumatului și a consumului excesiv de alcool) este crucială pentru prevenirea majorității afecțiunilor cardiovasculare.</p>
+                    </div>
+                `}
+            ],
+            "cap3": [
+                { id: 1, title: "Căile respiratorii superioare și inferioare", content: `
+                    <p>Sistemul respirator este responsabil pentru schimbul de gaze (oxigen și dioxid de carbon) între organism și mediul extern. Este alcătuit din căile respiratorii și plămâni.</p>
+                    <h3>Căile respiratorii superioare</h3>
+                    <p>Acestea includ structurile de la nas până la laringe și au rolul de a filtra, încălzi și umidifica aerul inspirat, precum și de a participa la simțul mirosului și la fonație.</p>
+                    <ul>
+                        <li><strong>Nasul și cavitatea nazală:</strong> Prima cale de intrare a aerului. Conțin cili și mucus pentru filtrare, și o rețea bogată de vase de sânge pentru încălzire.</li>
+                        <li><strong>Faringele:</strong> Un conduct comun pentru aer și alimente, se continuă cu esofagul și laringele.</li>
+                        <li><strong>Laringele:</strong> Organul vorbirii, conține corzile vocale. Asigură trecerea aerului către trahee și previne intrarea alimentelor în căile respiratorii inferioare prin intermediul epiglotei.</li>
+                    </ul>
+                    <h3>Căile respiratorii inferioare</h3>
+                    <p>Acestea transportă aerul de la laringe către plămâni și includ:</p>
+                    <ul>
+                        <li><strong>Traheea:</strong> Un tub cartilaginos care se extinde de la laringe și se bifurcă în cele două bronhii principale.</li>
+                        <li><strong>Bronhiile:</strong> Două ramificații principale ale traheei, care intră în fiecare plămân și se ramifică succesiv în bronhii mai mici, bronhiole și, în final, în ducte alveolare.</li>
+                        <li><strong>Plămânii:</strong> Organele principale ale respirației, situate în cavitatea toracică. Conțin milioane de alveole pulmonare unde are loc schimbul de gaze.</li>
+                    </ul>
+                    <div class="info-box">
+                        <h4>Mecanisme de apărare</h4>
+                        <p>Căile respiratorii sunt prevăzute cu mecanisme de apărare, cum ar fi mucusul și cilii, care captează și elimină particulele străine și microorganismele, protejând plămânii de infecții.</p>
+                    </div>
+                `},
+                { id: 2, title: "Plămânii și schimburile gazoase", content: `
+                    <p>Plămânii sunt organele esențiale ale respirației, unde are loc procesul vital de schimb de gaze între aerul atmosferic și sânge. Sunt situați în cavitatea toracică, protejați de cutia toracică.</p>
+                    <h3>Structura plămânilor</h3>
+                    <p>Fiecare plămân este împărțit în lobi (trei la plămânul drept și doi la cel stâng) și este învelit de o membrană dublă numită pleură. Structura funcțională a plămânilor este reprezentată de arborele bronșic și alveolele pulmonare:</p>
+                    <ul>
+                        <li><strong>Arborele bronșic:</strong> Sistemul de ramificații care pornește de la bronhiile principale și se termină cu bronhiolele terminale și respiratorii.</li>
+                        <li><strong>Alveolele pulmonare:</strong> Saculeți microscopici cu pereți foarte subțiri, înconjurați de o rețea densă de capilare sanguine. Acestea sunt unitățile funcționale ale plămânului, unde se realizează schimbul de gaze. Un plămân uman conține aproximativ 300-500 de milioane de alveole.</li>
+                    </ul>
+                    <h3>Schimburile gazoase (Hematoza)</h3>
+                    <p>Schimbul de oxigen și dioxid de carbon are loc la nivelul membranei alveolo-capilare, prin procesul de difuziune, bazat pe diferențele de presiune parțială a gazelor:</p>
+                    <ul>
+                        <li><strong>Difuzia oxigenului:</strong> Aerul inspirat în alveole are o presiune parțială a oxigenului (PO2) mai mare decât sângele dezoxigenat din capilarele pulmonare. Astfel, oxigenul difuzează din alveole în sânge.</li>
+                        <li><strong>Difuzia dioxidului de carbon:</strong> Sângele dezoxigenat din capilare are o presiune parțială a dioxidului de carbon (PCO2) mai mare decât aerul din alveole. Prin urmare, dioxidul de carbon difuzează din sânge în alveole pentru a fi expirat.</li>
+                    </ul>
+                    <div class="info-box">
+                        <h4>Suprafața de schimb</h4>
+                        <p>Suprafața totală a membranei alveolo-capilare este enormă (aproximativ 50-100 mp), asigurând o suprafață suficient de mare pentru un schimb eficient de gaze.</p>
+                    </div>
+                `},
+                { id: 3, title: "Mecanismul respirației", content: `
+                    <p>Respirația este un proces complex care implică două faze principale: inspirația (introducerea aerului în plămâni) și expirația (eliminarea aerului din plămâni). Aceste procese sunt facilitate de acțiunea mușchilor respiratori și de modificările de presiune din cavitatea toracică.</p>
+                    <h3>Inspirația</h3>
+                    <p>Inspirația este un proces activ, care necesită consum de energie. Principalii mușchi implicați sunt diafragma și mușchii intercostali externi:</p>
+                    <ul>
+                        <li><strong>Contracția diafragmei:</strong> Diafragma se contractă și coboară, mărind volumul cavității toracice pe verticală.</li>
+                        <li><strong>Contracția mușchilor intercostali externi:</strong> Aceștia ridică coastele și sternul, mărind volumul cavității toracice pe orizontală și antero-posterior.</li>
+                    </ul>
+                    <p>Creșterea volumului toracic duce la scăderea presiunii intrapulmonare (în plămâni) sub presiunea atmosferică. Astfel, aerul este aspirat din exterior în plămâni.</p>
+                    <h3>Expirația</h3>
+                    <p>Expirația în repaus este un proces pasiv, care nu necesită consum de energie. Se datorează relaxării mușchilor inspiratori:</p>
+                    <ul>
+                        <li><strong>Relaxarea diafragmei:</strong> Diafragma se relaxează și revine la poziția inițială.</li>
+                        <li><strong>Relaxarea mușchilor intercostali externi:</strong> Coastele și sternul coboară.</li>
+                    </ul>
+                    <p>Volumul cavității toracice scade, ceea ce duce la creșterea presiunii intrapulmonare deasupra presiunii atmosferice. Aerul este, prin urmare, expulzat din plămâni.</p>
+                    <p>În timpul efortului fizic sau în anumite condiții patologice, expirația poate deveni un proces activ, implicând contracția mușchilor intercostali interni și a mușchilor abdominali.</p>
+                    <div class="warning-box">
+                        <h4>Controlul respirației</h4>
+                        <p>Respirația este controlată de centrii respiratori situați în trunchiul cerebral, care reglează ritmul și adâncimea respirației în funcție de nivelurile de oxigen și dioxid de carbon din sânge.</p>
+                    </div>
+                `}
+            ],
+            "cap4": [
+                { id: 1, title: "Tubul digestiv - anatomie și funcții", content: `
+                    <p>Sistemul digestiv este un ansamblu de organe responsabile cu prelucrarea alimentelor, extragerea nutrienților și eliminarea reziduurilor. Este format din tubul digestiv și glandele anexe.</p>
+                    <h3>Tubul digestiv</h3>
+                    <p>Tubul digestiv este un canal lung, continuu, care începe la gură și se termină la anus. Principalele sale componente sunt:</p>
+                    <ul>
+                        <li><strong>Cavitatea bucală:</strong> Aici începe digestia mecanică (masticația) și chimică (salivația, cu amilaza salivară).</li>
+                        <li><strong>Faringele:</strong> Conduct comun pentru aer și alimente, implicat în deglutiție.</li>
+                        <li><strong>Esofagul:</strong> Un tub muscular care transportă bolul alimentar din faringe în stomac prin mișcări peristaltice.</li>
+                        <li><strong>Stomacul:</strong> Un organ în formă de J, unde are loc digestia chimică intensă sub acțiunea sucului gastric (acid clorhidric și enzime).</li>
+                        <li><strong>Intestinul subțire:</strong> Cel mai lung segment al tubului digestiv, împărțit în duoden, jejun și ileon. Aici are loc majoritatea digestiei și absorbției nutrienților.</li>
+                        <li><strong>Intestinul gros:</strong> Include cecul, colonul și rectul. Rolul său principal este absorbția apei și a electroliților și formarea materiilor fecale.</li>
+                        <li><strong>Rectul și anusul:</strong> Ultimul segment, responsabil pentru eliminarea materiilor fecale.</li>
+                    </ul>
+                    <h3>Funcțiile tubului digestiv</h3>
+                    <ul>
+                        <li><strong>Ingestia:</strong> Introducerea alimentelor în corp.</li>
+                        <li><strong>Digestia:</strong> Descompunerea alimentelor în molecule mai mici.</li>
+                        <li><strong>Absorbția:</strong> Trecerea nutrienților digerați în sânge sau limfă.</li>
+                        <li><strong>Eliminarea:</strong> Excreția materiilor nedigerate.</li>
+                    </ul>
+                    <div class="info-box">
+                        <h4>Peristaltismul</h4>
+                        <p>Mișcările peristaltice sunt contracții musculare ondulatorii ale pereților tubului digestiv care împing alimentele înainte, de la esofag până la intestinul gros.</p>
+                    </div>
+                `},
+                { id: 2, title: "Procesul digestiei", content: `
+                    <p>Digestia este procesul prin care alimentele complexe sunt descompuse în molecule mai simple, care pot fi absorbite de organism. Acest proces implică atât etape mecanice, cât și chimice.</p>
+                    <h3>Digestia mecanică</h3>
+                    <p>Aceasta presupune fragmentarea fizică a alimentelor și amestecarea lor cu sucurile digestive. Începe în cavitatea bucală cu masticația (mestecarea alimentelor) și continuă în stomac prin mișcările de amestecare și în intestinul subțire prin segmentare și peristaltism.</p>
+                    <h3>Digestia chimică</h3>
+                    <p>Implică acțiunea enzimelor digestive care descompun macromoleculele în micromolecule absorbabile. Se desfășoară în mai multe etape:</p>
+                    <ul>
+                        <li><strong>Cavitatea bucală:</strong> Amilaza salivară începe digestia carbohidraților (amidon).</li>
+                        <li><strong>Stomacul:</strong> Pepsina (activată de acidul clorhidric) începe digestia proteinelor. Lipaza gastrică digeră o mică parte din lipide.</li>
+                        <li><strong>Intestinul subțire:</strong> Aici are loc cea mai intensă digestie, sub acțiunea:
+                            <ul>
+                                <li><strong>Sucului pancreatic:</strong> Conține amilază pancreatică (carbohidrați), lipază pancreatică (lipide) și tripsină/chimotripsină (proteine).</li>
+                                <li><strong>Bilei:</strong> Produsă de ficat, emulsionează grăsimile, facilitând acțiunea lipazei.</li>
+                                <li><strong>Sucului intestinal:</strong> Conține enzime precum dizaharidaze (lactază, maltază, zaharază), peptidaze și lipază intestinală, care finalizează digestia.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="warning-box">
+                        <h4>Produși finali ai digestiei</h4>
+                        <p>La finalul digestiei, nutrienții sunt descompuși în forme simple: carbohidrații în monozaharide (glucoză), proteinele în aminoacizi, iar lipidele în acizi grași și glicerol.</p>
+                    </div>
+                `},
+                { id: 3, title: "Ficatul și pancreasul - roluri în digestie", content: `
+                    <p>Ficatul și pancreasul sunt două glande anexe esențiale ale sistemului digestiv, contribuind semnificativ la procesele de digestie și absorbție a nutrienților, deși alimentele nu trec direct prin ele.</p>
+                    <h3>Ficatul</h3>
+                    <p>Ficatul este cel mai mare organ intern și o glandă cu funcții multiple, dintre care multe sunt legate de digestie:</p>
+                    <ul>
+                        <li><strong>Producerea bilei:</strong> Bila este un lichid verde-gălbui, esențial pentru digestia și absorbția grăsimilor. Este stocată în vezica biliară și eliberată în duoden.</li>
+                        <li><strong>Metabolismul nutrienților:</strong> Procesează carbohidrații (glicogeneză, glicogenoliză, gluconeogeneză), lipidele (sinteza colesterolului, lipoproteine) și proteinele (sinteza proteinelor plasmatice).</li>
+                        <li><strong>Detoxifiere:</strong> Neutralizează toxinele și medicamentele.</li>
+                        <li><strong>Depozitare:</strong> Stochează glicogen, vitamine (A, D, B12) și fier.</li>
+                    </ul>
+                    <h3>Pancreasul</h3>
+                    <p>Pancreasul este o glandă mixtă, având atât funcții exocrine (digestive), cât și endocrine (hormonale).</p>
+                    <h4>Funcția exocrină (digestivă)</h4>
+                    <p>Pancreasul produce sucul pancreatic, care este eliberat în duoden. Sucul pancreatic este bogat în enzime digestive puternice:</p>
+                    <ul>
+                        <li><strong>Amilaza pancreatică:</strong> Digera carbohidrații.</li>
+                        <li><strong>Lipaza pancreatică:</strong> Digera lipidele.</li>
+                        <li><strong>Tripsina și Chimotripsina:</strong> Digera proteinele.</li>
+                        <li><strong>Bicarbonat de sodiu:</strong> Neutralizează aciditatea chimului gastric care ajunge în duoden, creând un mediu optim pentru acțiunea enzimelor intestinale și pancreatice.</li>
+                    </ul>
+                    <h4>Funcția endocrină (hormonală)</h4>
+                    <p>Pancreasul produce hormoni importanți pentru reglarea glicemiei, cum ar fi insulina și glucagonul, dar această funcție nu este direct legată de digestie.</p>
+                    <div class="info-box">
+                        <h4>Reglarea secrețiilor</h4>
+                        <p>Secrețiile biliare și pancreatice sunt reglate complex prin mecanisme nervoase și hormonale, asigurând o digestie eficientă în funcție de tipul și cantitatea de alimente ingerate.</p>
+                    </div>
+                `},
+                { id: 4, title: "Absorbția intestinală", content: `
+                    <p>Absorbția intestinală este procesul prin care moleculele simple, rezultate în urma digestiei, trec din lumenul intestinului subțire în sânge sau limfă, pentru a fi transportate către celulele corpului.</p>
+                    <h3>Locul principal al absorbției</h3>
+                    <p>Majoritatea absorbției nutrienților are loc în <strong>intestinul subțire</strong>, în special în jejun și ileon. Structura specializată a intestinului subțire maximizează eficiența absorbției:</p>
+                    <ul>
+                        <li><strong>Pliuri circulare (valvule conivente):</strong> Măresc suprafața internă a intestinului.</li>
+                        <li><strong>Vili intestinali:</strong> Proiecții mici, asemănătoare unor degete, pe suprafața plicilor circulare. Fiecare vil conține o rețea de capilare sanguine și un vas limfatic central (chilifer central).</li>
+                        <li><strong>Microvili:</strong> Proiecții microscopice pe suprafața celulelor epiteliale care căptușesc vilul (marginea în perie).</li>
+                    </ul>
+                    <p>Aceste structuri cresc enorm suprafața de absorbție a intestinului subțire, ajungând la aproximativ 200 de metri pătrați.</p>
+                    <h3>Mecanisme de absorbție</h3>
+                    <p>Nutrienții sunt absorbiți prin diverse mecanisme:</p>
+                    <ul>
+                        <li><strong>Difuziune simplă:</strong> Pentru molecule mici, liposolubile (ex: acizi grași, glicerol).</li>
+                        <li><strong>Difuziune facilitată:</strong> Necesită proteine transportoare, dar nu energie (ex: fructoza).</li>
+                        <li><strong>Transport activ:</strong> Necesită proteine transportoare și energie (ATP) pentru a transporta molecule împotriva gradientului de concentrație (ex: glucoza, aminoacizii, majoritatea ionilor).</li>
+                        <li><strong>Osmoza:</strong> Absorbția apei.</li>
+                    </ul>
+                    <h3>Căile de absorbție</h3>
+                    <ul>
+                        <li><strong>În sânge:</strong> Glucoza, aminoacizii, sărurile minerale, vitaminele hidrosolubile și apa sunt absorbite direct în capilarele sanguine din vilul intestinal și transportate prin vena portă la ficat.</li>
+                        <li><strong>În limfă:</strong> Acizii grași și glicerolul (care formează trigliceride în celulele intestinale) sunt absorbiți în chiliferul central al vilului și intră în sistemul limfatic, evitând inițial ficatul.</li>
+                    </ul>
+                    <div class="info-box">
+                        <h4>Rolul intestinului gros</h4>
+                        <p>Intestinul gros absoarbe în principal apă și electroliți, transformând chimul lichid rămas în materii fecale semisolide. De asemenea, bacteriile din intestinul gros (microbiota intestinală) produc anumite vitamine (ex: vitamina K, B-uri).</p>
+                    </div>
+                `}
+            ],
+            "cap5": [
+                { id: 1, title: "Acizii nucleici: ADN și ARN", content: `
+                    <p>Acizii nucleici sunt macromolecule esențiale pentru toate formele de viață, având roluri fundamentale în stocarea, transmiterea și exprimarea informației genetice. Cei doi principali acizi nucleici sunt acidul dezoxiribonucleic (ADN) și acidul ribonucleic (ARN).</p>
+                    <h3>Acidul Dezoxiribonucleic (ADN)</h3>
+                    <p>ADN-ul este purtătorul informației genetice la majoritatea organismelor. Structura sa este o dublă helix, compusă din două lanțuri polinucleotidice înfășurate unul în jurul celuilalt. Fiecare nucleotidă este formată din:</p>
+                    <ul>
+                        <li>O moleculă de dezoxiriboză (un zahăr cu 5 atomi de carbon).</li>
+                        <li>Un grup fosfat.</li>
+                        <li>O bază azotată: adenină (A), timină (T), guanină (G) sau citozină (C).</li>
+                    </ul>
+                    <p>Legăturile dintre baze sunt specifice: A se leagă întotdeauna cu T (prin 2 legături de hidrogen), iar G se leagă întotdeauna cu C (prin 3 legături de hidrogen). Această complementaritate este crucială pentru replicarea ADN-ului și transcrierea informației genetice.</p>
+                    <h3>Acidul Ribonucleic (ARN)</h3>
+                    <p>ARN-ul este o moleculă cu un singur lanț polinucleotidic și joacă roluri diverse în exprimarea informației genetice. Spre deosebire de ADN, ARN-ul conține:</p>
+                    <ul>
+                        <li>Riboză în loc de dezoxiriboză.</li>
+                        <li>Uracil (U) în loc de timină (T). Astfel, în ARN, A se leagă cu U.</li>
+                    </ul>
+                    <p>Există mai multe tipuri de ARN, fiecare cu o funcție specifică:</p>
+                    <ul>
+                        <li><strong>ARNm (ARN mesager):</strong> Transportă informația genetică de la ADN la ribozomi pentru sinteza proteinelor.</li>
+                        <li><strong>ARNt (ARN de transfer):</strong> Transportă aminoacizii la ribozomi în timpul sintezei proteinelor.</li>
+                        <li><strong>ARNr (ARN ribozomal):</strong> Componentă a ribozomilor, unde are loc sinteza proteinelor.</li>
+                    </ul>
+                    <div class="info-box">
+                        <h4>Dogma centrală a biologiei moleculare</h4>
+                        <p>Informația genetică curge de la ADN la ARN (transcripție) și apoi de la ARN la proteine (translație). ADN-ul se poate și replica pentru a transmite informația genetică la celulele fiice.</p>
+                    </div>
+                `},
+                { id: 2, title: "Legile lui Mendel", content: `
+                    <p>Gregor Mendel, un călugăr augustinian și om de știință, este considerat părintele geneticii moderne. Prin experimentele sale meticuloase cu plante de mazăre, a formulat legile fundamentale ale eredității, care stau la baza înțelegerii modului în care trăsăturile sunt transmise de la o generație la alta.</p>
+                    <h3>Experimentele lui Mendel</h3>
+                    <p>Mendel a studiat șapte caracteristici ale plantei de mazăre, cum ar fi culoarea florilor (purpuriu/alb), forma semințelor (neted/ridat) și culoarea semințelor (galben/verde). A efectuat încrucișări controlate și a analizat statistic rezultatele pe parcursul mai multor generații.</p>
+                    <h3>Prima Lege a lui Mendel (Legea uniformității hibrizilor din F1)</h3>
+                    <p>Atunci când se încrucișează două linii pure care diferă printr-o singură pereche de caractere, toți indivizii din prima generație filială (F1) sunt uniformi, semănând cu unul dintre părinți (caracterul dominant).</p>
+                    <p>Exemplu: Încrucișarea unei mazăre cu flori purpurii (homozigot dominant PP) cu o mazăre cu flori albe (homozigot recesiv pp) va produce doar mazăre cu flori purpurii în F1 (heterozigot Pp).</p>
+                    <h3>A Doua Lege a lui Mendel (Legea segregării independente a caracterelor în F2)</h3>
+                    <p>La încrucișarea hibrizilor din prima generație (F1), caracterele se separă (segregă) în a doua generație filială (F2) într-un raport fenotipic specific de 3:1 (dominant:recesiv) și un raport genotipic de 1:2:1 (homozigot dominant:heterozigot:homozigot recesiv).</p>
+                    <p>Exemplu: Încrucișarea a doi hibrizi Pp (flori purpurii) va produce în F2: 75% flori purpurii și 25% flori albe.</p>
+                    <h3>A Treia Lege a lui Mendel (Legea segregării independente a perechilor de caractere)</h3>
+                    <p>Atunci când se încrucișează două linii pure care diferă prin două sau mai multe perechi de caractere, segregarea fiecărei perechi de caractere se face independent de segregarea celorlalte perechi. Aceasta duce la un raport fenotipic de 9:3:3:1 în F2 pentru două caractere.</p>
+                    <div class="info-box">
+                        <h4>Importanța legilor lui Mendel</h4>
+                        <p>Legile lui Mendel au pus bazele geneticii ca știință și au oferit un cadru pentru înțelegerea eredității, chiar dacă la vremea respectivă nu se cunoștea structura ADN-ului sau conceptul de genă.</p>
+                    </div>
+                `},
+                { id: 3, title: "Mutații genetice", content: `
+                    <p>Mutațiile genetice sunt modificări permanente în secvența ADN-ului unui organism. Acestea pot varia de la schimbări la nivelul unei singure nucleotide (mutații punctiforme) până la rearanjări majore ale cromozomilor. Mutațiile pot fi spontane (apar natural) sau induse (cauzate de agenți mutageni).</p>
+                    <h3>Tipuri de mutații</h3>
+                    <ul>
+                        <li><strong>Mutații genice (punctiforme):</strong> Afectează o singură genă și implică modificări la nivelul nucleotidelor. Exemple:
+                            <ul>
+                                <li><strong>Substituție:</strong> O nucleotidă este înlocuită cu alta. Poate fi o mutație silențioasă (nu schimbă aminoacidul), missens (schimbă aminoacidul) sau nonsens (introduce un codon stop prematur).</li>
+                                <li><strong>Deleție:</strong> Eliminarea unei sau mai multor nucleotide.</li>
+                                <li><strong>Inserație:</strong> Adăugarea unei sau mai multor nucleotide.</li>
+                                <li>Delețiile și inserțiile pot duce la o "schimbare a cadrului de citire" (frameshift mutation), alterând drastic proteina rezultată.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Mutații cromozomiale:</strong> Afectează structura sau numărul cromozomilor.
+                            <ul>
+                                <li><strong>Mutații structurale:</strong> Deleții, duplicații, inversiuni, translocații ale unor segmente cromozomiale.</li>
+                                <li><strong>Mutații numerice (aneuploidii):</strong> Modificări ale numărului de cromozomi (ex: trisomia 21 - Sindrom Down, monosomia X - Sindrom Turner).</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <h3>Cauze ale mutațiilor</h3>
+                    <ul>
+                        <li><strong>Spontane:</strong> Erori în replicarea ADN-ului, recombinare genetică, instabilitatea chimică a bazelor azotate.</li>
+                        <li><strong>Induse:</strong> Expunerea la agenți mutageni fizici (radiații UV, raze X), chimici (substanțe chimice toxice, anumiți compuși din fumul de țigară) sau biologici (anumite virusuri).</li>
+                    </ul>
+                    <h3>Consecințe ale mutațiilor</h3>
+                    <p>Mutațiile pot avea efecte variate:</p>
+                    <ul>
+                        <li><strong>Neutre:</strong> Majoritatea mutațiilor nu au un efect vizibil.</li>
+                        <li><strong>Benefice:</strong> Rareori, o mutație poate conferi un avantaj evolutiv.</li>
+                        <li><strong>Dăunătoare:</strong> Pot duce la boli genetice (ex: fibroză chistică, anemie falciformă), cancer sau disfuncții.</li>
+                    </ul>
+                    <div class="warning-box">
+                        <h4>Mutațiile și evoluția</h4>
+                        <p>Deși multe mutații sunt dăunătoare, ele reprezintă sursa primară de variabilitate genetică și sunt esențiale pentru procesul de evoluție prin selecție naturală.</p>
+                    </div>
+                `},
+                { id: 4, title: "Genetică umană", content: `
+                    <p>Genetica umană studiază ereditatea la om, inclusiv transmiterea trăsăturilor, variația genetică, bolile genetice și interacțiunea dintre gene și mediu. Înțelegerea geneticii umane este crucială pentru medicină, consiliere genetică și cercetare.</p>
+                    <h3>Cromozomii umani</h3>
+                    <p>Celulele umane conțin, în mod normal, 46 de cromozomi (23 de perechi):</p>
+                    <ul>
+                        <li><strong>22 de perechi de autozomi:</strong> Cromozomi non-sexuali, numerotați de la 1 la 22.</li>
+                        <li><strong>1 pereche de cromozomi sexuali (gonozomi):</strong> XX la femei și XY la bărbați, care determină sexul biologic.</li>
+                    </ul>
+                    <h3>Modele de transmitere a bolilor genetice</h3>
+                    <p>Bolile genetice pot fi transmise de la părinți la copii conform unor modele specifice:</p>
+                    <ul>
+                        <li><strong>Autozomal dominant:</strong> O singură copie a unei gene mutante pe un autozom este suficientă pentru a provoca boala (ex: Boala Huntington).</li>
+                        <li><strong>Autozomal recesiv:</strong> Sunt necesare două copii ale genei mutante (una de la fiecare părinte) pentru ca boala să se manifeste (ex: Fibroza chistică, Anemia falciformă).</li>
+                        <li><strong>Legat de X dominant:</strong> Gena mutantă se află pe cromozomul X și o singură copie este suficientă.</li>
+                        <li><strong>Legat de X recesiv:</strong> Gena mutantă se află pe cromozomul X. La bărbați (XY), o singură copie mutantă este suficientă pentru boală; la femei (XX), sunt necesare două copii mutante (ex: Hemofilia, Daltonismul).</li>
+                        <li><strong>Transmisie mitocondrială:</strong> Bolile cauzate de mutații în ADN-ul mitocondrial sunt transmise exclusiv de la mamă la toți copiii.</li>
+                    </ul>
+                    <h3>Consilierea genetică</h3>
+                    <p>Oferă informații și suport familiilor afectate de boli genetice sau celor cu risc de a le dezvolta. Include evaluarea riscurilor, interpretarea testelor genetice și discuția opțiunilor reproductive.</p>
+                    <h3>Tehnologii în genetică</h3>
+                    <ul>
+                        <li><strong>Testarea genetică:</strong> Identificarea mutațiilor sau a variațiilor genetice.</li>
+                        <li><strong>Terapia genică:</strong> Corectarea sau înlocuirea genelor defecte pentru a trata boli.</li>
+                        <li><strong>Editarea genelor (CRISPR-Cas9):</strong> Tehnici precise de modificare a ADN-ului.</li>
+                    </ul>
+                    <div class="info-box">
+                        <h4>Etica în genetică</h4>
+                        <p>Progresele rapide în genetică ridică și provocări etice importante, legate de confidențialitate, discriminare și implicațiile sociale ale manipulării genetice.</p>
+                    </div>
+                `}]
+                ,
+                "cap6": [
+                    { id: 1, title: "Structura generală a scheletului uman", content: `
+                        <p>Scheletul uman reprezintă ansamblul oaselor care formează cadrul de susținere al corpului, protejează organele interne și permite mișcarea prin articulații și mușchi.</p>
+                        <h3>Componentele scheletului</h3>
+                        <ul>
+                            <li><strong>Scheletul axial:</strong> Include oasele capului (craniul și fața), coloana vertebrală, coastele și sternul.</li>
+                            <li><strong>Scheletul apendicular:</strong> Include oasele membrelor superioare și inferioare, precum și centurile scapulară și pelviană.</li>
+                        </ul>
+                        <div class="info-box">
+                            <h4>Numărul oaselor</h4>
+                            <p>Un adult are aproximativ 206 oase, în timp ce un nou-născut are peste 270, multe dintre acestea fuzionând pe parcursul dezvoltării.</p>
+                        </div>
+                    `},
+                    { id: 2, title: "Oasele capului și trunchiului", content: `
+                        <p>Oasele capului și trunchiului au roluri esențiale în protecția organelor vitale și susținerea structurii corporale.</p>
+                       
+                        <img class="img img-responsive" src="teste/schelete.jpeg">
+                       
+                        <h3>Oasele capului</h3>
+                        <ul>
+                            <li><strong>Craniul:</strong> Protejează creierul și este format din oase plate (frontal, parietal, occipital, temporal, etmoid, sfenoid).</li>
+                            <li><strong>Oasele feței:</strong> Include maxilarul, mandibula, oasele nazale, zigomatice, lacrimale, palatine, vomerul și cornetele nazale inferioare.</li>
+                        </ul>
+                        <h3>Oasele trunchiului</h3>
+                        <ul>
+                            <li><strong>Coloana vertebrală:</strong> Formată din 33-34 vertebre (cervicale, toracale, lombare, sacrale, coccigiene).</li>
+                            <li><strong>Coastele:</strong> 12 perechi, protejează plămânii și inima.</li>
+                            <li><strong>Sternul:</strong> Os plat situat anterior, la nivelul toracelui.</li>
+                        </ul>
+                        <div class="info-box">
+                            <h4>Funcții de protecție</h4>
+                            <p>Craniul protejează encefalul, iar cutia toracică protejează organele vitale precum inima și plămânii.</p>
+                        </div>
+                    `},
+                    { id: 3, title: "Oasele membrelor", content: `
+                        <p>Membrele superioare și inferioare permit mișcarea și manipularea obiectelor, fiind alcătuite din oase lungi, scurte și plate.</p>
+                        <h3>Membrele superioare</h3>
+                        <ul>
+                            <li><strong>Centura scapulară:</strong> Clavicula și omoplatul.</li>
+                            <li><strong>Brațul:</strong> Humerus.</li>
+                            <li><strong>Antebrațul:</strong> Radius și ulna.</li>
+                            <li><strong>Mâna:</strong> Oasele carpiene (8), metacarpiene (5) și falangele (14).</li>
+                        </ul>
+                        <h3>Membrele inferioare</h3>
+                        <ul>
+                            <li><strong>Centura pelviană:</strong> Osul coxal (format din ilion, ischion și pubis).</li>
+                            <li><strong>Coapsa:</strong> Femurul (cel mai lung os din corp).</li>
+                            <li><strong>Gamba:</strong> Tibia și fibula.</li>
+                            <li><strong>Piciorul:</strong> Oasele tarsiene (7), metatarsiene (5) și falangele (14).</li>
+                        </ul>
+                        <div class="info-box">
+                            <h4>Adaptare la funcție</h4>
+                            <p>Oasele membrelor inferioare sunt mai robuste pentru a susține greutatea corpului, iar cele ale membrelor superioare sunt adaptate pentru mobilitate și dexteritate.</p>
+                        </div>
+                    `},
+                    { id: 4, title: "Articulații și funcții ale scheletului", content: `
+                        <p>Articulațiile sunt structuri care unesc două sau mai multe oase, permițând mișcarea și flexibilitatea scheletului.</p>
+                        <h3>Tipuri de articulații</h3>
+                        <ul>
+                            <li><strong>Articulații fixe (sinartroze):</strong> Nu permit mișcarea (ex: suturile craniului).</li>
+                            <li><strong>Articulații semimobile (amfiartroze):</strong> Permit mișcări limitate (ex: între corpurile vertebrelor).</li>
+                            <li><strong>Articulații mobile (diartroze):</strong> Permit mișcări ample (ex: genunchi, umăr, cot, șold).</li>
+                        </ul>
+                        <h3>Funcțiile scheletului</h3>
+                        <ul>
+                            <li>Susținerea corpului și menținerea formei.</li>
+                            <li>Protecția organelor interne.</li>
+                            <li>Permite mișcarea prin articulații și mușchi.</li>
+                            <li>Depozitarea mineralelor (calciu, fosfor).</li>
+                            <li>Producerea celulelor sanguine (hematopoieză) în măduva osoasă.</li>
+                        </ul>
+                        <div class="warning-box">
+                            <h4>Afecțiuni ale scheletului</h4>
+                            <p>Boli precum osteoporoza, artrita sau fracturile pot afecta funcția scheletului și mobilitatea.</p>
+                        </div>
+
+                        <img class="img img-responsive" src="teste/os.jpeg">
+
+                    `}
+                ]
+        };
+
+        let currentChapterId = 'cap1'; // Capitolul curent activ
+        let currentLessonId = 3; // Lecția curentă activă (index 3 din cap1, adică a 4-a lecție)
+
+        // Funcția pentru încărcarea conținutului lecției
+        function loadLesson(chapterId, lessonId) {
+            const chapterLessons = lessonsData[chapterId];
+            if (!chapterLessons) {
+                console.error("Capitolul nu a fost găsit:", chapterId);
+                return;
+            }
+
+            const lesson = chapterLessons.find(l => l.id === lessonId);
+            if (!lesson) {
+                console.error("Lecția nu a fost găsită:", lessonId);
+                return;
+            }
+
+            // Actualizează conținutul principal al lecției
+            document.getElementById('lesson-title').innerText = lesson.title;
+            document.getElementById('lesson-content').innerHTML = lesson.content;
+
+            // Actualizează informațiile din header-ul lecției
+            const chapterTitleElement = document.querySelector(`#${chapterId} .chapter-header h3`);
+            document.getElementById('lesson-chapter-info').innerText = chapterTitleElement ? `Capitolul ${chapterId.replace('cap', '')}: ${chapterTitleElement.innerText.replace('Capitolul ' + chapterId.replace('cap', '') + ': ', '')}` : '';
+            document.getElementById('lesson-number-info').innerText = `Lecția ${lessonId}/${chapterLessons.length}`;
+
+            // Actualizează clasa 'active' pentru lecția curentă în sidebar
+            document.querySelectorAll('.chapter-lesson').forEach(el => el.classList.remove('active'));
+            const activeLessonElement = document.querySelector(`.chapter-lesson[data-chapter="${chapterId}"][data-lesson="${lessonId}"]`);
+            if (activeLessonElement) {
+                activeLessonElement.classList.add('active');
+            }
+
+            // Deschide capitolul curent în sidebar dacă nu este deja deschis
+            document.querySelectorAll('.chapter').forEach(el => el.classList.remove('active'));
+            const currentChapterElement = document.getElementById(chapterId);
+            if (currentChapterElement) {
+                currentChapterElement.classList.add('active');
+            }
+
+            currentChapterId = chapterId;
+            currentLessonId = lessonId;
+
+            updateLessonNavigation(); // Actualizează butoanele de navigare
+            document.getElementById('test-results').innerHTML = ''; // Curăță rezultatele testului anterior
+        }
+
+        // Funcția pentru actualizarea butoanelor de navigare (lecția anterioară/următoare)
+        function updateLessonNavigation() {
+            const prevButton = document.getElementById('prev-lesson');
+            const nextButton = document.getElementById('next-lesson');
+
+            prevButton.style.display = 'none';
+            nextButton.style.display = 'none';
+
+            const currentChapterLessons = lessonsData[currentChapterId];
+            const currentLessonIndex = currentChapterLessons.findIndex(l => l.id === currentLessonId);
+
+            // Verifică lecția anterioară
+            if (currentLessonIndex > 0) {
+                prevButton.style.display = 'flex';
+                const prevLesson = currentChapterLessons[currentLessonIndex - 1];
+                prevButton.onclick = () => loadLesson(currentChapterId, prevLesson.id);
+            } else {
+                // Dacă suntem la prima lecție din capitol, verifică capitolul anterior
+                const chapterKeys = Object.keys(lessonsData);
+                const currentChapterIndex = chapterKeys.indexOf(currentChapterId);
+                if (currentChapterIndex > 0) {
+                    const prevChapterId = chapterKeys[currentChapterIndex - 1];
+                    const prevChapterLessons = lessonsData[prevChapterId];
+                    const lastLessonOfPrevChapter = prevChapterLessons[prevChapterLessons.length - 1];
+                    prevButton.style.display = 'flex';
+                    prevButton.onclick = () => loadLesson(prevChapterId, lastLessonOfPrevChapter.id);
+                }
+            }
+
+            // Verifică lecția următoare
+            if (currentLessonIndex < currentChapterLessons.length - 1) {
+                nextButton.style.display = 'flex';
+                const nextLesson = currentChapterLessons[currentLessonIndex + 1];
+                nextButton.onclick = () => loadLesson(currentChapterId, nextLesson.id);
+            } else {
+                // Dacă suntem la ultima lecție din capitol, verifică capitolul următor
+                const chapterKeys = Object.keys(lessonsData);
+                const currentChapterIndex = chapterKeys.indexOf(currentChapterId);
+                if (currentChapterIndex < chapterKeys.length - 1) {
+                    const nextChapterId = chapterKeys[currentChapterIndex + 1];
+                    const firstLessonOfNextChapter = lessonsData[nextChapterId][0];
+                    nextButton.style.display = 'flex';
+                    nextButton.onclick = () => loadLesson(nextChapterId, firstLessonOfNextChapter.id);
+                }
+            }
+        }
+
+        // Funcția pentru generarea testului folosind API-ul LLM
+        async function generateTest() {
+            const lessonContent = document.getElementById('lesson-content').innerText; // Obține textul lecției curente
+            const loadingIndicator = document.getElementById('loading-indicator');
+            const testResultsDiv = document.getElementById('test-results');
+
+            loadingIndicator.style.display = 'block'; // Afișează indicatorul de încărcare
+            testResultsDiv.innerHTML = ''; // Curăță rezultatele anterioare
+
+            try {
+                let chatHistory = [];
+                const prompt = `Generează un test cu 3 întrebări grilă (cu 4 opțiuni A, B, C, D) și o întrebare cu răspuns deschis (tip eseu scurt) bazat pe următorul conținut. Pentru întrebările grilă, specifică răspunsul corect și oferă o scurtă explicație. Formatul JSON trebuie să fie un array de obiecte, fiecare obiect reprezentând o întrebare. Pentru întrebările grilă, include 'question', 'options' (array de stringuri), 'correctAnswer' (litera opțiunii corecte) și 'explanation'. Pentru întrebarea deschisă, include 'question' și 'type': 'open'. Conținutul lecției: ${lessonContent}`;
+                chatHistory.push({ role: "user", parts: [{ text: prompt }] });
+
+                const payload = {
+                    contents: chatHistory,
+                    generationConfig: {
+                        responseMimeType: "application/json",
+                        responseSchema: {
+                            type: "ARRAY",
+                            items: {
+                                type: "OBJECT",
+                                properties: {
+                                    "question": { "type": "STRING" },
+                                    "type": { "type": "STRING", "enum": ["multiple-choice", "open"] },
+                                    "options": {
+                                        "type": "ARRAY",
+                                        "items": { "type": "STRING" }
+                                    },
+                                    "correctAnswer": { "type": "STRING" },
+                                    "explanation": { "type": "STRING" }
+                                },
+                                "required": ["question", "type"]
+                            }
+                        }
+                    }
+                };
+
+                const apiKey = ""; // Lăsați gol pentru a permite Canvas să furnizeze cheia API
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const result = await response.json();
+
+                if (result.candidates && result.candidates.length > 0 &&
+                    result.candidates[0].content && result.candidates[0].content.parts &&
+                    result.candidates[0].content.parts.length > 0) {
+                    const jsonString = result.candidates[0].content.parts[0].text;
+                    const testQuestions = JSON.parse(jsonString);
+
+                    let htmlContent = '<h4>Test generat:</h4>';
+                    testQuestions.forEach((q, index) => {
+                        htmlContent += `<div class="test-question">`;
+                        htmlContent += `<p>${index + 1}. ${q.question}</p>`;
+                        if (q.type === 'multiple-choice') {
+                            htmlContent += `<ul>`;
+                            q.options.forEach((option, i) => {
+                                const optionLetter = String.fromCharCode(65 + i); // A, B, C, D
+                                const isCorrect = optionLetter === q.correctAnswer;
+                                htmlContent += `<li class="${isCorrect ? 'correct' : ''}">${optionLetter}. ${option}</li>`;
+                            });
+                            htmlContent += `</ul>`;
+                            htmlContent += `<div class="explanation"><strong>Răspuns corect:</strong> ${q.correctAnswer}. ${q.explanation}</div>`;
+                        } else if (q.type === 'open') {
+                            htmlContent += `<p><em>Răspuns deschis.</em></p>`;
+                        }
+                        htmlContent += `</div>`;
+                    });
+                    testResultsDiv.innerHTML = htmlContent;
+
+                } else {
+                    testResultsDiv.innerHTML = '<p>Nu s-a putut genera testul. Vă rugăm să încercați din nou.</p>';
+                }
+            } catch (error) {
+                console.error("Eroare la generarea testului:", error);
+                testResultsDiv.innerHTML = '<p>A apărut o eroare la generarea testului. Vă rugăm să verificați consola pentru detalii.</p>';
+            } finally {
+                loadingIndicator.style.display = 'none'; // Ascunde indicatorul de încărcare
+            }
+        }
+        
+        // La încărcarea documentului, încarcă lecția curentă și configurează evenimentele
         document.addEventListener('DOMContentLoaded', function() {
-            // Capitolul care conține lecția activă este deschis automat
+            // Deschide automat capitolul curent (pentru usability)
             const activeLesson = document.querySelector('.chapter-lesson.active');
             if (activeLesson) {
                 const parentChapter = activeLesson.closest('.chapter');
                 if (parentChapter) {
                     parentChapter.classList.add('active');
+                    // Setează lecția curentă pe baza elementului "active"
+                    currentChapterId = parentChapter.id;
+                    currentLessonId = parseInt(activeLesson.dataset.lesson);
                 }
             }
+
+            // Adaugă event listener pentru toate lecțiile din sidebar
+            document.querySelectorAll('.chapter-lesson').forEach(lessonLink => {
+                lessonLink.addEventListener('click', function(event) {
+                    event.preventDefault(); // Oprește comportamentul implicit al link-ului
+                    const chapterId = this.closest('.chapter').id;
+                    const lessonId = parseInt(this.dataset.lesson);
+                    loadLesson(chapterId, lessonId);
+                });
+            });
+
+            // Încarcă lecția inițială la încărcarea paginii
+            loadLesson(currentChapterId, currentLessonId);
         });
     </script>
 </body>

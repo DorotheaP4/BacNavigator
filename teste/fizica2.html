@@ -1,0 +1,181 @@
+
+    <style>
+
+        .card {
+            background-color: #ffffff;
+            border-radius: 0.75rem; /* rounded-xl */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+            padding: 1.5rem; /* p-6 */
+            margin-bottom: 1.5rem; /* mb-6 */
+        }
+        .form-label {
+            display: block;
+            font-weight: 600; /* font-semibold */
+            margin-bottom: 0.5rem; /* mb-2 */
+            color: #374151; /* text-gray-700 */
+        }
+        .form-input, .form-textarea {
+            display: block;
+            width: 100%;
+            padding: 0.75rem 1rem; /* py-3 px-4 */
+            border: 1px solid #d1d5db; /* border-gray-300 */
+            border-radius: 0.5rem; /* rounded-lg */
+            background-color: #f9fafb; /* bg-gray-50 */
+            color: #1f2937; /* text-gray-900 */
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        }
+        .form-input:focus, .form-textarea:focus {
+            border-color: #6366f1; /* indigo-500 */
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.25); /* focus:ring-indigo-500/50 */
+            outline: none;
+        }
+        .btn-primary {
+            background-color: #6366f1; /* indigo-600 */
+            color: #ffffff;
+            padding: 0.75rem 1.5rem; /* py-3 px-6 */
+            border-radius: 0.5rem; /* rounded-lg */
+            font-weight: 600; /* font-semibold */
+            transition: background-color 0.2s ease-in-out;
+            cursor: pointer;
+        }
+        .btn-primary:hover {
+            background-color: #4f46e5; /* indigo-700 */
+        }
+        .alert {
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            display: none; /* Hidden by default */
+        }
+        .alert-success {
+            background-color: #d1fae5; /* green-100 */
+            color: #065f46; /* green-800 */
+            border: 1px solid #34d399; /* green-400 */
+        }
+        .alert-error {
+            background-color: #fee2e2; /* red-100 */
+            color: #991b1b; /* red-800 */
+            border: 1px solid #ef4444; /* red-400 */
+        }
+    </style>
+
+        <header class="text-center mb-8">
+            <h1 class="text-4xl font-extrabold text-indigo-700 mb-2">Model Test Fizică Bacalaureat</h1>
+            <p class="text-lg text-gray-600">Sesiunea - Specializarea Științe ale Naturii / Matematică-Informatică</p>
+            <p class="text-sm text-gray-500 mt-4">Timp de lucru: 3 ore. Se acordă 10 puncte din oficiu.</p>
+        </header>
+
+            <!-- Subiectul I -->
+            <div class="card">
+                <h2 class="text-2xl font-bold text-indigo-600 mb-4">Subiectul I (30 de puncte)</h2>
+                <p class="mb-4 text-gray-700">Se dau următoarele întrebări tip grilă. Alegeți răspunsul corect.</p>
+
+                <!-- Întrebarea I.1 -->
+                <div class="mb-6 p-4 bg-gray-50 rounded-lg shadow-sm">
+                    <p class="font-semibold text-gray-800 mb-3">I.1. Un corp este lăsat să cadă liber de la o anumită înălțime. Ce afirmație este corectă despre mișcarea sa?</p>
+                    <div class="space-y-2">
+                        <label class="flex items-center">
+                            <input type="radio" name="q1_v4" value="a" class="form-radio text-indigo-600 rounded-full">
+                            <span class="ml-2 text-gray-700">a) Viteza este constantă.</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="q1_v4" value="b" class="form-radio text-indigo-600 rounded-full">
+                            <span class="ml-2 text-gray-700">b) Accelerația este nulă.</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="q1_v4" value="c" class="form-radio text-indigo-600 rounded-full">
+                            <span class="ml-2 text-gray-700">c) Accelerația este egală cu accelerația gravitațională.</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="q1_v4" value="d" class="form-radio text-indigo-600 rounded-full">
+                            <span class="ml-2 text-gray-700">d) Energia potențială este constantă.</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Întrebarea I.2 -->
+                <div class="mb-6 p-4 bg-gray-50 rounded-lg shadow-sm">
+                    <p class="font-semibold text-gray-800 mb-3">I.2. Care este unitatea de măsură în Sistemul Internațional (SI) pentru lucrul mecanic?</p>
+                    <div class="space-y-2">
+                        <label class="flex items-center">
+                            <input type="radio" name="q2_v4" value="a" class="form-radio text-indigo-600 rounded-full">
+                            <span class="ml-2 text-gray-700">a) Watt (W)</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="q2_v4" value="b" class="form-radio text-indigo-600 rounded-full">
+                            <span class="ml-2 text-gray-700">b) Newton (N)</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="q2_v4" value="c" class="form-radio text-indigo-600 rounded-full">
+                            <span class="ml-2 text-gray-700">c) Joule (J)</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="q2_v4" value="d" class="form-radio text-indigo-600 rounded-full">
+                            <span class="ml-2 text-gray-700">d) Pascal (Pa)</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Întrebarea I.3 -->
+                <div class="mb-6 p-4 bg-gray-50 rounded-lg shadow-sm">
+                    <p class="font-semibold text-gray-800 mb-3">I.3. Un circuit RLC serie este la rezonanță. Ce afirmație este adevărată?</p>
+                    <div class="space-y-2">
+                        <label class="flex items-center">
+                            <input type="radio" name="q3_v4" value="a" class="form-radio text-indigo-600 rounded-full">
+                            <span class="ml-2 text-gray-700">a) Impedanța circuitului este maximă.</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="q3_v4" value="b" class="form-radio text-indigo-600 rounded-full">
+                            <span class="ml-2 text-gray-700">b) Curentul prin circuit este minim.</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="q3_v4" value="c" class="form-radio text-indigo-600 rounded-full">
+                            <span class="ml-2 text-gray-700">c) Reactanța inductivă este egală cu reactanța capacitivă.</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="q3_v4" value="d" class="form-radio text-indigo-600 rounded-full">
+                            <span class="ml-2 text-gray-700">d) Tensiunea pe inductor este în fază cu tensiunea pe condensator.</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Subiectul II -->
+            <div class="card">
+                <h2 class="text-2xl font-bold text-indigo-600 mb-4">Subiectul II (30 de puncte)</h2>
+                <p class="mb-4 text-gray-700">Rezolvați următoarele probleme. Scrieți rezolvările complete.</p>
+
+                <!-- Problema II.1 -->
+                <div class="mb-6 p-4 bg-gray-50 rounded-lg shadow-sm">
+                    <p class="font-semibold text-gray-800 mb-3">II.1. Un corp cu masa $m = 1 \text{ kg}$ se deplasează pe o suprafață orizontală cu coeficient de frecare la alunecare $\mu = 0.2$. Asupra corpului acționează o forță orizontală $F = 5 \text{ N}$. Determinați accelerația corpului. Se consideră $g = 10 \text{ m/s}^2$.</p>
+                    <label for="q4_answer_v4" class="form-label">Răspuns:</label>
+                    <textarea id="q4_answer_v4" name="q4_answer_v4" rows="5" class="form-textarea" placeholder="Scrieți rezolvarea aici..."></textarea>
+                </div>
+
+                <!-- Problema II.2 -->
+                <div class="mb-6 p-4 bg-gray-50 rounded-lg shadow-sm">
+                    <p class="font-semibold text-gray-800 mb-3">II.2. Un gaz ideal se află inițial la presiunea $P_1 = 2 \cdot 10^5 \text{ Pa}$ și volumul $V_1 = 3 \text{ m}^3$. Gazul suferă o transformare izobară până la volumul $V_2 = 5 \text{ m}^3$. Calculați lucrul mecanic efectuat de gaz în această transformare.</p>
+                    <label for="q5_answer_v4" class="form-label">Răspuns:</label>
+                    <textarea id="q5_answer_v4" name="q5_answer_v4" rows="5" class="form-textarea" placeholder="Scrieți rezolvarea aici..."></textarea>
+                </div>
+            </div>
+
+            <!-- Subiectul III -->
+            <div class="card">
+                <h2 class="text-2xl font-bold text-indigo-600 mb-4">Subiectul III (30 de puncte)</h2>
+                <p class="mb-4 text-gray-700">Rezolvați următoarele probleme. Scrieți rezolvările complete.</p>
+
+                <!-- Problema III.1 -->
+                <div class="mb-6 p-4 bg-gray-50 rounded-lg shadow-sm">
+                    <p class="font-semibold text-gray-800 mb-3">III.1. Un fascicul de lumină monocromatică trece dintr-un mediu cu indice de refracție $n_1 = 1.5$ într-un mediu cu indice de refracție $n_2 = 1.2$. Unghiul de incidență este $\theta_1 = 30^\circ$.</p>
+                    <ol class="list-decimal list-inside space-y-2 mb-3 text-gray-700">
+                        <li>Calculați unghiul de refracție $\theta_2$.</li>
+                        <li>Determinați viteza luminii în primul mediu, știind că viteza luminii în vid este $c = 3 \cdot 10^8 \text{ m/s}$.</li>
+                        <li>Explicați fenomenul de reflexie totală internă și condițiile în care apare.</li>
+                    </ol>
+                    <label for="q6_answer_v4" class="form-label">Răspuns:</label>
+                    <textarea id="q6_answer_v4" name="q6_answer_v4" rows="8" class="form-textarea" placeholder="Scrieți rezolvarea completă aici..."></textarea>
+                </div>
+            </div>
+
+  
